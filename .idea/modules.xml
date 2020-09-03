@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kakao.iml" filepath="$PROJECT_DIR$/kakao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/kakao_login/kakao_login.iml" filepath="$PROJECT_DIR$/packages/kakao_login/kakao_login.iml" />
+    </modules>
+  </component>
+</project>
