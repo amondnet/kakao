@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/kakao.iml" filepath="$PROJECT_DIR$/kakao.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/kakao_login/kakao_login.iml" filepath="$PROJECT_DIR$/packages/kakao_login/kakao_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/kakao_login/kakao_login_2.iml" filepath="$PROJECT_DIR$/packages/kakao_login/kakao_login_2.iml" />
     </modules>
   </component>
 </project>

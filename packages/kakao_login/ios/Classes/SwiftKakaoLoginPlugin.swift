@@ -6,20 +6,27 @@ import KakaoSDKUser
 
 public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "net.amond.kakao/kakao_login", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "plugins.amond.net/kakao_login", binaryMessenger: registrar.messenger())
     let instance = SwiftFlutterKakaoLoginPlugin()
     registrar.addApplicationDelegate(instance)
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    debugPrint("\(call.method)")
     switch call.method {
     case "init":
         KakaoSDKCommon.initSDK(appKey: call.arguments as! String)
         result(true)
         break;
     case "logIn":
-        logIn(result: result)
+        logIn( result: result )
+        break
+    case "logInWithKakaoTalk":
+        logInWithKakaoTalk( result: result )
+        break
+    case "logInWithKakaoAccount":
+        logInWithKakaoAccount( result: result )
         break
     case "logOut":
         logOut(result: result)
@@ -42,41 +49,46 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
     }
   }
 
-  private func logIn( result:  @escaping FlutterResult ) {
+    private func logIn( result:  @escaping FlutterResult ) {
       // 카카오톡 설치 여부 확인
-              if (AuthApi.isKakaoTalkLoginAvailable()) {
-                 AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                      if let error = error {
-                          print(error)
-                          let errorMessage = error.localizedDescription
-
-                          result(FlutterError(code: "LOGIN_ERR", message: errorMessage, details: nil))
-                      }
-                      else {
-                          print("loginWithKakaoTalk() success.")
-                        result(oauthToken?.toJson)
-                      }
-                  }
-              } else {
-                  AuthApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                      if let error = error {
-                          print(error)
-                          let errorMessage = error.localizedDescription
-                          result(FlutterError(code: "LOGIN_ERR", message: errorMessage, details: nil))
-                      }
-                      else {
-                          print("loginWithKakaoAccount() success.")
-                        result(oauthToken?.toJson)
-                      }
-                  }
-              }
+            if (AuthApi.isKakaoTalkLoginAvailable() ) {
+            logInWithKakaoTalk(result: result)
+            } else {
+            ogInWithKakaoAccount(result: result)
   }
+    
+    private func logInWithKakaoTalk( result: @escaping FlutterResult ) {
+        AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+            if let error = error {
+                print(error)
+              self.handleError(error, result)
+
+            }
+            else {
+                print("loginWithKakaoTalk() success.")
+              result(oauthToken?.toJson)
+            }
+        }
+    }
+    private func logInWithKakaoAccount( result: @escaping FlutterResult ) {
+        AuthApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            if let error = error {
+                print(error)
+                self.handleError(error, result)
+
+            }
+            else {
+                print("loginWithKakaoAccount() success.")
+              result(oauthToken?.toJson)
+            }
+        }
+    }
   private func logOut( result:  @escaping FlutterResult ) {
       UserApi.shared.logout {(error) in
           if let error = error {
               print(error)
-              let errorMessage = error.localizedDescription
-              result(FlutterError(code: "LOGOUT_ERR", message: errorMessage, details: nil))
+              self.handleError(error, result)
+
           }
           else {
               print("logout() success.")
@@ -91,9 +103,8 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
   private func getUserMe(result:  @escaping  FlutterResult) {
       UserApi.shared.me() {(user, error) in
           if let error = error {
-              print(error)
-            let errorMessage = error.localizedDescription
-              result(FlutterError(code: "USERME_ERR", message: errorMessage, details: nil))
+            print(error)
+            self.handleError(error, result)
           }
           else {
               print("me() success.")
@@ -182,8 +193,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
       UserApi.shared.unlink {(error) in
           if let error = error {
               print(error)
-               let errorMessage = error.localizedDescription
-               result(FlutterError(code: "UNLINK_ERR", message: errorMessage, details: nil))
+               self.handleError(error, result)
           }
           else {
               print("unlink() success.")
@@ -204,12 +214,48 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
     }
 
+    
+
   override public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         if (AuthApi.isKakaoTalkLoginUrl(url)) {
             return AuthController.handleOpenUrl(url: url)
         }
         return false
   }
+
+  override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    let appKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_NATIVE_APP_KEY") as? String
+    if ( appKey != nil ) {
+      KakaoSDKCommon.initSDK(appKey: appKey!)
+    }
+    return true
+  }
+    private func handleError(_ error: Error,_ result: @escaping FlutterResult ) {
+        if ( error is SdkError ) {
+            debugPrint("sdkError")
+            switch( error as! SdkError) {
+                case .ClientFailed(reason: let reason, errorMessage: let errorMessage):
+                    debugPrint("ClientFailed \(reason)")
+                    result(FlutterError(code: "ClientError", message: "\(reason)", details: errorMessage))
+                    break
+                case .ApiFailed(reason: let reason, errorInfo: let errorInfo):
+                    debugPrint("ApiFailed \(reason)")
+                    result(FlutterError(code: "ApiError", message: "\(reason)", details: errorInfo?.msg))
+                    break
+                case .AuthFailed(reason: let reason, errorInfo: let errorInfo):
+                    debugPrint("AuthFailed \(reason)")
+                    result(FlutterError(code: "AuthError", message: "\(reason)", details: errorInfo?.errorDescription))
+                    break
+                case .GeneralFailed(error: let error):
+                    debugPrint("GeneralFailed")
+                    result(FlutterError(code: "GeneralError", message: error.localizedDescription, details: nil))
+                    break
+                }
+        } else {
+            debugPrint("unknown error")
+            result(FlutterError(code: "UnknownError", message: error.localizedDescription, details: nil))
+        }
+    }
 }
 
 extension Date {

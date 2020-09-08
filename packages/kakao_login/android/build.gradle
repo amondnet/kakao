@@ -1,6 +1,4 @@
-package android
-
-group 'net.amond.kakao.kakao_login'
+group 'net.amond.plugins.kakao.login'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -20,6 +18,7 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 
@@ -38,8 +37,12 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "com.kakao.sdk:v2-user:2.0.2" // 카카오 로그인, 사용자 관리
+
 }

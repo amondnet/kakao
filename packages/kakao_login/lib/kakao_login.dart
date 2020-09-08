@@ -5,9 +5,14 @@ import 'package:kakao_login/src/kakao_login_error.dart';
 import 'package:async/async.dart';
 export 'src/result_extension.dart';
 
-class FlutterKakaoLogin {
+class KakaoLogin {
   static const MethodChannel _channel =
-      const MethodChannel('net.amond.kakao/kakao_login');
+      const MethodChannel('plugins.amond.net/kakao_login');
+
+  KakaoLogin._instance();
+
+  /// Default instance SDK provides.
+  static final KakaoLogin instance = KakaoLogin._instance();
 
   Future<bool> get isLoggedIn async => await currentToken != null;
 
@@ -31,8 +36,8 @@ class FlutterKakaoLogin {
     return hashKey;
   }
 
-  // Get UserMe Method
-  Future<Result<KakaoLoginResult>> getUserMe() async {
+  /// Get Current User
+  Future<Result<KakaoLoginResult>> get currentUser async {
     try {
       final result =
           await _channel.invokeMapMethod<String, dynamic>('getUserMe');
@@ -46,6 +51,28 @@ class FlutterKakaoLogin {
   Future<Result<KakaoToken>> logIn() async {
     try {
       final result = await _channel.invokeMapMethod<String, dynamic>('logIn');
+      return _delayedToResult(Result.value(KakaoToken.fromJson(result)));
+    } on PlatformException catch (e) {
+      return Result.error(KakaoSdkError.fromPlatformException(e));
+    }
+  }
+
+  // Login Method
+  Future<Result<KakaoToken>> logInWithKakaoTalk() async {
+    try {
+      final result =
+          await _channel.invokeMapMethod<String, dynamic>('logInWithKakaoTalk');
+      return _delayedToResult(Result.value(KakaoToken.fromJson(result)));
+    } on PlatformException catch (e) {
+      return Result.error(KakaoSdkError.fromPlatformException(e));
+    }
+  }
+
+  // Login Method
+  Future<Result<KakaoToken>> logInWithKakaoAccount() async {
+    try {
+      final result = await _channel
+          .invokeMapMethod<String, dynamic>('logInWithKakaoAccount');
       return _delayedToResult(Result.value(KakaoToken.fromJson(result)));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));

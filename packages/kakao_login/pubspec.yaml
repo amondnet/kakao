@@ -1,8 +1,8 @@
 name: kakao_login
 description: A new Flutter project.
 version: 0.0.1
-author:
-homepage:
+#author:
+#homepage:
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -31,7 +31,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: net.amond.kakao.kakao_login
+        package: net.amond.plugins.kakao.login
         pluginClass: KakaoLoginPlugin
       ios:
         pluginClass: KakaoLoginPlugin

@@ -1,8 +1,26 @@
-package net.amond.kakao.kakao_login
+package net.amond.plugins.kakao.login
 
+import android.app.Activity
+import android.content.Context
 import androidx.annotation.NonNull;
+import com.kakao.sdk.auth.LoginClient
+import com.kakao.sdk.auth.TokenManagerProvider
+import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.KakaoSdk
+import com.kakao.sdk.common.model.ApiError
+import com.kakao.sdk.common.model.AuthError
+import com.kakao.sdk.common.model.ClientError
+import com.kakao.sdk.common.model.KakaoSdkError
+import com.kakao.sdk.common.util.Utility
+import com.kakao.sdk.user.UserApiClient
+import com.kakao.sdk.user.model.AgeRange
+import com.kakao.sdk.user.model.Gender
+import io.flutter.Log
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -10,14 +28,14 @@ import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
 /** KakaoLoginPlugin */
-public class KakaoLoginPlugin: FlutterPlugin, MethodCallHandler {
-  private lateinit var channel : MethodChannel
+public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+  private lateinit var channel: MethodChannel
   private var applicationContext: Context? = null
   private var activity: Activity? = null
 
-  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "net.amond.kakao/kakao_login")
-    channel.setMethodCallHandler(this);
+  override fun onAttachedToEngine(
+      @NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+    onInstanceAttachedToEngine(flutterPluginBinding.binaryMessenger, flutterPluginBinding.applicationContext)
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -30,28 +48,67 @@ public class KakaoLoginPlugin: FlutterPlugin, MethodCallHandler {
   // depending on the user's project. onAttachedToEngine or registerWith must both be defined
   // in the same class.
   companion object {
+    private const val TAG = "KakaoLogin"
+
     @JvmStatic
     fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "net.amond.kakao/kakao_login")
-      channel.setMethodCallHandler(KakaoLoginPlugin())
+      val instance = KakaoLoginPlugin()
+      instance.onInstanceAttachedToEngine(registrar.messenger(), registrar.context())
+      instance.onInstanceAttachedToActivity(registrar.activity())
     }
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
-      result.notImplemented()
+    return when (call.method) {
+      "init" -> {
+        val apiKey = call.arguments as String
+        Log.d(TAG, "[onMethodCall] -> init")
+        if (applicationContext != null) {
+          KakaoSdk.init(applicationContext!!, apiKey)
+          result.success(null)
+        } else {
+          result.error("GeneralError", "application context is not exists", " ")
+        }
+      }
+      "logIn" -> {
+        Log.d(TAG, "[onMethodCall] -> logIn")
+        logIn(result)
+      }
+      "logOut" -> {
+        Log.d(TAG, "[onMethodCall] -> logOut")
+        logout(result)
+      }
+      "accessTokenInfo" -> {
+        Log.d(TAG, "[onMethodCall] -> accessTokenInfo")
+        accessTokenInfo(result)
+      }
+      "getCurrentToken" -> {
+        Log.d(TAG, "[onMethodCall] -> getCurrentToken")
+        currentToken(result)
+      }
+      "getUserMe" -> {
+        Log.d(TAG, "[onMethodCall] -> getUserMe")
+        requestMe(result)
+      }
+      "unlink" -> {
+        Log.d(TAG, "[onMethodCall] -> unlink")
+        unlink(result)
+      }
+      "hashKey" -> {
+        Log.d(TAG, "[onMethodCall] -> hashKey")
+        if (activity != null) {
+          val hashKey = Utility.getKeyHash(activity!!)
+          result.success(hashKey)
+        } else {
+          result.error("GeneralError", "activity is not exists", "")
+        }
+      }
+      else -> result.notImplemented()
     }
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
-  }
-
-  private fun onInstanceAtAttachedToActivity(_activity: Activity) {
-    Log.d(TAG, "[onInstanceAtAttachedToActivity]")
-    activity = _activity
   }
 
   // ActivityAware
@@ -64,12 +121,12 @@ public class KakaoLoginPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
     Log.d(TAG, "[onReattachedToActivityForConfigChange]")
-    onInstanceAtAttachedToActivity(binding.activity)
+    onInstanceAttachedToActivity(binding.activity)
   }
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
     Log.d(TAG, "[onAttachedToActivity]")
-    onInstanceAtAttachedToActivity(binding.activity)
+    onInstanceAttachedToActivity(binding.activity)
   }
 
   override fun onDetachedFromActivityForConfigChanges() {
@@ -77,10 +134,24 @@ public class KakaoLoginPlugin: FlutterPlugin, MethodCallHandler {
     onDetachedFromActivity()
   }
 
-  // log in
-  private fun logIn(result: Result) {
-    // 로그인 공통 callback 구성
-    val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+  private fun onInstanceAttachedToEngine(
+    messenger: BinaryMessenger,
+    _applicationContext: Context
+  ) {
+    Log.d(TAG, "[onInstanceAttachedToEngine]")
+    applicationContext = _applicationContext;
+    channel = MethodChannel(messenger, "plugins.amond.net/kakao_login")
+    channel.setMethodCallHandler(this)
+  }
+
+  private fun onInstanceAttachedToActivity(_activity: Activity) {
+    Log.d(TAG, "[onInstanceAttachedToActivity]")
+    activity = _activity
+  }
+
+  // 로그인 공통 callback 구성
+  private fun loginCallback(result: Result): (OAuthToken?, Throwable?) -> Unit {
+    return { token, error ->
       Log.d(TAG, "로그인 Callback")
       if (error != null) {
         Log.e(TAG, "로그인 실패", error)
@@ -94,16 +165,30 @@ public class KakaoLoginPlugin: FlutterPlugin, MethodCallHandler {
         result.success(token.toJson())
       }
     }
+  }
 
+
+  // log in
+  private fun logIn(result: Result) {
     // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
     Log.d(TAG, "카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인")
     if (LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)) {
       Log.d(TAG, "카카오톡으로 로그인")
-      LoginClient.instance.loginWithKakaoTalk(activity!!, callback = callback)
+      logInWithKakaoTalk(result)
     } else {
       Log.d(TAG, "카카오계정으로 로그인")
-      LoginClient.instance.loginWithKakaoAccount(activity!!, callback = callback)
+      logInWithKakaoAccount(result)
     }
+  }
+
+  // log in
+  private fun logInWithKakaoTalk(result: Result) {
+    LoginClient.instance.loginWithKakaoTalk(activity!!, callback = loginCallback(result))
+  }
+
+  // log in
+  private fun logInWithKakaoAccount(result: Result) {
+    LoginClient.instance.loginWithKakaoAccount(activity!!, callback = loginCallback(result))
   }
 
   // logout
@@ -120,11 +205,9 @@ public class KakaoLoginPlugin: FlutterPlugin, MethodCallHandler {
         }
       } else {
         Log.i(TAG, "로그아웃 성공. SDK에서 토큰 삭제됨")
-        uiThreadHandler.post(Runnable {
-          val context = HashMap<String, String>()
-          context["status"] = "loggedOut"
-          result.success(context)
-        })
+        val context = HashMap<String, String>()
+        context["status"] = "loggedOut"
+        result.success(context)
       }
     }
   }

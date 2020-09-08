@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'package:kakao_login/kakao_login.dart';
 
 void main() {
@@ -14,44 +13,322 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  static final KakaoLogin kakaoSignIn = KakaoLogin.instance;
+
+  String _loginMessage = 'Current Not Logined :(';
+  String _accessToken = '';
+  String _refreshToken = '';
+  String _accountInfo = '';
+  bool _isLogined = false;
+
+  List<Map<String, String>> _litems = [
+    {"key": "login", "title": "Login", "subtitle": ""},
+    {"key": "logout", "title": "Logout", "subtitle": ""},
+    {"key": "unlink", "title": "Unlink", "subtitle": ""},
+    {"key": "account", "title": "Get AccountInfo", "subtitle": ""},
+    {"key": "accessToken", "title": "Get AccessToken", "subtitle": ""},
+    {"key": "refreshToken", "title": "Get RefreshToken", "subtitle": ""}
+  ];
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    load();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
+  load() async {
+    // TODO: set your native app key
+    await kakaoSignIn.init("9cf0527ac4a0f756eb992a1041498a5c");
+    print('init');
+    // For Android
+    final String hashKey = await (kakaoSignIn.hashKey);
+    print("hashKey: $hashKey");
+  }
+
+  Future<void> _login() async {
     try {
-      platformVersion = await KakaoLogin.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      final login = await kakaoSignIn.logIn();
+      final result = await kakaoSignIn.currentUser;
+      result.when(() => null, success: (value) {}, fail: (error) {
+        _updateLoginMessage("${error.cause} ${error.message}");
+      });
+      if (result.isValue) {
+        _processLoginResult(result.asValue.value);
+      } else {}
+    } catch (e) {
+      _updateLoginMessage("${e.code} ${e.message}");
     }
+  }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
+  Future<void> _logOut() async {
+    try {
+      final result = await kakaoSignIn.logOut();
+      result.when(() => () {}, success: (value) {
+        _processLoginResult(value);
+        _processAccountResult(null);
+      }, fail: (e) {
+        _updateLoginMessage("${e.cause} ${e.message}");
+      });
+    } catch (e) {
+      _updateLoginMessage("${e.code} ${e.message}");
+    }
+  }
 
+  Future<void> _unlink() async {
+    try {
+      final result = await kakaoSignIn.unlink();
+      _processLoginResult(result);
+    } catch (e) {
+      _updateLoginMessage("${e.code} ${e.message}");
+    }
+  }
+
+  Future<void> _getAccountInfo() async {
+    try {
+      final result = await kakaoSignIn.currentUser;
+      result.when(() => () {},
+          success: (value) => _processAccountResult(value.account),
+          fail: (e) => _updateLoginMessage("${e.cause} ${e.message}"));
+    } catch (e) {
+      _updateLoginMessage("${e.code} ${e.message}");
+    }
+  }
+
+  Future<void> _getAccessToken() async {
+    final KakaoToken token = await (kakaoSignIn.currentToken);
+    final accessToken = token.accessToken;
+    if (accessToken != null) {
+      _updateAccessToken('AccessToken\n' + accessToken);
+    } else {
+      _updateAccessToken('');
+    }
+  }
+
+  Future<void> _getRefreshToken() async {
+    final KakaoToken token = await (kakaoSignIn.currentToken);
+    final refreshToken = token.refreshToken;
+    if (refreshToken != null) {
+      _updateRefreshToken('RefreshToken\n' + refreshToken);
+    } else {
+      _updateRefreshToken('');
+    }
+  }
+
+  void _updateLoginMessage(String message) {
     setState(() {
-      _platformVersion = platformVersion;
+      _loginMessage = message;
     });
+  }
+
+  void _updateStateLogin(bool logined) {
+    setState(() {
+      _isLogined = logined;
+    });
+    if (!logined) {
+      _updateAccessToken('');
+      _updateRefreshToken('');
+      _updateAccountMessage('');
+    }
+  }
+
+  void _updateAccessToken(String accessToken) {
+    setState(() {
+      _accessToken = accessToken;
+    });
+  }
+
+  void _updateRefreshToken(String refreshToken) {
+    setState(() {
+      _refreshToken = refreshToken;
+    });
+  }
+
+  void _updateAccountMessage(String message) {
+    setState(() {
+      _accountInfo = message;
+    });
+  }
+
+  void _processLoginResult(KakaoLoginResult result) {
+    switch (result.status) {
+      case KakaoLoginStatus.loggedIn:
+        _updateLoginMessage('LoggedIn by the user.');
+        _updateStateLogin(true);
+        break;
+      case KakaoLoginStatus.loggedOut:
+        _updateLoginMessage('LoggedOut by the user.');
+        _updateStateLogin(false);
+        break;
+      case KakaoLoginStatus.unlinked:
+        _updateLoginMessage('Unlinked by the user.');
+        _updateStateLogin(false);
+        break;
+    }
+  }
+
+  void _processAccountResult(KakaoAccountResult account) {
+    if (account == null) {
+      _updateAccountMessage('');
+    } else {
+      final userID = (account.userID == null) ? 'None' : account.userID;
+      final userEmail =
+          (account.userEmail == null) ? 'None' : account.userEmail;
+      final userPhoneNumber =
+          (account.userPhoneNumber == null) ? 'None' : account.userPhoneNumber;
+      final userDisplayID =
+          (account.userDisplayID == null) ? 'None' : account.userDisplayID;
+      final userNickname =
+          (account.userNickname == null) ? 'None' : account.userNickname;
+      final userGender =
+          (account.userGender == null) ? 'None' : account.userGender;
+      final userAgeRange =
+          (account.userAgeRange == null) ? 'None' : account.userAgeRange;
+      final userBirthyear =
+          (account.userBirthyear == null) ? 'None' : account.userBirthyear;
+      final userBirthday =
+          (account.userBirthday == null) ? 'None' : account.userBirthday;
+      final userProfileImagePath = (account.userProfileImagePath == null)
+          ? 'None'
+          : account.userProfileImagePath;
+      final userThumbnailImagePath = (account.userThumbnailImagePath == null)
+          ? 'None'
+          : account.userThumbnailImagePath;
+
+      _updateAccountMessage('- ID is ${userID}\n'
+          '- Email is ${userEmail}\n'
+          '- PhoneNumber is ${userPhoneNumber}\n'
+          '- DisplayID is ${userDisplayID}\n'
+          '- Nickname is ${userNickname}\n'
+          '- Gender is ${userGender}\n'
+          '- Age is ${userAgeRange}\n'
+          '- Birthyear is ${userBirthyear}\n'
+          '- Birthday is ${userBirthday}\n'
+          '- ProfileImagePath is ${userProfileImagePath}\n'
+          '- ThumbnailImagePath is ${userThumbnailImagePath}');
+    }
+  }
+
+  void _showAlert(BuildContext context, String value) {
+    if (value.isEmpty) return;
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            content: new Text(value,
+                style: new TextStyle(fontWeight: FontWeight.bold)),
+            actions: <Widget>[
+              new FlatButton(
+                child: new Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop(true);
+                },
+              )
+            ],
+          );
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Kakao Login Plugin app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: new SafeArea(
+          child: new ListView.builder(
+            itemCount: _litems.length + 1,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) {
+                return KakaoInfo(
+                  loginMessage: _loginMessage,
+                  accessToken: _accessToken,
+                  refreshToken: _refreshToken,
+                  accountInfo: _accountInfo,
+                );
+              }
+              final actionIndex = index - 1;
+              return ListTile(
+                title: new Text(_litems[actionIndex]['title']),
+                subtitle: new Text(_litems[actionIndex]['subtitle']),
+                onTap: () {
+                  final key = _litems[actionIndex]['key'];
+                  switch (key) {
+                    case "login":
+                      if (!_isLogined) {
+                        _login();
+                      }
+                      break;
+                    case "logout":
+                      if (_isLogined) {
+                        _logOut();
+                      }
+                      break;
+                    case "unlink":
+                      if (_isLogined) {
+                        _unlink();
+                      }
+                      break;
+                    case "account":
+                      if (!_isLogined) {
+                        _showAlert(context, 'Login is required.');
+                      } else {
+                        _getAccountInfo();
+                      }
+                      break;
+                    case "accessToken":
+                      if (!_isLogined) {
+                        _showAlert(context, 'Login is required.');
+                      } else {
+                        _getAccessToken();
+                      }
+                      break;
+                    case "refreshToken":
+                      if (!_isLogined) {
+                        _showAlert(context, 'Login is required.');
+                      } else {
+                        _getRefreshToken();
+                      }
+                      break;
+                  }
+                },
+              );
+            },
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class KakaoInfo extends StatelessWidget {
+  final String loginMessage;
+  final String accessToken;
+  final String refreshToken;
+  final String accountInfo;
+
+  KakaoInfo({
+    this.loginMessage = "",
+    this.accessToken = "",
+    this.refreshToken = "",
+    this.accountInfo = "",
+  });
+
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(18, 25, 18, 25),
+      color: Colors.grey[300],
+      child: Column(
+        children: [
+          Text(loginMessage),
+          accountInfo != "" ? SizedBox(height: 25) : Container(),
+          accountInfo != "" ? Text(accountInfo) : Container(),
+          accessToken != "" ? SizedBox(height: 10) : Container(),
+          accessToken != "" ? Text(accessToken) : Container(),
+          refreshToken != "" ? SizedBox(height: 10) : Container(),
+          refreshToken != "" ? Text(refreshToken) : Container(),
+        ],
       ),
     );
   }
