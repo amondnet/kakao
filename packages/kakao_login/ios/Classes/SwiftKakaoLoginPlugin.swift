@@ -7,11 +7,29 @@ import KakaoSDKUser
 public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "plugins.amond.net/kakao_login", binaryMessenger: registrar.messenger())
-    let instance = SwiftFlutterKakaoLoginPlugin()
+    let instance = SwiftKakaoLoginPlugin()
     registrar.addApplicationDelegate(instance)
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
+    override public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+          if (AuthApi.isKakaoTalkLoginUrl(url)) {
+              return AuthController.handleOpenUrl(url: url)
+          }
+          return false
+    }
+
+      public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+      let appKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_NATIVE_APP_KEY") as? String
+      if ( appKey != nil ) {
+        debugPrint("kakao native app key is exists, init kakao sdk")
+        // KakaoSDKCommon.initSDK(appKey: appKey!)
+      } else {
+        debugPrint("kakao native app key is not exists, init kakao sdk later")
+      }
+      return true
+    }
+    
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     debugPrint("\(call.method)")
     switch call.method {
@@ -51,10 +69,11 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
     private func logIn( result:  @escaping FlutterResult ) {
       // 카카오톡 설치 여부 확인
-            if (AuthApi.isKakaoTalkLoginAvailable() ) {
-            logInWithKakaoTalk(result: result)
+            if (AuthApi.isKakaoTalkLoginAvailable()) {
+                logInWithKakaoTalk(result: result)
             } else {
-            ogInWithKakaoAccount(result: result)
+                logInWithKakaoAccount(result: result)
+        }
   }
     
     private func logInWithKakaoTalk( result: @escaping FlutterResult ) {
@@ -65,7 +84,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
             }
             else {
-                print("loginWithKakaoTalk() success.")
+                debugPrint("loginWithKakaoTalk() success.")
               result(oauthToken?.toJson)
             }
         }
@@ -78,7 +97,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
             }
             else {
-                print("loginWithKakaoAccount() success.")
+                debugPrint("loginWithKakaoAccount() success.")
               result(oauthToken?.toJson)
             }
         }
@@ -91,7 +110,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
           }
           else {
-              print("logout() success.")
+              debugPrint("logout() success.")
               result([
                   "status" : "loggedOut"
               ])
@@ -107,7 +126,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
             self.handleError(error, result)
           }
           else {
-              print("me() success.")
+              debugPrint("me() success.")
             let userID = user?.id != nil ? "" : ""
             let userEmail = user?.kakaoAccount?.email ?? ""
                   let userNickname = user?.kakaoAccount?.profile?.nickname ?? ""
@@ -196,7 +215,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
                self.handleError(error, result)
           }
           else {
-              print("unlink() success.")
+              debugPrint("unlink() success.")
               result([
                   "status" : "unlinked"
               ])
@@ -216,20 +235,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
     
 
-  override public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        if (AuthApi.isKakaoTalkLoginUrl(url)) {
-            return AuthController.handleOpenUrl(url: url)
-        }
-        return false
-  }
 
-  override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    let appKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_NATIVE_APP_KEY") as? String
-    if ( appKey != nil ) {
-      KakaoSDKCommon.initSDK(appKey: appKey!)
-    }
-    return true
-  }
     private func handleError(_ error: Error,_ result: @escaping FlutterResult ) {
         if ( error is SdkError ) {
             debugPrint("sdkError")
