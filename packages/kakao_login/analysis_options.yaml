@@ -1,0 +1,13 @@
+include: package:pedantic/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    # treat missing returns as a warning (not a hint)
+    missing_return: warning
+    # allow having TODOs in the code
+    todo: ignore
+    # treat missing required parameters as a warning (not a hint)
+    missing_required_param: warning

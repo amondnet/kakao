@@ -2,7 +2,11 @@ package net.amond.plugins.kakao.login
 
 import android.app.Activity
 import android.content.Context
-import androidx.annotation.NonNull;
+import androidx.annotation.NonNull
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.TokenManagerProvider
 import com.kakao.sdk.auth.model.OAuthToken
@@ -16,7 +20,6 @@ import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.AgeRange
 import com.kakao.sdk.user.model.Gender
 import io.flutter.Log
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -27,11 +30,16 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
+
 /** KakaoLoginPlugin */
 public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var channel: MethodChannel
   private var applicationContext: Context? = null
   private var activity: Activity? = null
+  var gson = GsonBuilder()
+      .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+      .setDateFormat("yyyy-MM-dd HH:mm:ss")
+      .create()
 
   override fun onAttachedToEngine(
       @NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
@@ -162,7 +170,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
         }
       } else if (token != null) {
         Log.i(TAG, "로그인 성공 ${token.accessToken}")
-        result.success(token.toJson())
+        result.success(token.serializeToMap())
       }
     }
   }
@@ -226,7 +234,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
         Log.i(TAG, "토큰 정보 보기 성공" +
             "\n회원번호: ${tokenInfo.id}" +
             "\n만료시간: ${tokenInfo.expiresIn} 초")
-        result.success(mapOf("id" to tokenInfo.id, "expiresIn" to tokenInfo.expiresIn))
+        result.success(tokenInfo.serializeToMap())
       }
     }
   }
@@ -243,7 +251,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
   private fun currentToken(result: Result) {
     try {
       val token = TokenManagerProvider.instance.manager.getToken()
-      return result.success(token?.toJson())
+      return result.success(token?.serializeToMap())
     } catch (error: Throwable) {
       if (error is KakaoSdkError) {
         handleKakaoError(error, result)
@@ -251,16 +259,6 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
         result.error("SdkError", "토큰 정보 실패", error.localizedMessage)
       }
     }
-  }
-
-  private fun OAuthToken.toJson(): Map<String, Any?> {
-    return mapOf(
-        "accessToken" to accessToken,
-        "accessTokenExpiresAt" to accessTokenExpiresAt.time,
-        "refreshToken" to refreshToken,
-        "refreshTokenExpiresAt" to refreshTokenExpiresAt?.time,
-        "scopes" to scopes
-    )
   }
 
   // requestMe
@@ -281,53 +279,28 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     UserApiClient.instance.me { user, error ->
       if (error != null) {
         Log.e(TAG, "사용자 정보 요청 실패", error)
-        methodResult.error("USERME_ERR", error.localizedMessage, "")
+        if ( error is KakaoSdkError ) {
+          handleKakaoError(error = error, result = result)
+        } else {
+          methodResult.error("GeneralError", error.localizedMessage, "")
+        }
 
       } else if (user != null) {
-        Log.i(TAG, "사용자 정보 요청 성공" +
+        Log.d(TAG, "사용자 정보 요청 성공" +
             "\n회원번호: ${user.id}" +
             "\n이메일: ${user.kakaoAccount?.email}" +
             "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
             "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
+        try {
+          Log.d(TAG, gson.toJson(user) )
 
-        val userAccount = user?.kakaoAccount
-        val userID = user?.id
-        val userNickname = userAccount?.profile?.nickname ?: ""
-        val userProfileImagePath = userAccount?.profile?.profileImageUrl ?: ""
-        val userThumbnailImagePath = userAccount?.profile?.thumbnailImageUrl ?: ""
-        val userEmail = userAccount?.email ?: ""
-        val userPhoneNumber = userAccount?.phoneNumber ?: ""
-        val userDisplayID = userAccount?.email ?: userAccount?.phoneNumber ?: ""
-        val userGender = when (userAccount?.gender ?: Gender.UNKNOWN) {
-          Gender.MALE -> {
-            "MALE"
-          }
-          Gender.FEMALE -> {
-            "FEMALE"
-          }
-          else -> {
-            "UNKNOWN"
-          }
+          val map = user.serializeToMap()
+
+          methodResult.success(map)
+        } catch (e:Throwable ) {
+          Log.e(TAG, "json error :$e", e);
+          methodResult.error("GeneralError", e.localizedMessage, "")
         }
-        val userAgeRange = userAccount?.ageRange?.value() ?: ""
-        val userBirthyear = userAccount?.birthyear ?: ""
-        val userBirthday = userAccount?.birthday ?: ""
-
-        val context = HashMap<String, String>()
-        context["status"] = "loggedIn"
-        context["userID"] = userID.toString()
-        context["userNickname"] = userNickname
-        context["userProfileImagePath"] = userProfileImagePath
-        context["userThumbnailImagePath"] = userThumbnailImagePath
-        context["userEmail"] = userEmail
-        context["userPhoneNumber"] = userPhoneNumber
-        context["userDisplayID"] = userDisplayID
-        context["userGender"] = userGender
-        context["userAgeRange"] = userAgeRange
-        context["userBirthyear"] = userBirthyear
-        context["userBirthday"] = userBirthday
-        methodResult.success(context)
-
       }
     }
   }
@@ -367,7 +340,21 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
       AgeRange.UNKNOWN -> ""
     }
   }
+  //convert a data class to a map
+  fun <T> T.serializeToMap(): Map<String, Any> {
+    return convert()
+  }
 
+  //convert a map to a data class
+  inline fun <reified T> Map<String, Any>.toDataClass(): T {
+    return convert()
+  }
+
+  //convert an object of type I to type O
+  inline fun <I, reified O> I.convert(): O {
+    val json = gson.toJson(this)
+    return gson.fromJson(json, object : TypeToken<O>() {}.type)
+  }
 }
 
 fun handleKakaoError(error: KakaoSdkError, result: Result) {
@@ -381,4 +368,5 @@ fun handleKakaoError(error: KakaoSdkError, result: Result) {
       result.error("ClientError", error.reason.name, error.msg)
   }
 }
+
 

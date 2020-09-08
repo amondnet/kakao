@@ -85,7 +85,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
             }
             else {
                 debugPrint("loginWithKakaoTalk() success.")
-              result(oauthToken?.toJson)
+              result(oauthToken?.dictionary)
             }
         }
     }
@@ -98,7 +98,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
             }
             else {
                 debugPrint("loginWithKakaoAccount() success.")
-              result(oauthToken?.toJson)
+              result(oauthToken?.dictionary)
             }
         }
     }
@@ -127,83 +127,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
           }
           else {
               debugPrint("me() success.")
-            let userID = user?.id != nil ? "" : ""
-            let userEmail = user?.kakaoAccount?.email ?? ""
-                  let userNickname = user?.kakaoAccount?.profile?.nickname ?? ""
-            let userProfileImagePath = user?.kakaoAccount?.profile?.profileImageUrl?.absoluteString ?? ""
-            let userThumbnailImagePath = user?.kakaoAccount?.profile?.thumbnailImageUrl?.absoluteString ?? ""
-                  let userPhoneNumber = user?.kakaoAccount?.phoneNumber ?? ""
-                  let userDisplayID = user?.kakaoAccount?.email ?? user?.kakaoAccount?.phoneNumber ?? ""
-                  var userGender = ""
-            let gender = user?.kakaoAccount?.gender
-                  switch gender {
-                  case .Male:
-                      userGender = "MALE"
-                      break
-                  case .Female:
-                      userGender = "FEMALE"
-                      break
-                  case .none:
-                    userGender = ""
-                    break
-                  }
-                  var userAgeRange = ""
-                  let ageRange = user?.kakaoAccount?.ageRange
-                  switch ageRange {
-                  case .Age0_9:
-                      userAgeRange = "0세~9세"
-                      break
-                  case .Age10_14:
-                      userAgeRange = "10세~14세"
-                      break
-                  case .Age15_19:
-                      userAgeRange = "15세~19세"
-                      break
-                  case .Age20_29:
-                      userAgeRange = "20세~29세"
-                      break
-                  case .Age30_39:
-                      userAgeRange = "30세~39세"
-                      break
-                  case .Age40_49:
-                      userAgeRange = "40세~49세"
-                      break
-                  case .Age50_59:
-                      userAgeRange = "50세~59세"
-                      break
-                  case .Age60_69:
-                      userAgeRange = "60세~69세"
-                      break
-                  case .Age70_79:
-                      userAgeRange = "70세~79세"
-                      break
-                  case .Age80_89:
-                      userAgeRange = "80세~89세"
-                      break
-                  case .Age90_Above:
-                      userAgeRange = "90세 이상"
-                      break
-                  case .none:
-                    userAgeRange = ""
-                    break
-                  }
-                  let userBirthyear = user?.kakaoAccount?.birthyear ?? ""
-                  let userBirthday = user?.kakaoAccount?.birthday ?? ""
-
-                  result([
-                      "status" : "loggedIn",
-                      "userID" : userID,
-                      "userNickname" : userNickname,
-                      "userProfileImagePath" : userProfileImagePath,
-                      "userThumbnailImagePath" : userThumbnailImagePath,
-                      "userEmail" : userEmail,
-                      "userPhoneNumber" : userPhoneNumber,
-                      "userDisplayID" : userDisplayID,
-                      "userGender" : userGender,
-                      "userAgeRange" : userAgeRange,
-                      "userBirthyear" : userBirthyear,
-                      "userBirthday" : userBirthday
-                  ])
+              result(user.dictionary)
           }
       }
   }
@@ -226,7 +150,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
     private func getCurrentToken( result :  @escaping  FlutterResult ) {
         let token = AUTH.tokenManager.getToken()
         if ( token != nil ) {
-            result(token?.toJson)
+            result(token?.dictionary)
         } else {
             result(nil);
         }
@@ -274,14 +198,28 @@ extension Date {
     }
 }
 
-extension OAuthToken {
-    var toJson:Dictionary<String, Any?> {
-        return [
-         "accessToken" : accessToken,
-         "accessTokenExpiresAt" :expiredAt.millisecondsSince1970,
-         "refreshToken" : refreshToken,
-         "refreshTokenExpiresAt" : refreshTokenExpiredAt.millisecondsSince1970,
-         "scopes" : scopes ?? []
-        ]
+extension Encodable {
+  var dictionary: [String: Any]? {
+    guard let data = try? KakaoJSONEncoder.`customIso8601Date`.encode(self) else { return nil }
+    return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+  }
+}
+
+
+public class KakaoJSONEncoder : JSONEncoder {
+    public static var `default`: KakaoJSONEncoder { return KakaoJSONEncoder() }
+    public static var `custom`: KakaoJSONEncoder { return KakaoJSONEncoder(useCustomStrategy:true) }
+    public static var `customIso8601Date`: KakaoJSONEncoder { return KakaoJSONEncoder(useCustomStrategy:true, dateStrategy: .iso8601) }
+    public static var `customSecondsSince1970`: KakaoJSONEncoder { return KakaoJSONEncoder(useCustomStrategy:true, dateStrategy: .secondsSince1970) }
+    
+   init(useCustomStrategy:Bool = false, dateStrategy: DateEncodingStrategy? = nil) {
+        super.init()
+        if (useCustomStrategy) {
+            self.keyEncodingStrategy = .convertToSnakeCase
+        }
+        if let dateStrategy = dateStrategy {
+            self.dateEncodingStrategy = dateStrategy
+        }
     }
+    
 }

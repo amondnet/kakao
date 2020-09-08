@@ -263,6 +263,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  json_serializable:
+    dependency: "direct dev"
+    description:
+      name: json_serializable
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.4.1"
   logging:
     dependency: transitive
     description:
@@ -278,7 +285,7 @@ packages:
     source: hosted
     version: "0.12.8"
   meta:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: meta
       url: "https://pub.dartlang.org"
@@ -320,7 +327,7 @@ packages:
     source: hosted
     version: "1.7.0"
   pedantic:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
