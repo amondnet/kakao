@@ -12,6 +12,7 @@ abstract class Profile implements _$Profile {
   @JsonSerializable(
       fieldRename: FieldRename.snake, includeIfNull: false, anyMap: true)
   factory Profile(
+      {
 
       /// 사용자의 닉네임
       String nickname,
@@ -20,7 +21,7 @@ abstract class Profile implements _$Profile {
       Uri thumbnailImageUrl,
 
       /// 카카오계정에 등록된 프로필 이미지 URL
-      Uri profileImageUrl) = _Profile;
+      Uri profileImageUrl}) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);

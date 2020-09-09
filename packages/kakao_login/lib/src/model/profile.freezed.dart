@@ -16,11 +16,11 @@ class _$ProfileTearOff {
   const _$ProfileTearOff();
 
 // ignore: unused_element
-  _Profile call(String nickname, Uri thumbnailImageUrl, Uri profileImageUrl) {
+  _Profile call({String nickname, Uri thumbnailImageUrl, Uri profileImageUrl}) {
     return _Profile(
-      nickname,
-      thumbnailImageUrl,
-      profileImageUrl,
+      nickname: nickname,
+      thumbnailImageUrl: thumbnailImageUrl,
+      profileImageUrl: profileImageUrl,
     );
   }
 }
@@ -90,11 +90,11 @@ class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
     Object profileImageUrl = freezed,
   }) {
     return _then(_Profile(
-      nickname == freezed ? _value.nickname : nickname as String,
-      thumbnailImageUrl == freezed
+      nickname: nickname == freezed ? _value.nickname : nickname as String,
+      thumbnailImageUrl: thumbnailImageUrl == freezed
           ? _value.thumbnailImageUrl
           : thumbnailImageUrl as Uri,
-      profileImageUrl == freezed
+      profileImageUrl: profileImageUrl == freezed
           ? _value.profileImageUrl
           : profileImageUrl as Uri,
     ));
@@ -104,11 +104,8 @@ class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
 @JsonSerializable(
     fieldRename: FieldRename.snake, includeIfNull: false, anyMap: true)
 class _$_Profile extends _Profile {
-  _$_Profile(this.nickname, this.thumbnailImageUrl, this.profileImageUrl)
-      : assert(nickname != null),
-        assert(thumbnailImageUrl != null),
-        assert(profileImageUrl != null),
-        super._();
+  _$_Profile({this.nickname, this.thumbnailImageUrl, this.profileImageUrl})
+      : super._();
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$_$_ProfileFromJson(json);
@@ -160,7 +157,9 @@ class _$_Profile extends _Profile {
 abstract class _Profile extends Profile {
   _Profile._() : super._();
   factory _Profile(
-      String nickname, Uri thumbnailImageUrl, Uri profileImageUrl) = _$_Profile;
+      {String nickname,
+      Uri thumbnailImageUrl,
+      Uri profileImageUrl}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 

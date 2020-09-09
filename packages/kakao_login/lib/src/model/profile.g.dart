@@ -8,11 +8,11 @@ part of 'profile.dart';
 
 _$_Profile _$_$_ProfileFromJson(Map json) {
   return _$_Profile(
-    json['nickname'] as String,
-    json['thumbnail_image_url'] == null
+    nickname: json['nickname'] as String,
+    thumbnailImageUrl: json['thumbnail_image_url'] == null
         ? null
         : Uri.parse(json['thumbnail_image_url'] as String),
-    json['profile_image_url'] == null
+    profileImageUrl: json['profile_image_url'] == null
         ? null
         : Uri.parse(json['profile_image_url'] as String),
   );
