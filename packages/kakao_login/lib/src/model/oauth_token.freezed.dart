@@ -12,6 +12,7 @@ OAuthToken _$OAuthTokenFromJson(Map<String, dynamic> json) {
   return _OAuthToken.fromJson(json);
 }
 
+/// @nodoc
 class _$OAuthTokenTearOff {
   const _$OAuthTokenTearOff();
 
@@ -36,26 +37,47 @@ class _$OAuthTokenTearOff {
       scopes: scopes,
     );
   }
+
+// ignore: unused_element
+  OAuthToken fromJson(Map<String, Object> json) {
+    return OAuthToken.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $OAuthToken = _$OAuthTokenTearOff();
 
+/// @nodoc
 mixin _$OAuthToken {
+  /// API 인증에 사용하는 엑세스 토큰.
   String get accessToken;
+
+  /// 엑세스 토큰 만료 시각. (android)
   @JsonKey(fromJson: dateTimeFromJson, name: 'access_token_expires_at')
   DateTime get accessTokenExpiresAt;
+
+  /// 엑세스 토큰 만료 시각. (ios)
   int get expiresIn;
+
+  /// 엑세스 토큰을 갱신하는데 사용하는 리프레시 토큰.
   String get refreshToken;
+
+  /// 리프레시 토큰 만료 시각. Nullable ( android )
   @JsonKey(fromJson: dateTimeFromJson)
   DateTime get refreshTokenExpiresAt;
+
+  /// 리프레시 토큰 만료 시각. Nullable ( ios )
   int get refreshTokenExpiresIn;
+
+  /// 이 토큰에 부여된 scope 목록.
   List<String> get scopes;
 
   Map<String, dynamic> toJson();
   $OAuthTokenCopyWith<OAuthToken> get copyWith;
 }
 
+/// @nodoc
 abstract class $OAuthTokenCopyWith<$Res> {
   factory $OAuthTokenCopyWith(
           OAuthToken value, $Res Function(OAuthToken) then) =
@@ -72,6 +94,7 @@ abstract class $OAuthTokenCopyWith<$Res> {
       List<String> scopes});
 }
 
+/// @nodoc
 class _$OAuthTokenCopyWithImpl<$Res> implements $OAuthTokenCopyWith<$Res> {
   _$OAuthTokenCopyWithImpl(this._value, this._then);
 
@@ -110,6 +133,7 @@ class _$OAuthTokenCopyWithImpl<$Res> implements $OAuthTokenCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$OAuthTokenCopyWith<$Res> implements $OAuthTokenCopyWith<$Res> {
   factory _$OAuthTokenCopyWith(
           _OAuthToken value, $Res Function(_OAuthToken) then) =
@@ -127,6 +151,7 @@ abstract class _$OAuthTokenCopyWith<$Res> implements $OAuthTokenCopyWith<$Res> {
       List<String> scopes});
 }
 
+/// @nodoc
 class __$OAuthTokenCopyWithImpl<$Res> extends _$OAuthTokenCopyWithImpl<$Res>
     implements _$OAuthTokenCopyWith<$Res> {
   __$OAuthTokenCopyWithImpl(
@@ -168,6 +193,8 @@ class __$OAuthTokenCopyWithImpl<$Res> extends _$OAuthTokenCopyWithImpl<$Res>
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: true)
+
+/// @nodoc
 class _$_OAuthToken extends _OAuthToken {
   _$_OAuthToken(
       {this.accessToken,
@@ -185,20 +212,34 @@ class _$_OAuthToken extends _OAuthToken {
       _$_$_OAuthTokenFromJson(json);
 
   @override
+
+  /// API 인증에 사용하는 엑세스 토큰.
   final String accessToken;
   @override
+
+  /// 엑세스 토큰 만료 시각. (android)
   @JsonKey(fromJson: dateTimeFromJson, name: 'access_token_expires_at')
   final DateTime accessTokenExpiresAt;
   @override
+
+  /// 엑세스 토큰 만료 시각. (ios)
   final int expiresIn;
   @override
+
+  /// 엑세스 토큰을 갱신하는데 사용하는 리프레시 토큰.
   final String refreshToken;
   @override
+
+  /// 리프레시 토큰 만료 시각. Nullable ( android )
   @JsonKey(fromJson: dateTimeFromJson)
   final DateTime refreshTokenExpiresAt;
   @override
+
+  /// 리프레시 토큰 만료 시각. Nullable ( ios )
   final int refreshTokenExpiresIn;
   @override
+
+  /// 이 토큰에 부여된 scope 목록.
   final List<String> scopes;
 
   @override
@@ -270,20 +311,34 @@ abstract class _OAuthToken extends OAuthToken {
       _$_OAuthToken.fromJson;
 
   @override
+
+  /// API 인증에 사용하는 엑세스 토큰.
   String get accessToken;
   @override
+
+  /// 엑세스 토큰 만료 시각. (android)
   @JsonKey(fromJson: dateTimeFromJson, name: 'access_token_expires_at')
   DateTime get accessTokenExpiresAt;
   @override
+
+  /// 엑세스 토큰 만료 시각. (ios)
   int get expiresIn;
   @override
+
+  /// 엑세스 토큰을 갱신하는데 사용하는 리프레시 토큰.
   String get refreshToken;
   @override
+
+  /// 리프레시 토큰 만료 시각. Nullable ( android )
   @JsonKey(fromJson: dateTimeFromJson)
   DateTime get refreshTokenExpiresAt;
   @override
+
+  /// 리프레시 토큰 만료 시각. Nullable ( ios )
   int get refreshTokenExpiresIn;
   @override
+
+  /// 이 토큰에 부여된 scope 목록.
   List<String> get scopes;
   @override
   _$OAuthTokenCopyWith<_OAuthToken> get copyWith;

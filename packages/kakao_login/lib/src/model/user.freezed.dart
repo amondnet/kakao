@@ -12,6 +12,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
 }
 
+/// @nodoc
 class _$UserTearOff {
   const _$UserTearOff();
 
@@ -32,19 +33,37 @@ class _$UserTearOff {
       synchedAt: synchedAt,
     );
   }
+
+// ignore: unused_element
+  User fromJson(Map<String, Object> json) {
+    return User.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $User = _$UserTearOff();
 
+/// @nodoc
 mixin _$User {
+  /// 회원번호
   @JsonKey(fromJson: intFromJson)
   int get id;
+
+  /// 추가 정보
   Map<String, String> get properties;
+
+  /// 카카오계정 정보
   Account get kakaoAccount;
+
+  /// 앱이 그룹에 속해 있는 경우 그룹 내 사용자 식별 토큰입니다. 앱의 그룹정보가 변경될 경우 토큰 값도 변경됩니다. 제휴를 통해 권한이 부여된 특정 앱에만 제공됩니다.
   String get groupUserToken;
+
+  /// 서비스에 연결 완료된 시각, UTC
   @JsonKey(fromJson: dateTimeFromJson)
   DateTime get connectedAt;
+
+  /// 카카오싱크 간편가입을 통해 로그인한 시각, UTC
   @JsonKey(fromJson: dateTimeFromJson)
   DateTime get synchedAt;
 
@@ -52,6 +71,7 @@ mixin _$User {
   $UserCopyWith<User> get copyWith;
 }
 
+/// @nodoc
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
@@ -66,6 +86,7 @@ abstract class $UserCopyWith<$Res> {
   $AccountCopyWith<$Res> get kakaoAccount;
 }
 
+/// @nodoc
 class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   _$UserCopyWithImpl(this._value, this._then);
 
@@ -111,6 +132,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
@@ -127,6 +149,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   $AccountCopyWith<$Res> get kakaoAccount;
 }
 
+/// @nodoc
 class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     implements _$UserCopyWith<$Res> {
   __$UserCopyWithImpl(_User _value, $Res Function(_User) _then)
@@ -164,6 +187,8 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 }
 
 @JsonSerializable(anyMap: true, fieldRename: FieldRename.snake)
+
+/// @nodoc
 class _$_User extends _User {
   _$_User(
       {@required @JsonKey(fromJson: intFromJson) this.id,
@@ -179,18 +204,30 @@ class _$_User extends _User {
       _$_$_UserFromJson(json);
 
   @override
+
+  /// 회원번호
   @JsonKey(fromJson: intFromJson)
   final int id;
   @override
+
+  /// 추가 정보
   final Map<String, String> properties;
   @override
+
+  /// 카카오계정 정보
   final Account kakaoAccount;
   @override
+
+  /// 앱이 그룹에 속해 있는 경우 그룹 내 사용자 식별 토큰입니다. 앱의 그룹정보가 변경될 경우 토큰 값도 변경됩니다. 제휴를 통해 권한이 부여된 특정 앱에만 제공됩니다.
   final String groupUserToken;
   @override
+
+  /// 서비스에 연결 완료된 시각, UTC
   @JsonKey(fromJson: dateTimeFromJson)
   final DateTime connectedAt;
   @override
+
+  /// 카카오싱크 간편가입을 통해 로그인한 시각, UTC
   @JsonKey(fromJson: dateTimeFromJson)
   final DateTime synchedAt;
 
@@ -255,18 +292,30 @@ abstract class _User extends User {
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
+
+  /// 회원번호
   @JsonKey(fromJson: intFromJson)
   int get id;
   @override
+
+  /// 추가 정보
   Map<String, String> get properties;
   @override
+
+  /// 카카오계정 정보
   Account get kakaoAccount;
   @override
+
+  /// 앱이 그룹에 속해 있는 경우 그룹 내 사용자 식별 토큰입니다. 앱의 그룹정보가 변경될 경우 토큰 값도 변경됩니다. 제휴를 통해 권한이 부여된 특정 앱에만 제공됩니다.
   String get groupUserToken;
   @override
+
+  /// 서비스에 연결 완료된 시각, UTC
   @JsonKey(fromJson: dateTimeFromJson)
   DateTime get connectedAt;
   @override
+
+  /// 카카오싱크 간편가입을 통해 로그인한 시각, UTC
   @JsonKey(fromJson: dateTimeFromJson)
   DateTime get synchedAt;
   @override

@@ -12,6 +12,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
   return _Profile.fromJson(json);
 }
 
+/// @nodoc
 class _$ProfileTearOff {
   const _$ProfileTearOff();
 
@@ -23,26 +24,40 @@ class _$ProfileTearOff {
       profileImageUrl: profileImageUrl,
     );
   }
+
+// ignore: unused_element
+  Profile fromJson(Map<String, Object> json) {
+    return Profile.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Profile = _$ProfileTearOff();
 
+/// @nodoc
 mixin _$Profile {
+  /// 사용자의 닉네임
   String get nickname;
+
+  /// 카카오계정에 등록된 프로필 이미지의 썸네일 규격 이미지 URL
   Uri get thumbnailImageUrl;
+
+  /// 카카오계정에 등록된 프로필 이미지 URL
   Uri get profileImageUrl;
 
   Map<String, dynamic> toJson();
   $ProfileCopyWith<Profile> get copyWith;
 }
 
+/// @nodoc
 abstract class $ProfileCopyWith<$Res> {
   factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
       _$ProfileCopyWithImpl<$Res>;
   $Res call({String nickname, Uri thumbnailImageUrl, Uri profileImageUrl});
 }
 
+/// @nodoc
 class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
   _$ProfileCopyWithImpl(this._value, this._then);
 
@@ -68,6 +83,7 @@ class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   factory _$ProfileCopyWith(_Profile value, $Res Function(_Profile) then) =
       __$ProfileCopyWithImpl<$Res>;
@@ -75,6 +91,7 @@ abstract class _$ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   $Res call({String nickname, Uri thumbnailImageUrl, Uri profileImageUrl});
 }
 
+/// @nodoc
 class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
     implements _$ProfileCopyWith<$Res> {
   __$ProfileCopyWithImpl(_Profile _value, $Res Function(_Profile) _then)
@@ -103,6 +120,8 @@ class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
 
 @JsonSerializable(
     fieldRename: FieldRename.snake, includeIfNull: false, anyMap: true)
+
+/// @nodoc
 class _$_Profile extends _Profile {
   _$_Profile({this.nickname, this.thumbnailImageUrl, this.profileImageUrl})
       : super._();
@@ -111,10 +130,16 @@ class _$_Profile extends _Profile {
       _$_$_ProfileFromJson(json);
 
   @override
+
+  /// 사용자의 닉네임
   final String nickname;
   @override
+
+  /// 카카오계정에 등록된 프로필 이미지의 썸네일 규격 이미지 URL
   final Uri thumbnailImageUrl;
   @override
+
+  /// 카카오계정에 등록된 프로필 이미지 URL
   final Uri profileImageUrl;
 
   @override
@@ -164,10 +189,16 @@ abstract class _Profile extends Profile {
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
   @override
+
+  /// 사용자의 닉네임
   String get nickname;
   @override
+
+  /// 카카오계정에 등록된 프로필 이미지의 썸네일 규격 이미지 URL
   Uri get thumbnailImageUrl;
   @override
+
+  /// 카카오계정에 등록된 프로필 이미지 URL
   Uri get profileImageUrl;
   @override
   _$ProfileCopyWith<_Profile> get copyWith;

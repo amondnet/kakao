@@ -12,6 +12,7 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
   return _Account.fromJson(json);
 }
 
+/// @nodoc
 class _$AccountTearOff {
   const _$AccountTearOff();
 
@@ -60,11 +61,18 @@ class _$AccountTearOff {
       ciAuthenticatedAt: ciAuthenticatedAt,
     );
   }
+
+// ignore: unused_element
+  Account fromJson(Map<String, Object> json) {
+    return Account.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Account = _$AccountTearOff();
 
+/// @nodoc
 mixin _$Account {
   bool get profileNeedsAgreement;
   Profile get profile;
@@ -93,6 +101,7 @@ mixin _$Account {
   $AccountCopyWith<Account> get copyWith;
 }
 
+/// @nodoc
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res>;
@@ -121,6 +130,7 @@ abstract class $AccountCopyWith<$Res> {
   $ProfileCopyWith<$Res> get profile;
 }
 
+/// @nodoc
 class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
@@ -210,6 +220,7 @@ class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   factory _$AccountCopyWith(_Account value, $Res Function(_Account) then) =
       __$AccountCopyWithImpl<$Res>;
@@ -240,6 +251,7 @@ abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   $ProfileCopyWith<$Res> get profile;
 }
 
+/// @nodoc
 class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
     implements _$AccountCopyWith<$Res> {
   __$AccountCopyWithImpl(_Account _value, $Res Function(_Account) _then)
@@ -325,6 +337,8 @@ class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
     anyMap: true,
     explicitToJson: true,
     includeIfNull: false)
+
+/// @nodoc
 class _$_Account extends _Account {
   _$_Account(
       {this.profileNeedsAgreement,

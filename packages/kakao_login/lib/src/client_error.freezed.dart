@@ -9,6 +9,7 @@ part of 'client_error.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ClientErrorTearOff {
   const _$ClientErrorTearOff();
 
@@ -63,9 +64,11 @@ class _$ClientErrorTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ClientError = _$ClientErrorTearOff();
 
+/// @nodoc
 mixin _$ClientError {
   String get details;
 
@@ -115,6 +118,7 @@ mixin _$ClientError {
   $ClientErrorCopyWith<ClientError> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorCopyWith<$Res> {
   factory $ClientErrorCopyWith(
           ClientError value, $Res Function(ClientError) then) =
@@ -122,6 +126,7 @@ abstract class $ClientErrorCopyWith<$Res> {
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorCopyWithImpl<$Res> implements $ClientErrorCopyWith<$Res> {
   _$ClientErrorCopyWithImpl(this._value, this._then);
 
@@ -139,6 +144,7 @@ class _$ClientErrorCopyWithImpl<$Res> implements $ClientErrorCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ClientErrorCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory _$ClientErrorCopyWith(
@@ -148,6 +154,7 @@ abstract class _$ClientErrorCopyWith<$Res>
   $Res call({String msg, String details});
 }
 
+/// @nodoc
 class __$ClientErrorCopyWithImpl<$Res> extends _$ClientErrorCopyWithImpl<$Res>
     implements _$ClientErrorCopyWith<$Res> {
   __$ClientErrorCopyWithImpl(
@@ -169,6 +176,7 @@ class __$ClientErrorCopyWithImpl<$Res> extends _$ClientErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ClientError extends _ClientError {
   _$_ClientError(this.msg, this.details)
       : assert(msg != null),
@@ -315,6 +323,7 @@ abstract class _ClientError extends ClientError {
   _$ClientErrorCopyWith<_ClientError> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorUnknownCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory $ClientErrorUnknownCopyWith(
@@ -324,6 +333,7 @@ abstract class $ClientErrorUnknownCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorUnknownCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorUnknownCopyWith<$Res> {
@@ -344,6 +354,7 @@ class _$ClientErrorUnknownCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ClientErrorUnknown extends ClientErrorUnknown {
   _$ClientErrorUnknown({this.details}) : super._();
 
@@ -480,6 +491,7 @@ abstract class ClientErrorUnknown extends ClientError {
   $ClientErrorUnknownCopyWith<ClientErrorUnknown> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorCancelledCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory $ClientErrorCancelledCopyWith(ClientErrorCancelled value,
@@ -489,6 +501,7 @@ abstract class $ClientErrorCancelledCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorCancelledCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorCancelledCopyWith<$Res> {
@@ -509,6 +522,7 @@ class _$ClientErrorCancelledCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ClientErrorCancelled extends ClientErrorCancelled {
   _$ClientErrorCancelled({this.details}) : super._();
 
@@ -646,6 +660,7 @@ abstract class ClientErrorCancelled extends ClientError {
   $ClientErrorCancelledCopyWith<ClientErrorCancelled> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorTokenNotFoundCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory $ClientErrorTokenNotFoundCopyWith(ClientErrorTokenNotFound value,
@@ -655,6 +670,7 @@ abstract class $ClientErrorTokenNotFoundCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorTokenNotFoundCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorTokenNotFoundCopyWith<$Res> {
@@ -676,6 +692,7 @@ class _$ClientErrorTokenNotFoundCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
   _$ClientErrorTokenNotFound({this.details}) : super._();
 
@@ -814,6 +831,7 @@ abstract class ClientErrorTokenNotFound extends ClientError {
   $ClientErrorTokenNotFoundCopyWith<ClientErrorTokenNotFound> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorNotSupportedCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory $ClientErrorNotSupportedCopyWith(ClientErrorNotSupported value,
@@ -823,6 +841,7 @@ abstract class $ClientErrorNotSupportedCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorNotSupportedCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorNotSupportedCopyWith<$Res> {
@@ -843,6 +862,7 @@ class _$ClientErrorNotSupportedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ClientErrorNotSupported extends ClientErrorNotSupported {
   _$ClientErrorNotSupported({this.details}) : super._();
 
@@ -980,6 +1000,7 @@ abstract class ClientErrorNotSupported extends ClientError {
   $ClientErrorNotSupportedCopyWith<ClientErrorNotSupported> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorBadParameterCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory $ClientErrorBadParameterCopyWith(ClientErrorBadParameter value,
@@ -989,6 +1010,7 @@ abstract class $ClientErrorBadParameterCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorBadParameterCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorBadParameterCopyWith<$Res> {
@@ -1009,6 +1031,7 @@ class _$ClientErrorBadParameterCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ClientErrorBadParameter extends ClientErrorBadParameter {
   _$ClientErrorBadParameter({this.details}) : super._();
 
@@ -1146,6 +1169,7 @@ abstract class ClientErrorBadParameter extends ClientError {
   $ClientErrorBadParameterCopyWith<ClientErrorBadParameter> get copyWith;
 }
 
+/// @nodoc
 abstract class $ClientErrorIllegalStateCopyWith<$Res>
     implements $ClientErrorCopyWith<$Res> {
   factory $ClientErrorIllegalStateCopyWith(ClientErrorIllegalState value,
@@ -1155,6 +1179,7 @@ abstract class $ClientErrorIllegalStateCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorIllegalStateCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorIllegalStateCopyWith<$Res> {
@@ -1175,6 +1200,7 @@ class _$ClientErrorIllegalStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ClientErrorIllegalState extends ClientErrorIllegalState {
   _$ClientErrorIllegalState({this.details}) : super._();
 

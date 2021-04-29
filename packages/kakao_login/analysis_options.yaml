@@ -4,6 +4,8 @@ analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - "lib/src/messages.dart"
+    - "lib/src/test.dart"
   errors:
     # treat missing returns as a warning (not a hint)
     missing_return: warning

@@ -3,47 +3,40 @@ package net.amond.plugins.kakao.login
 import android.app.Activity
 import android.content.Context
 import androidx.annotation.NonNull
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.TokenManagerProvider
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.KakaoSdk
-import com.kakao.sdk.common.model.ApiError
-import com.kakao.sdk.common.model.AuthError
-import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.KakaoSdkError
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import com.kakao.sdk.user.model.Account
 import com.kakao.sdk.user.model.AgeRange
-import com.kakao.sdk.user.model.Gender
+import com.kakao.sdk.user.model.Profile
 import io.flutter.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 import io.flutter.plugin.common.BinaryMessenger
-import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
 
 /** KakaoLoginPlugin */
-public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+public class KakaoLoginPlugin : FlutterPlugin, Messages.KakaoLoginApi, ActivityAware {
+  /// The MethodChannel that will the communication between Flutter and native Android
+  ///
+  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
+  /// when the Flutter Engine is detached from the Activity
   private lateinit var channel: MethodChannel
+
   private var applicationContext: Context? = null
   private var activity: Activity? = null
-  var gson = GsonBuilder()
-      .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-      .setDateFormat("yyyy-MM-dd HH:mm:ss")
-      .create()
 
   override fun onAttachedToEngine(
       @NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    onInstanceAttachedToEngine(flutterPluginBinding.binaryMessenger, flutterPluginBinding.applicationContext)
+    onInstanceAttachedToEngine(flutterPluginBinding.binaryMessenger,
+        flutterPluginBinding.applicationContext)
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -66,64 +59,16 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     }
   }
 
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    return when (call.method) {
-      "init" -> {
-        val apiKey = call.arguments as String
-        Log.d(TAG, "[onMethodCall] -> init")
-        if (applicationContext != null) {
-          KakaoSdk.init(applicationContext!!, apiKey)
-          result.success(null)
-        } else {
-          result.error("GeneralError", "application context is not exists", " ")
-        }
-      }
-      "logIn" -> {
-        Log.d(TAG, "[onMethodCall] -> logIn")
-        logIn(result)
-      }
-      "logOut" -> {
-        Log.d(TAG, "[onMethodCall] -> logOut")
-        logout(result)
-      }
-      "accessTokenInfo" -> {
-        Log.d(TAG, "[onMethodCall] -> accessTokenInfo")
-        accessTokenInfo(result)
-      }
-      "getCurrentToken" -> {
-        Log.d(TAG, "[onMethodCall] -> getCurrentToken")
-        currentToken(result)
-      }
-      "getUserMe" -> {
-        Log.d(TAG, "[onMethodCall] -> getUserMe")
-        requestMe(result)
-      }
-      "unlink" -> {
-        Log.d(TAG, "[onMethodCall] -> unlink")
-        unlink(result)
-      }
-      "hashKey" -> {
-        Log.d(TAG, "[onMethodCall] -> hashKey")
-        if (activity != null) {
-          val hashKey = Utility.getKeyHash(activity!!)
-          result.success(hashKey)
-        } else {
-          result.error("GeneralError", "activity is not exists", "")
-        }
-      }
-      else -> result.notImplemented()
-    }
-  }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
+    Messages.KakaoLoginApi.setup(binding.binaryMessenger, this)
   }
 
   // ActivityAware
   //
   override fun onDetachedFromActivity() {
     Log.d(TAG, "[onDetachedFromActivity]")
-    channel.setMethodCallHandler(null)
+    //channel.setMethodCallHandler(null)
     activity = null
   }
 
@@ -143,13 +88,13 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
   }
 
   private fun onInstanceAttachedToEngine(
-    messenger: BinaryMessenger,
-    _applicationContext: Context
+      messenger: BinaryMessenger,
+      _applicationContext: Context
   ) {
     Log.d(TAG, "[onInstanceAttachedToEngine]")
     applicationContext = _applicationContext;
-    channel = MethodChannel(messenger, "plugins.amond.net/kakao_login")
-    channel.setMethodCallHandler(this)
+    Messages.KakaoLoginApi.setup(messenger, this)
+
   }
 
   private fun onInstanceAttachedToActivity(_activity: Activity) {
@@ -158,171 +103,54 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
   }
 
   // 로그인 공통 callback 구성
-  private fun loginCallback(result: Result): (OAuthToken?, Throwable?) -> Unit {
+  private fun loginCallback(
+      result: Messages.Result<Messages.OAuthToken>): (OAuthToken?, Throwable?) -> Unit {
     return { token, error ->
       Log.d(TAG, "로그인 Callback")
       if (error != null) {
         Log.e(TAG, "로그인 실패", error)
-        if (error is KakaoSdkError) {
-          handleKakaoError(error, result)
-        } else {
-          result.error("SdkError", "로그인 실패", error.localizedMessage)
-        }
+        throw error
       } else if (token != null) {
         Log.i(TAG, "로그인 성공 ${token.accessToken}")
-        result.success(token.serializeToMap())
-      }
-    }
-  }
-
-
-  // log in
-  private fun logIn(result: Result) {
-    // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
-    Log.d(TAG, "카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인")
-    if (LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)) {
-      Log.d(TAG, "카카오톡으로 로그인")
-      logInWithKakaoTalk(result)
-    } else {
-      Log.d(TAG, "카카오계정으로 로그인")
-      logInWithKakaoAccount(result)
-    }
-  }
-
-  // log in
-  private fun logInWithKakaoTalk(result: Result) {
-    LoginClient.instance.loginWithKakaoTalk(activity!!, callback = loginCallback(result))
-  }
-
-  // log in
-  private fun logInWithKakaoAccount(result: Result) {
-    LoginClient.instance.loginWithKakaoAccount(activity!!, callback = loginCallback(result))
-  }
-
-  // logout
-  //
-  private fun logout(result: Result) {
-    // 로그아웃
-    UserApiClient.instance.logout { error ->
-      if (error != null) {
-        Log.e(TAG, "로그아웃 실패. SDK에서 토큰 삭제됨", error)
-        if (error is KakaoSdkError) {
-          handleKakaoError(error, result)
-        } else {
-          result.error("SdkError", "로그아웃 실패", error.localizedMessage)
-        }
-      } else {
-        Log.i(TAG, "로그아웃 성공. SDK에서 토큰 삭제됨")
-        val context = HashMap<String, String>()
-        context["status"] = "loggedOut"
-        result.success(context)
-      }
-    }
-  }
-
-  private fun accessTokenInfo(result: Result) {
-    // 토큰 정보 보기
-    UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-      if (error != null) {
-        Log.e(TAG, "토큰 정보 보기 실패", error)
-        if (error is KakaoSdkError) {
-          handleKakaoError(error, result)
-        } else {
-          result.error("SdkError", "토큰 정보 실패", error.localizedMessage)
-        }
-      } else if (tokenInfo != null) {
-        Log.i(TAG, "토큰 정보 보기 성공" +
-            "\n회원번호: ${tokenInfo.id}" +
-            "\n만료시간: ${tokenInfo.expiresIn} 초")
-        result.success(tokenInfo.serializeToMap())
-      }
-    }
-  }
-
-  private fun isKakaoTalkLoginAvailable(result: Result) {
-    if (activity != null) {
-      val available = LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)
-      result.success(available)
-    } else {
-      result.error("NOT_INITIALIZED", "activity 가 존재하지 않음", "")
-    }
-  }
-
-  private fun currentToken(result: Result) {
-    try {
-      val token = TokenManagerProvider.instance.manager.getToken()
-      return result.success(token?.serializeToMap())
-    } catch (error: Throwable) {
-      if (error is KakaoSdkError) {
-        handleKakaoError(error, result)
-      } else {
-        result.error("SdkError", "토큰 정보 실패", error.localizedMessage)
+        result.success(Messages.OAuthToken().apply {
+          accessToken = token.accessToken
+          accessTokenExpiresAt = token.accessTokenExpiresAt.time
+          refreshToken = token.refreshToken
+          refreshTokenExpiresAt = token.refreshTokenExpiresAt?.time
+        })
       }
     }
   }
 
   // requestMe
-  private fun requestMe(result: Result) {
-    val methodResult: Result = result
+  private fun requestMe(result: Messages.Result<Messages.User>) {
 
-    val keys: List<String> = listOf(
-        "properties.nickname",
-        "properties.profile_image",
-        "properties.thumbnail_image",
-        "kakao_account.profile",
-        "kakao_account.email",
-        "kakao_account.age_range",
-        "kakao_account.birthday",
-        "kakao_account.gender"
-    )
 // 사용자 정보 요청 (기본)
     UserApiClient.instance.me { user, error ->
       if (error != null) {
         Log.e(TAG, "사용자 정보 요청 실패", error)
-        if ( error is KakaoSdkError ) {
-          handleKakaoError(error = error, result = result)
-        } else {
-          methodResult.error("GeneralError", error.localizedMessage, "")
-        }
-
+        throw error
       } else if (user != null) {
         Log.d(TAG, "사용자 정보 요청 성공" +
             "\n회원번호: ${user.id}" +
             "\n이메일: ${user.kakaoAccount?.email}" +
             "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
             "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
-        try {
-          Log.d(TAG, gson.toJson(user) )
 
-          val map = user.serializeToMap()
+        val reply = Messages.User();
+        reply.id = user.id
+        reply.connectedAt = user.connectedAt?.time
+        reply.groupUserToken = user.groupUserToken
+        reply.kakaoAccount = user.kakaoAccount?.toMessage()
+        reply.properties = user.properties as Map<Any, Any>?;
 
-          methodResult.success(map)
-        } catch (e:Throwable ) {
-          Log.e(TAG, "json error :$e", e);
-          methodResult.error("GeneralError", e.localizedMessage, "")
-        }
-      }
-    }
-  }
-
-  // unlink
-  //
-  private fun unlink(result: Result) {
-    val methodResult: Result = result
-    // 연결 끊기
-    UserApiClient.instance.unlink { error ->
-      if (error != null) {
-        Log.e(TAG, "연결 끊기 실패", error)
-        methodResult.error("UNLINK_ERR", error.localizedMessage, "")
+        result.success(reply)
       } else {
-        Log.i(TAG, "연결 끊기 성공. SDK에서 토큰 삭제 됨")
-        val context = HashMap<String, String>()
-        context["status"] = "unlinked"
-        //context["userID"] = userId.toString()
-        methodResult.success(context)
+        throw RuntimeException("user is null")
       }
     }
   }
+
 
   private fun AgeRange.value(): String {
     return when (this) {
@@ -340,33 +168,150 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
       AgeRange.UNKNOWN -> ""
     }
   }
-  //convert a data class to a map
-  fun <T> T.serializeToMap(): Map<String, Any> {
-    return convert()
-  }
 
-  //convert a map to a data class
-  inline fun <reified T> Map<String, Any>.toDataClass(): T {
-    return convert()
-  }
 
-  //convert an object of type I to type O
-  inline fun <I, reified O> I.convert(): O {
-    val json = gson.toJson(this)
-    return gson.fromJson(json, object : TypeToken<O>() {}.type)
-  }
-}
-
-fun handleKakaoError(error: KakaoSdkError, result: Result) {
-  when (error) {
-    is AuthError -> {
-      result.error("AuthError", error.reason.name, error.msg)
+  override fun initialize(arg: Messages.InitializeRequest) {
+    Log.d(TAG, "[onMethodCall] -> init")
+    if (applicationContext != null) {
+      KakaoSdk.init(applicationContext!!, arg.appKey)
+    } else {
+      throw IllegalStateException("application context is not exists")
     }
-    is ApiError ->
-      result.error("ApiError", error.reason.name, error.msg)
-    is ClientError ->
-      result.error("ClientError", error.reason.name, error.msg)
+  }
+
+  override fun currentToken(): Messages.OAuthToken {
+    val token = TokenManagerProvider.instance.manager.getToken()
+    val reply = Messages.OAuthToken()
+    reply.accessToken = token?.accessToken
+    reply.accessTokenExpiresAt = token?.accessTokenExpiresAt?.time
+    reply.refreshToken = token?.refreshToken
+    reply.refreshTokenExpiresAt = token?.refreshTokenExpiresAt?.time
+
+    return reply
+  }
+
+  override fun getHashKey(): Messages.GetHashKeyReply {
+    val hash = Utility.getKeyHash(activity!!)
+
+    return Messages.GetHashKeyReply().apply { haskHey = hash }
+  }
+
+  override fun accessTokenInfo(result: Messages.Result<Messages.AccessTokenInfo>) {
+    // 토큰 정보 보기
+    UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
+      if (error != null) {
+        Log.e(TAG, "토큰 정보 보기 실패", error)
+        throw error
+      } else if (tokenInfo != null) {
+        Log.i(TAG, "토큰 정보 보기 성공" +
+            "\n회원번호: ${tokenInfo.id}" +
+            "\n만료시간: ${tokenInfo.expiresIn} 초")
+        result.success(Messages.AccessTokenInfo().apply {
+          id = tokenInfo.id
+          expiresIn = tokenInfo.expiresIn
+        })
+      }
+    }
+  }
+
+  override fun isKakaoTalkLoginAvailable(): Messages.BoolReply {
+    if (activity != null) {
+      val available = LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)
+      return Messages.BoolReply().apply { value = available }
+    } else {
+      throw IllegalStateException("activity is not exists")
+    }
+  }
+
+  override fun logout(result: Messages.Result<Messages.VoidReply>) {
+    // 로그아웃
+    UserApiClient.instance.logout { error ->
+      if (error != null) {
+        Log.e(TAG, "로그아웃 실패. SDK에서 토큰 삭제됨", error)
+        throw error
+      } else {
+        Log.i(TAG, "로그아웃 성공. SDK에서 토큰 삭제됨")
+        result.success(Messages.VoidReply())
+      }
+    }
+  }
+
+  override fun unlink(result: Messages.Result<Messages.VoidReply>) {
+    // 연결 끊기
+    UserApiClient.instance.unlink { error ->
+      if (error != null) {
+        Log.e(TAG, "연결 끊기 실패", error)
+        throw error
+      } else {
+        Log.i(TAG, "연결 끊기 성공. SDK에서 토큰 삭제 됨")
+        result.success(Messages.VoidReply())
+      }
+    }
+  }
+
+  override fun login(result: Messages.Result<Messages.OAuthToken>) {
+// 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
+    Log.d(TAG, "카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인")
+    if (LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)) {
+      Log.d(TAG, "카카오톡으로 로그인")
+      logInWithKakaoTalk(result)
+    } else {
+      Log.d(TAG, "카카오계정으로 로그인")
+      logInWithKakaoAccount(result)
+    }
+  }
+
+  override fun logInWithKakaoTalk(result: Messages.Result<Messages.OAuthToken>) {
+    LoginClient.instance.loginWithKakaoTalk(activity!!, callback = loginCallback(result))
+  }
+
+  override fun logInWithKakaoAccount(result: Messages.Result<Messages.OAuthToken>) {
+    LoginClient.instance.loginWithKakaoAccount(activity!!, callback = loginCallback(result))
+  }
+
+  override fun me(result: Messages.Result<Messages.User>) {
+    requestMe(result)
+  }
+
+  private fun Account.toMessage(): Messages.Account {
+
+    val account = Messages.Account()
+    account.ageRange = ageRange?.value()
+    account.ageRangeNeedsAgreement = ageRangeNeedsAgreement
+    account.birthday = birthday
+    account.birthdayNeedsAgreement = birthdayNeedsAgreement
+    account.birthyear = birthyear
+    account.birthyearNeedsAgreement = birthyearNeedsAgreement
+    account.ci = ci
+    account.ciAuthenticatedAt = ciAuthenticatedAt?.time
+    account.ciNeedsAgreement = ciNeedsAgreement
+    account.email = email
+    account.emailNeedsAgreement = emailNeedsAgreement
+    account.gender = gender?.name
+    account.isEmailValid = isEmailValid
+    account.isEmailVerified = isEmailVerified
+    account.genderNeedsAgreement = genderNeedsAgreement
+    account.profileNeedsAgreement = profileNeedsAgreement
+    account.profile = profile?.toMessage()
+    account.legalNameNeedsAgreement = legalNameNeedsAgreement
+    account.legalName = legalName
+    account.legalBirthDate = legalBirthDate
+    account.legalGenderNeedsAgreement = legalGenderNeedsAgreement
+    account.legalGender = legalGender?.name
+    return account
+  }
+
+  private fun Profile.toMessage(): Messages.Profile {
+    val profile = Messages.Profile()
+    profile.nickname = nickname
+    profile.profileImageUrl = profileImageUrl
+    profile.thumbnailImageUrl = thumbnailImageUrl
+
+    return profile
   }
 }
 
 
+class SdkException : RuntimeException()
+
+class TokenIsNotExists : RuntimeException()

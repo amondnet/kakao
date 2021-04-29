@@ -9,6 +9,7 @@ part of 'api_error.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ApiErrorTearOff {
   const _$ApiErrorTearOff();
 
@@ -49,9 +50,11 @@ class _$ApiErrorTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ApiError = _$ApiErrorTearOff();
 
+/// @nodoc
 mixin _$ApiError {
   String get details;
 
@@ -93,12 +96,14 @@ mixin _$ApiError {
   $ApiErrorCopyWith<ApiError> get copyWith;
 }
 
+/// @nodoc
 abstract class $ApiErrorCopyWith<$Res> {
   factory $ApiErrorCopyWith(ApiError value, $Res Function(ApiError) then) =
       _$ApiErrorCopyWithImpl<$Res>;
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ApiErrorCopyWithImpl<$Res> implements $ApiErrorCopyWith<$Res> {
   _$ApiErrorCopyWithImpl(this._value, this._then);
 
@@ -116,6 +121,7 @@ class _$ApiErrorCopyWithImpl<$Res> implements $ApiErrorCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ApiErrorCopyWith<$Res> implements $ApiErrorCopyWith<$Res> {
   factory _$ApiErrorCopyWith(_ApiError value, $Res Function(_ApiError) then) =
       __$ApiErrorCopyWithImpl<$Res>;
@@ -123,6 +129,7 @@ abstract class _$ApiErrorCopyWith<$Res> implements $ApiErrorCopyWith<$Res> {
   $Res call({String msg, String details});
 }
 
+/// @nodoc
 class __$ApiErrorCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
     implements _$ApiErrorCopyWith<$Res> {
   __$ApiErrorCopyWithImpl(_ApiError _value, $Res Function(_ApiError) _then)
@@ -143,6 +150,7 @@ class __$ApiErrorCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ApiError extends _ApiError {
   _$_ApiError(this.msg, this.details)
       : assert(msg != null),
@@ -275,6 +283,7 @@ abstract class _ApiError extends ApiError {
   _$ApiErrorCopyWith<_ApiError> get copyWith;
 }
 
+/// @nodoc
 abstract class $ApiErrorInternalErrorCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorInternalErrorCopyWith(ApiErrorInternalError value,
@@ -284,6 +293,7 @@ abstract class $ApiErrorInternalErrorCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ApiErrorInternalErrorCopyWithImpl<$Res>
     extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorInternalErrorCopyWith<$Res> {
@@ -304,6 +314,7 @@ class _$ApiErrorInternalErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ApiErrorInternalError extends ApiErrorInternalError {
   _$ApiErrorInternalError({this.details}) : super._();
 
@@ -427,6 +438,7 @@ abstract class ApiErrorInternalError extends ApiError {
   $ApiErrorInternalErrorCopyWith<ApiErrorInternalError> get copyWith;
 }
 
+/// @nodoc
 abstract class $ApiErrorIllegalParamsCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorIllegalParamsCopyWith(ApiErrorIllegalParams value,
@@ -436,6 +448,7 @@ abstract class $ApiErrorIllegalParamsCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ApiErrorIllegalParamsCopyWithImpl<$Res>
     extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorIllegalParamsCopyWith<$Res> {
@@ -456,6 +469,7 @@ class _$ApiErrorIllegalParamsCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
   _$ApiErrorIllegalParams({this.details}) : super._();
 
@@ -579,6 +593,7 @@ abstract class ApiErrorIllegalParams extends ApiError {
   $ApiErrorIllegalParamsCopyWith<ApiErrorIllegalParams> get copyWith;
 }
 
+/// @nodoc
 abstract class $ApiErrorUnsupportedApiCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorUnsupportedApiCopyWith(ApiErrorUnsupportedApi value,
@@ -588,6 +603,7 @@ abstract class $ApiErrorUnsupportedApiCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ApiErrorUnsupportedApiCopyWithImpl<$Res>
     extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorUnsupportedApiCopyWith<$Res> {
@@ -608,6 +624,7 @@ class _$ApiErrorUnsupportedApiCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
   _$ApiErrorUnsupportedApi({this.details}) : super._();
 
@@ -731,6 +748,7 @@ abstract class ApiErrorUnsupportedApi extends ApiError {
   $ApiErrorUnsupportedApiCopyWith<ApiErrorUnsupportedApi> get copyWith;
 }
 
+/// @nodoc
 abstract class $ApiErrorUnknownCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorUnknownCopyWith(
@@ -740,6 +758,7 @@ abstract class $ApiErrorUnknownCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$ApiErrorUnknownCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorUnknownCopyWith<$Res> {
   _$ApiErrorUnknownCopyWithImpl(
@@ -759,6 +778,7 @@ class _$ApiErrorUnknownCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$ApiErrorUnknown extends ApiErrorUnknown {
   _$ApiErrorUnknown({this.details}) : super._();
 

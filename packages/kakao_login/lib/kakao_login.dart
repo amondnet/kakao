@@ -1,117 +1,67 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:kakao_login/src/kakao_login_error.dart';
 import 'package:async/async.dart';
-import 'package:kakao_login/src/model/oauth_token.dart';
-
-import 'src/model/user.dart';
+import 'package:kakao_login/src/messages.dart';
+import 'package:kakao_login/src/model.dart' as model;
 export 'src/result_extension.dart';
-export 'src/model/user.dart';
-export 'src/model/oauth_token.dart';
 
 class KakaoLogin {
-  static const MethodChannel _channel =
-      const MethodChannel('plugins.amond.net/kakao_login');
-
   KakaoLogin._instance();
 
   /// Default instance SDK provides.
   static final KakaoLogin instance = KakaoLogin._instance();
+
+  final KakaoLoginApi _api = KakaoLoginApi();
 
   Future<bool> get isLoggedIn async => await currentToken != null;
 
   /// Init
   /// 카카오 sdk 사용 전 init 코드를 호출해야 합니다.
   Future<void> init(String appKey) {
-    return _channel.invokeMethod('init', appKey);
+    assert(appKey.isNotEmpty);
+
+    return _api.initialize(InitializeRequest()..appKey = appKey);
   }
 
   /// Get Current Token Method
   /// 현재 저장된 Token 정보를 가져옵니다.
-  Future<OAuthToken> get currentToken async {
-    try {
-      final json = await _channel.invokeMapMethod('getCurrentToken');
-      debugPrint('currentToken : $json');
-      return OAuthToken.fromJson(Map<String, dynamic>.from(json));
-    } catch (e) {
-      debugPrint('currentToken error : $e');
-      return null;
-    }
+  Future<Result<model.OAuthToken>> get currentToken async {
+    return Result.capture(_api.currentToken().then((value) {}));
   }
 
   /// HashKey Method ( android only )
-  Future<String> get hashKey async {
-    final hashKey = await _channel.invokeMethod('hashKey');
-    return hashKey;
+  Future<Result<String>> get hashKey async {
+    return Result.capture(_api.getHashKey().then((value) => value.haskHey));
   }
 
   /// Get Current User
   Future<Result<User>> get currentUser async {
-    try {
-      final result = await _channel.invokeMapMethod('getUserMe');
-      return _delayedToResult(
-          Result.value(User.fromJson(Map<String, dynamic>.from(result))));
-    } on PlatformException catch (e) {
-      debugPrint("currentUser error : $e");
-      return Result.error(KakaoSdkError.fromPlatformException(e));
-    } catch (e) {
-      debugPrint("currentUser error : $e");
-      // return Result.error();
-    }
+    return Result.capture(_api.me());
   }
 
   // Login Method
   Future<Result<OAuthToken>> logIn() async {
-    try {
-      final result = await _channel.invokeMapMethod<String, dynamic>('logIn');
-      return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
-    } on PlatformException catch (e) {
-      return Result.error(KakaoSdkError.fromPlatformException(e));
-    }
+    return Result.capture(_api.login());
   }
 
   // Login Method
   Future<Result<OAuthToken>> logInWithKakaoTalk() async {
-    try {
-      final result =
-          await _channel.invokeMapMethod<String, dynamic>('logInWithKakaoTalk');
-      return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
-    } on PlatformException catch (e) {
-      return Result.error(KakaoSdkError.fromPlatformException(e));
-    }
+    return Result.capture(_api.login());
   }
 
   // Login Method
   Future<Result<OAuthToken>> logInWithKakaoAccount() async {
-    try {
-      final result = await _channel
-          .invokeMapMethod<String, dynamic>('logInWithKakaoAccount');
-      return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
-    } on PlatformException catch (e) {
-      return Result.error(KakaoSdkError.fromPlatformException(e));
-    }
+    return Result.capture(_api.logInWithKakaoAccount());
   }
 
   // Logout Method
-  Future<Result<KakaoLoginResult>> logOut() async {
-    try {
-      final result = await _channel.invokeMapMethod<String, dynamic>('logOut');
-      return _delayedToResult(Result.value(KakaoLoginResult._(result)));
-    } on PlatformException catch (e) {
-      return Result.error(KakaoSdkError.fromPlatformException(e));
-    }
+  Future<Result<void>> logOut() async {
+    return Result.capture(_api.logout());
   }
 
   // Unlink Method
-  Future<KakaoLoginResult> unlink() async {
-    try {
-      final result = await _channel.invokeMapMethod<String, dynamic>('unlink');
-      return _delayedToResult(KakaoLoginResult._(result));
-    } on PlatformException catch (e) {
-      throw e;
-    }
+  Future<Result<void>> unlink() async {
+    return Result.capture(_api.unlink());
   }
 
   // Helper Delayed Method

@@ -9,6 +9,7 @@ part of 'auth_error.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$AuthErrorTearOff {
   const _$AuthErrorTearOff();
 
@@ -84,9 +85,11 @@ class _$AuthErrorTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthError = _$AuthErrorTearOff();
 
+/// @nodoc
 mixin _$AuthError {
   String get details;
 
@@ -148,12 +151,14 @@ mixin _$AuthError {
   $AuthErrorCopyWith<AuthError> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorCopyWith<$Res> {
   factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) then) =
       _$AuthErrorCopyWithImpl<$Res>;
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
   _$AuthErrorCopyWithImpl(this._value, this._then);
 
@@ -171,6 +176,7 @@ class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$AuthErrorCopyWith<$Res> implements $AuthErrorCopyWith<$Res> {
   factory _$AuthErrorCopyWith(
           _AuthError value, $Res Function(_AuthError) then) =
@@ -179,6 +185,7 @@ abstract class _$AuthErrorCopyWith<$Res> implements $AuthErrorCopyWith<$Res> {
   $Res call({String msg, String details});
 }
 
+/// @nodoc
 class __$AuthErrorCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
     implements _$AuthErrorCopyWith<$Res> {
   __$AuthErrorCopyWithImpl(_AuthError _value, $Res Function(_AuthError) _then)
@@ -199,6 +206,7 @@ class __$AuthErrorCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_AuthError extends _AuthError {
   _$_AuthError(this.msg, this.details)
       : assert(msg != null),
@@ -366,6 +374,7 @@ abstract class _AuthError extends AuthError {
   _$AuthErrorCopyWith<_AuthError> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorInvalidRequestCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorInvalidRequestCopyWith(AuthErrorInvalidRequest value,
@@ -375,6 +384,7 @@ abstract class $AuthErrorInvalidRequestCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidRequestCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidRequestCopyWith<$Res> {
@@ -395,6 +405,7 @@ class _$AuthErrorInvalidRequestCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
   _$AuthErrorInvalidRequest({this.details}) : super._();
 
@@ -553,6 +564,7 @@ abstract class AuthErrorInvalidRequest extends AuthError {
   $AuthErrorInvalidRequestCopyWith<AuthErrorInvalidRequest> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorInvalidClientCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorInvalidClientCopyWith(AuthErrorInvalidClient value,
@@ -562,6 +574,7 @@ abstract class $AuthErrorInvalidClientCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidClientCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidClientCopyWith<$Res> {
@@ -582,6 +595,7 @@ class _$AuthErrorInvalidClientCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
   _$AuthErrorInvalidClient({this.details}) : super._();
 
@@ -740,6 +754,7 @@ abstract class AuthErrorInvalidClient extends AuthError {
   $AuthErrorInvalidClientCopyWith<AuthErrorInvalidClient> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorInvalidScopeCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorInvalidScopeCopyWith(AuthErrorInvalidScope value,
@@ -749,6 +764,7 @@ abstract class $AuthErrorInvalidScopeCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidScopeCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidScopeCopyWith<$Res> {
@@ -769,6 +785,7 @@ class _$AuthErrorInvalidScopeCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
   _$AuthErrorInvalidScope({this.details}) : super._();
 
@@ -927,6 +944,7 @@ abstract class AuthErrorInvalidScope extends AuthError {
   $AuthErrorInvalidScopeCopyWith<AuthErrorInvalidScope> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorInvalidGrantCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorInvalidGrantCopyWith(AuthErrorInvalidGrant value,
@@ -936,6 +954,7 @@ abstract class $AuthErrorInvalidGrantCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidGrantCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidGrantCopyWith<$Res> {
@@ -956,6 +975,7 @@ class _$AuthErrorInvalidGrantCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
   _$AuthErrorInvalidGrant({this.details}) : super._();
 
@@ -1114,6 +1134,7 @@ abstract class AuthErrorInvalidGrant extends AuthError {
   $AuthErrorInvalidGrantCopyWith<AuthErrorInvalidGrant> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorMisconfiguredCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorMisconfiguredCopyWith(AuthErrorMisconfigured value,
@@ -1123,6 +1144,7 @@ abstract class $AuthErrorMisconfiguredCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorMisconfiguredCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorMisconfiguredCopyWith<$Res> {
@@ -1143,6 +1165,7 @@ class _$AuthErrorMisconfiguredCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
   _$AuthErrorMisconfigured({this.details}) : super._();
 
@@ -1301,6 +1324,7 @@ abstract class AuthErrorMisconfigured extends AuthError {
   $AuthErrorMisconfiguredCopyWith<AuthErrorMisconfigured> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorUnauthorizedCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorUnauthorizedCopyWith(AuthErrorUnauthorized value,
@@ -1310,6 +1334,7 @@ abstract class $AuthErrorUnauthorizedCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorUnauthorizedCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorUnauthorizedCopyWith<$Res> {
@@ -1330,6 +1355,7 @@ class _$AuthErrorUnauthorizedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
   _$AuthErrorUnauthorized({this.details}) : super._();
 
@@ -1488,6 +1514,7 @@ abstract class AuthErrorUnauthorized extends AuthError {
   $AuthErrorUnauthorizedCopyWith<AuthErrorUnauthorized> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorAccessDeniedCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorAccessDeniedCopyWith(AuthErrorAccessDenied value,
@@ -1497,6 +1524,7 @@ abstract class $AuthErrorAccessDeniedCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorAccessDeniedCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorAccessDeniedCopyWith<$Res> {
@@ -1517,6 +1545,7 @@ class _$AuthErrorAccessDeniedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
   _$AuthErrorAccessDenied({this.details}) : super._();
 
@@ -1675,6 +1704,7 @@ abstract class AuthErrorAccessDenied extends AuthError {
   $AuthErrorAccessDeniedCopyWith<AuthErrorAccessDenied> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorServerErrorCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorServerErrorCopyWith(AuthErrorServerError value,
@@ -1684,6 +1714,7 @@ abstract class $AuthErrorServerErrorCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorServerErrorCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorServerErrorCopyWith<$Res> {
@@ -1704,6 +1735,7 @@ class _$AuthErrorServerErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorServerError extends AuthErrorServerError {
   _$AuthErrorServerError({this.details}) : super._();
 
@@ -1862,6 +1894,7 @@ abstract class AuthErrorServerError extends AuthError {
   $AuthErrorServerErrorCopyWith<AuthErrorServerError> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthErrorUnknownCopyWith<$Res>
     implements $AuthErrorCopyWith<$Res> {
   factory $AuthErrorUnknownCopyWith(
@@ -1871,6 +1904,7 @@ abstract class $AuthErrorUnknownCopyWith<$Res>
   $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorUnknownCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorUnknownCopyWith<$Res> {
   _$AuthErrorUnknownCopyWithImpl(
@@ -1890,6 +1924,7 @@ class _$AuthErrorUnknownCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AuthErrorUnknown extends AuthErrorUnknown {
   _$AuthErrorUnknown({this.details}) : super._();
 

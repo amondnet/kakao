@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kakao_login/src/messages.dart' as message;
 import 'package:kakao_login/src/model/gson_double_int_converter.dart';
 
 // name: AccessToken
@@ -48,5 +49,15 @@ abstract class OAuthToken implements _$OAuthToken {
           DateTime.now().toUtc().add(Duration(seconds: json['expires_in']));
     }
     return _$OAuthTokenFromJson(json);
+  }
+
+  factory OAuthToken.fromMessage(message.OAuthToken message) {
+
+    return OAuthToken(
+      accessToken: message.accessToken,
+      accessTokenExpiresAt: DateTime.fromMillisecondsSinceEpoch(message.accessTokenExpiresAt),
+
+    )
+
   }
 }
