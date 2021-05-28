@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'client_error.dart';
 
@@ -9,10 +9,13 @@ part of 'client_error.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
 class _$ClientErrorTearOff {
   const _$ClientErrorTearOff();
 
-// ignore: unused_element
   _ClientError call(String msg, String details) {
     return _ClientError(
       msg,
@@ -20,134 +23,121 @@ class _$ClientErrorTearOff {
     );
   }
 
-// ignore: unused_element
-  ClientErrorUnknown unknown({String details}) {
+  ClientErrorUnknown unknown({String? details}) {
     return ClientErrorUnknown(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ClientErrorCancelled cancelled({String details}) {
+  ClientErrorCancelled cancelled({String? details}) {
     return ClientErrorCancelled(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ClientErrorTokenNotFound tokenNotFound({String details}) {
+  ClientErrorTokenNotFound tokenNotFound({String? details}) {
     return ClientErrorTokenNotFound(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ClientErrorNotSupported notSupported({String details}) {
+  ClientErrorNotSupported notSupported({String? details}) {
     return ClientErrorNotSupported(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ClientErrorBadParameter badParameter({String details}) {
+  ClientErrorBadParameter badParameter({String? details}) {
     return ClientErrorBadParameter(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ClientErrorIllegalState llegalState({String details}) {
+  ClientErrorIllegalState llegalState({String? details}) {
     return ClientErrorIllegalState(
       details: details,
     );
   }
 }
 
-// ignore: unused_element
+/// @nodoc
 const $ClientError = _$ClientErrorTearOff();
 
+/// @nodoc
 mixin _$ClientError {
-  String get details;
-
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
-  });
-
-  $ClientErrorCopyWith<ClientError> get copyWith;
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $ClientErrorCopyWith<$Res> {
   factory $ClientErrorCopyWith(
           ClientError value, $Res Function(ClientError) then) =
       _$ClientErrorCopyWithImpl<$Res>;
-  $Res call({String details});
 }
 
+/// @nodoc
 class _$ClientErrorCopyWithImpl<$Res> implements $ClientErrorCopyWith<$Res> {
   _$ClientErrorCopyWithImpl(this._value, this._then);
 
   final ClientError _value;
   // ignore: unused_field
   final $Res Function(ClientError) _then;
-
-  @override
-  $Res call({
-    Object details = freezed,
-  }) {
-    return _then(_value.copyWith(
-      details: details == freezed ? _value.details : details as String,
-    ));
-  }
 }
 
-abstract class _$ClientErrorCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class _$ClientErrorCopyWith<$Res> {
   factory _$ClientErrorCopyWith(
           _ClientError value, $Res Function(_ClientError) then) =
       __$ClientErrorCopyWithImpl<$Res>;
-  @override
   $Res call({String msg, String details});
 }
 
+/// @nodoc
 class __$ClientErrorCopyWithImpl<$Res> extends _$ClientErrorCopyWithImpl<$Res>
     implements _$ClientErrorCopyWith<$Res> {
   __$ClientErrorCopyWithImpl(
@@ -159,48 +149,35 @@ class __$ClientErrorCopyWithImpl<$Res> extends _$ClientErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object msg = freezed,
-    Object details = freezed,
+    Object? msg = freezed,
+    Object? details = freezed,
   }) {
     return _then(_ClientError(
-      msg == freezed ? _value.msg : msg as String,
-      details == freezed ? _value.details : details as String,
+      msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+      details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
+/// @nodoc
+
 class _$_ClientError extends _ClientError {
-  _$_ClientError(this.msg, this.details)
-      : assert(msg != null),
-        assert(details != null),
-        super._();
+  _$_ClientError(this.msg, this.details) : super._();
 
   @override
   final String msg;
   @override
   final String details;
 
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
-
   @override
   String toString() {
-    return 'ClientError(msg: $msg, details: $details, message: $message)';
+    return 'ClientError(msg: $msg, details: $details)';
   }
 
   @override
@@ -219,44 +196,37 @@ class _$_ClientError extends _ClientError {
       const DeepCollectionEquality().hash(msg) ^
       const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   _$ClientErrorCopyWith<_ClientError> get copyWith =>
       __$ClientErrorCopyWithImpl<_ClientError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return $default(msg, details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(msg, details);
     }
@@ -265,38 +235,30 @@ class _$_ClientError extends _ClientError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -305,25 +267,25 @@ class _$_ClientError extends _ClientError {
 }
 
 abstract class _ClientError extends ClientError {
-  _ClientError._() : super._();
   factory _ClientError(String msg, String details) = _$_ClientError;
+  _ClientError._() : super._();
 
-  String get msg;
-  @override
-  String get details;
-  @override
-  _$ClientErrorCopyWith<_ClientError> get copyWith;
+  String get msg => throw _privateConstructorUsedError;
+  String get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ClientErrorCopyWith<_ClientError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $ClientErrorUnknownCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $ClientErrorUnknownCopyWith<$Res> {
   factory $ClientErrorUnknownCopyWith(
           ClientErrorUnknown value, $Res Function(ClientErrorUnknown) then) =
       _$ClientErrorUnknownCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ClientErrorUnknownCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorUnknownCopyWith<$Res> {
@@ -336,41 +298,28 @@ class _$ClientErrorUnknownCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClientErrorUnknown(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ClientErrorUnknown extends ClientErrorUnknown {
   _$ClientErrorUnknown({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ClientError.unknown(details: $details, message: $message)';
+    return 'ClientError.unknown(details: $details)';
   }
 
   @override
@@ -385,44 +334,37 @@ class _$ClientErrorUnknown extends ClientErrorUnknown {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ClientErrorUnknownCopyWith<ClientErrorUnknown> get copyWith =>
       _$ClientErrorUnknownCopyWithImpl<ClientErrorUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return unknown(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unknown != null) {
       return unknown(details);
     }
@@ -431,38 +373,30 @@ class _$ClientErrorUnknown extends ClientErrorUnknown {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return unknown(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unknown != null) {
       return unknown(this);
     }
@@ -471,24 +405,24 @@ class _$ClientErrorUnknown extends ClientErrorUnknown {
 }
 
 abstract class ClientErrorUnknown extends ClientError {
+  factory ClientErrorUnknown({String? details}) = _$ClientErrorUnknown;
   ClientErrorUnknown._() : super._();
-  factory ClientErrorUnknown({String details}) = _$ClientErrorUnknown;
 
-  @override
-  String get details;
-  @override
-  $ClientErrorUnknownCopyWith<ClientErrorUnknown> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientErrorUnknownCopyWith<ClientErrorUnknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $ClientErrorCancelledCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $ClientErrorCancelledCopyWith<$Res> {
   factory $ClientErrorCancelledCopyWith(ClientErrorCancelled value,
           $Res Function(ClientErrorCancelled) then) =
       _$ClientErrorCancelledCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ClientErrorCancelledCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorCancelledCopyWith<$Res> {
@@ -501,41 +435,28 @@ class _$ClientErrorCancelledCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClientErrorCancelled(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ClientErrorCancelled extends ClientErrorCancelled {
   _$ClientErrorCancelled({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ClientError.cancelled(details: $details, message: $message)';
+    return 'ClientError.cancelled(details: $details)';
   }
 
   @override
@@ -550,6 +471,7 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ClientErrorCancelledCopyWith<ClientErrorCancelled> get copyWith =>
       _$ClientErrorCancelledCopyWithImpl<ClientErrorCancelled>(
@@ -557,38 +479,30 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return cancelled(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cancelled != null) {
       return cancelled(details);
     }
@@ -597,38 +511,30 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return cancelled(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cancelled != null) {
       return cancelled(this);
     }
@@ -637,24 +543,24 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
 }
 
 abstract class ClientErrorCancelled extends ClientError {
+  factory ClientErrorCancelled({String? details}) = _$ClientErrorCancelled;
   ClientErrorCancelled._() : super._();
-  factory ClientErrorCancelled({String details}) = _$ClientErrorCancelled;
 
-  @override
-  String get details;
-  @override
-  $ClientErrorCancelledCopyWith<ClientErrorCancelled> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientErrorCancelledCopyWith<ClientErrorCancelled> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $ClientErrorTokenNotFoundCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $ClientErrorTokenNotFoundCopyWith<$Res> {
   factory $ClientErrorTokenNotFoundCopyWith(ClientErrorTokenNotFound value,
           $Res Function(ClientErrorTokenNotFound) then) =
       _$ClientErrorTokenNotFoundCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ClientErrorTokenNotFoundCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorTokenNotFoundCopyWith<$Res> {
@@ -668,41 +574,28 @@ class _$ClientErrorTokenNotFoundCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClientErrorTokenNotFound(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
   _$ClientErrorTokenNotFound({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ClientError.tokenNotFound(details: $details, message: $message)';
+    return 'ClientError.tokenNotFound(details: $details)';
   }
 
   @override
@@ -717,6 +610,7 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ClientErrorTokenNotFoundCopyWith<ClientErrorTokenNotFound> get copyWith =>
       _$ClientErrorTokenNotFoundCopyWithImpl<ClientErrorTokenNotFound>(
@@ -724,38 +618,30 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return tokenNotFound(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (tokenNotFound != null) {
       return tokenNotFound(details);
     }
@@ -764,38 +650,30 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return tokenNotFound(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (tokenNotFound != null) {
       return tokenNotFound(this);
     }
@@ -804,25 +682,25 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
 }
 
 abstract class ClientErrorTokenNotFound extends ClientError {
-  ClientErrorTokenNotFound._() : super._();
-  factory ClientErrorTokenNotFound({String details}) =
+  factory ClientErrorTokenNotFound({String? details}) =
       _$ClientErrorTokenNotFound;
+  ClientErrorTokenNotFound._() : super._();
 
-  @override
-  String get details;
-  @override
-  $ClientErrorTokenNotFoundCopyWith<ClientErrorTokenNotFound> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientErrorTokenNotFoundCopyWith<ClientErrorTokenNotFound> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $ClientErrorNotSupportedCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $ClientErrorNotSupportedCopyWith<$Res> {
   factory $ClientErrorNotSupportedCopyWith(ClientErrorNotSupported value,
           $Res Function(ClientErrorNotSupported) then) =
       _$ClientErrorNotSupportedCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ClientErrorNotSupportedCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorNotSupportedCopyWith<$Res> {
@@ -835,41 +713,28 @@ class _$ClientErrorNotSupportedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClientErrorNotSupported(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ClientErrorNotSupported extends ClientErrorNotSupported {
   _$ClientErrorNotSupported({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ClientError.notSupported(details: $details, message: $message)';
+    return 'ClientError.notSupported(details: $details)';
   }
 
   @override
@@ -884,6 +749,7 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ClientErrorNotSupportedCopyWith<ClientErrorNotSupported> get copyWith =>
       _$ClientErrorNotSupportedCopyWithImpl<ClientErrorNotSupported>(
@@ -891,38 +757,30 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return notSupported(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (notSupported != null) {
       return notSupported(details);
     }
@@ -931,38 +789,30 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return notSupported(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (notSupported != null) {
       return notSupported(this);
     }
@@ -971,24 +821,25 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
 }
 
 abstract class ClientErrorNotSupported extends ClientError {
+  factory ClientErrorNotSupported({String? details}) =
+      _$ClientErrorNotSupported;
   ClientErrorNotSupported._() : super._();
-  factory ClientErrorNotSupported({String details}) = _$ClientErrorNotSupported;
 
-  @override
-  String get details;
-  @override
-  $ClientErrorNotSupportedCopyWith<ClientErrorNotSupported> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientErrorNotSupportedCopyWith<ClientErrorNotSupported> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $ClientErrorBadParameterCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $ClientErrorBadParameterCopyWith<$Res> {
   factory $ClientErrorBadParameterCopyWith(ClientErrorBadParameter value,
           $Res Function(ClientErrorBadParameter) then) =
       _$ClientErrorBadParameterCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ClientErrorBadParameterCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorBadParameterCopyWith<$Res> {
@@ -1001,41 +852,28 @@ class _$ClientErrorBadParameterCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClientErrorBadParameter(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ClientErrorBadParameter extends ClientErrorBadParameter {
   _$ClientErrorBadParameter({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ClientError.badParameter(details: $details, message: $message)';
+    return 'ClientError.badParameter(details: $details)';
   }
 
   @override
@@ -1050,6 +888,7 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ClientErrorBadParameterCopyWith<ClientErrorBadParameter> get copyWith =>
       _$ClientErrorBadParameterCopyWithImpl<ClientErrorBadParameter>(
@@ -1057,38 +896,30 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return badParameter(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (badParameter != null) {
       return badParameter(details);
     }
@@ -1097,38 +928,30 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return badParameter(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (badParameter != null) {
       return badParameter(this);
     }
@@ -1137,24 +960,25 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
 }
 
 abstract class ClientErrorBadParameter extends ClientError {
+  factory ClientErrorBadParameter({String? details}) =
+      _$ClientErrorBadParameter;
   ClientErrorBadParameter._() : super._();
-  factory ClientErrorBadParameter({String details}) = _$ClientErrorBadParameter;
 
-  @override
-  String get details;
-  @override
-  $ClientErrorBadParameterCopyWith<ClientErrorBadParameter> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientErrorBadParameterCopyWith<ClientErrorBadParameter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $ClientErrorIllegalStateCopyWith<$Res>
-    implements $ClientErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $ClientErrorIllegalStateCopyWith<$Res> {
   factory $ClientErrorIllegalStateCopyWith(ClientErrorIllegalState value,
           $Res Function(ClientErrorIllegalState) then) =
       _$ClientErrorIllegalStateCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ClientErrorIllegalStateCopyWithImpl<$Res>
     extends _$ClientErrorCopyWithImpl<$Res>
     implements $ClientErrorIllegalStateCopyWith<$Res> {
@@ -1167,41 +991,28 @@ class _$ClientErrorIllegalStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ClientErrorIllegalState(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ClientErrorIllegalState extends ClientErrorIllegalState {
   _$ClientErrorIllegalState({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, __) => msg,
-          unknown: (_) => "기타 에러",
-          cancelled: (_) => "요청 취소",
-          tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",
-          notSupported: (_) => "지원되지 않는 기능",
-          badParameter: (_) => "잘못된 파라미터",
-          llegalState: (_) => "정상적으로 실행할 수 없는 상태");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ClientError.llegalState(details: $details, message: $message)';
+    return 'ClientError.llegalState(details: $details)';
   }
 
   @override
@@ -1216,6 +1027,7 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ClientErrorIllegalStateCopyWith<ClientErrorIllegalState> get copyWith =>
       _$ClientErrorIllegalStateCopyWithImpl<ClientErrorIllegalState>(
@@ -1223,38 +1035,30 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result unknown(String details),
-    @required Result cancelled(String details),
-    @required Result tokenNotFound(String details),
-    @required Result notSupported(String details),
-    @required Result badParameter(String details),
-    @required Result llegalState(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) unknown,
+    required TResult Function(String? details) cancelled,
+    required TResult Function(String? details) tokenNotFound,
+    required TResult Function(String? details) notSupported,
+    required TResult Function(String? details) badParameter,
+    required TResult Function(String? details) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return llegalState(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result unknown(String details),
-    Result cancelled(String details),
-    Result tokenNotFound(String details),
-    Result notSupported(String details),
-    Result badParameter(String details),
-    Result llegalState(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? unknown,
+    TResult Function(String? details)? cancelled,
+    TResult Function(String? details)? tokenNotFound,
+    TResult Function(String? details)? notSupported,
+    TResult Function(String? details)? badParameter,
+    TResult Function(String? details)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (llegalState != null) {
       return llegalState(details);
     }
@@ -1263,38 +1067,30 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ClientError value), {
-    @required Result unknown(ClientErrorUnknown value),
-    @required Result cancelled(ClientErrorCancelled value),
-    @required Result tokenNotFound(ClientErrorTokenNotFound value),
-    @required Result notSupported(ClientErrorNotSupported value),
-    @required Result badParameter(ClientErrorBadParameter value),
-    @required Result llegalState(ClientErrorIllegalState value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_ClientError value) $default, {
+    required TResult Function(ClientErrorUnknown value) unknown,
+    required TResult Function(ClientErrorCancelled value) cancelled,
+    required TResult Function(ClientErrorTokenNotFound value) tokenNotFound,
+    required TResult Function(ClientErrorNotSupported value) notSupported,
+    required TResult Function(ClientErrorBadParameter value) badParameter,
+    required TResult Function(ClientErrorIllegalState value) llegalState,
   }) {
-    assert($default != null);
-    assert(unknown != null);
-    assert(cancelled != null);
-    assert(tokenNotFound != null);
-    assert(notSupported != null);
-    assert(badParameter != null);
-    assert(llegalState != null);
     return llegalState(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ClientError value), {
-    Result unknown(ClientErrorUnknown value),
-    Result cancelled(ClientErrorCancelled value),
-    Result tokenNotFound(ClientErrorTokenNotFound value),
-    Result notSupported(ClientErrorNotSupported value),
-    Result badParameter(ClientErrorBadParameter value),
-    Result llegalState(ClientErrorIllegalState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ClientError value)? $default, {
+    TResult Function(ClientErrorUnknown value)? unknown,
+    TResult Function(ClientErrorCancelled value)? cancelled,
+    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult Function(ClientErrorNotSupported value)? notSupported,
+    TResult Function(ClientErrorBadParameter value)? badParameter,
+    TResult Function(ClientErrorIllegalState value)? llegalState,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (llegalState != null) {
       return llegalState(this);
     }
@@ -1303,11 +1099,12 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
 }
 
 abstract class ClientErrorIllegalState extends ClientError {
+  factory ClientErrorIllegalState({String? details}) =
+      _$ClientErrorIllegalState;
   ClientErrorIllegalState._() : super._();
-  factory ClientErrorIllegalState({String details}) = _$ClientErrorIllegalState;
 
-  @override
-  String get details;
-  @override
-  $ClientErrorIllegalStateCopyWith<ClientErrorIllegalState> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientErrorIllegalStateCopyWith<ClientErrorIllegalState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -7,37 +7,40 @@ part 'api_error.freezed.dart';
 
 /// API 에러
 @freezed
-abstract class ApiError extends KakaoSdkError implements _$ApiError {
+abstract class ApiError extends KakaoSdkError with _$ApiError {
   ApiError._() : super();
-  factory ApiError(String msg, String details) = _ApiError;
 
-  factory ApiError.internalError({String details}) = ApiErrorInternalError;
-  factory ApiError.illegalParams({String details}) = ApiErrorIllegalParams;
-  factory ApiError.unsupportedApi({String details}) = ApiErrorUnsupportedApi;
+  factory ApiError(String msg, String? details) = DefaultApiError;
+
+  factory ApiError.internalError({String? details}) = ApiErrorInternalError;
+
+  factory ApiError.illegalParams({String? details}) = ApiErrorIllegalParams;
+
+  factory ApiError.unsupportedApi({String? details}) = ApiErrorUnsupportedApi;
+
   // TODO(amond): 추가
+  factory ApiError.unknown({String? details}) = ApiErrorUnknown;
 
-  factory ApiError.unknown({String details}) = ApiErrorUnknown;
-
-  @late
+  //@late
   @override
   String get message => when((msg, details) => msg,
-      internalError: (_) => "기타 서버 에러",
-      illegalParams: (_) => "잘못된 파라미터",
-      unsupportedApi: (_) => "지원되지 않는 API",
-      unknown: (_) => "기타 에러");
+      internalError: (_) => '기타 서버 에러',
+      illegalParams: (_) => '잘못된 파라미터',
+      unsupportedApi: (_) => '지원되지 않는 API',
+      unknown: (_) => '기타 에러');
 
   @override
-  String get type => "ApiError";
+  String get type => 'ApiError';
 
   static ApiError fromPlatformException(PlatformException e) {
     switch (e.code) {
-      case "InternalError":
+      case 'InternalError':
         return ApiError.internalError(details: e.details);
-      case "IllegalParams":
+      case 'IllegalParams':
         return ApiError.internalError(details: e.details);
-      case "UnsupportedApi":
+      case 'UnsupportedApi':
         return ApiError.internalError(details: e.details);
-      case "Unknown":
+      case 'Unknown':
       default:
         return ApiError.unknown(details: e.details);
     }

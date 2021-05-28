@@ -7,21 +7,21 @@ part 'profile.g.dart';
 /// Kakao Profile
 /// 카카오계정에 등록된 사용자의 프로필 정보를 제공합니다.
 @freezed
-abstract class Profile implements _$Profile {
-  Profile._();
+class Profile with _$Profile {
+  const Profile._();
   @JsonSerializable(
       fieldRename: FieldRename.snake, includeIfNull: false, anyMap: true)
-  factory Profile(
+  const factory Profile(
       {
 
       /// 사용자의 닉네임
-      String nickname,
+      String? nickname,
 
       /// 카카오계정에 등록된 프로필 이미지의 썸네일 규격 이미지 URL
-      Uri thumbnailImageUrl,
+      Uri? thumbnailImageUrl,
 
       /// 카카오계정에 등록된 프로필 이미지 URL
-      Uri profileImageUrl}) = _Profile;
+      Uri? profileImageUrl}) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);

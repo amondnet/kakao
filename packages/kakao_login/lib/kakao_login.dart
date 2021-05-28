@@ -1,15 +1,16 @@
 import 'dart:async';
 
+import 'package:async/async.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:kakao_login/src/kakao_login_error.dart';
-import 'package:async/async.dart';
 import 'package:kakao_login/src/model/oauth_token.dart';
 
 import 'src/model/user.dart';
-export 'src/result_extension.dart';
-export 'src/model/user.dart';
+
 export 'src/model/oauth_token.dart';
+export 'src/model/user.dart';
+export 'src/result_extension.dart';
 
 class KakaoLogin {
   static const MethodChannel _channel =
@@ -30,9 +31,10 @@ class KakaoLogin {
 
   /// Get Current Token Method
   /// 현재 저장된 Token 정보를 가져옵니다.
-  Future<OAuthToken> get currentToken async {
+  Future<OAuthToken?> get currentToken async {
     try {
-      final json = await _channel.invokeMapMethod('getCurrentToken');
+      final json = await (_channel.invokeMapMethod('getCurrentToken')
+          as FutureOr<Map<dynamic, dynamic>>);
       debugPrint('currentToken : $json');
       return OAuthToken.fromJson(Map<String, dynamic>.from(json));
     } catch (e) {
@@ -42,7 +44,7 @@ class KakaoLogin {
   }
 
   /// HashKey Method ( android only )
-  Future<String> get hashKey async {
+  Future<String?> get hashKey async {
     final hashKey = await _channel.invokeMethod('hashKey');
     return hashKey;
   }
@@ -50,22 +52,24 @@ class KakaoLogin {
   /// Get Current User
   Future<Result<User>> get currentUser async {
     try {
-      final result = await _channel.invokeMapMethod('getUserMe');
+      final result = await (_channel.invokeMapMethod('getUserMe')
+          as FutureOr<Map<dynamic, dynamic>>);
       return _delayedToResult(
           Result.value(User.fromJson(Map<String, dynamic>.from(result))));
     } on PlatformException catch (e) {
-      debugPrint("currentUser error : $e");
+      debugPrint('currentUser error : $e');
       return Result.error(KakaoSdkError.fromPlatformException(e));
     } catch (e) {
-      debugPrint("currentUser error : $e");
-      // return Result.error();
+      debugPrint('currentUser error : $e');
+      return Result.error(e);
     }
   }
 
   // Login Method
   Future<Result<OAuthToken>> logIn() async {
     try {
-      final result = await _channel.invokeMapMethod<String, dynamic>('logIn');
+      final result = await (_channel.invokeMapMethod<String, dynamic>('logIn')
+          as FutureOr<Map<String, dynamic>>);
       return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
@@ -76,7 +80,8 @@ class KakaoLogin {
   Future<Result<OAuthToken>> logInWithKakaoTalk() async {
     try {
       final result =
-          await _channel.invokeMapMethod<String, dynamic>('logInWithKakaoTalk');
+          await (_channel.invokeMapMethod<String, dynamic>('logInWithKakaoTalk')
+              as FutureOr<Map<String, dynamic>>);
       return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
@@ -86,8 +91,8 @@ class KakaoLogin {
   // Login Method
   Future<Result<OAuthToken>> logInWithKakaoAccount() async {
     try {
-      final result = await _channel
-          .invokeMapMethod<String, dynamic>('logInWithKakaoAccount');
+      final result = await (_channel.invokeMapMethod<String, dynamic>(
+          'logInWithKakaoAccount') as FutureOr<Map<String, dynamic>>);
       return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
@@ -97,7 +102,8 @@ class KakaoLogin {
   // Logout Method
   Future<Result<KakaoLoginResult>> logOut() async {
     try {
-      final result = await _channel.invokeMapMethod<String, dynamic>('logOut');
+      final result = await (_channel.invokeMapMethod<String, dynamic>('logOut')
+          as FutureOr<Map<String, dynamic>>);
       return _delayedToResult(Result.value(KakaoLoginResult._(result)));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
@@ -107,7 +113,8 @@ class KakaoLogin {
   // Unlink Method
   Future<KakaoLoginResult> unlink() async {
     try {
-      final result = await _channel.invokeMapMethod<String, dynamic>('unlink');
+      final result = await (_channel.invokeMapMethod<String, dynamic>('unlink')
+          as FutureOr<Map<String, dynamic>>);
       return _delayedToResult(KakaoLoginResult._(result));
     } on PlatformException catch (e) {
       throw e;
@@ -132,7 +139,7 @@ class KakaoLoginResult {
       : status = _parseStatus(map['status']),
         account = KakaoAccountResult._(map);
 
-  static KakaoLoginStatus _parseStatus(String status) {
+  static KakaoLoginStatus _parseStatus(String? status) {
     switch (status) {
       case 'loggedIn':
         return KakaoLoginStatus.loggedIn;
@@ -148,17 +155,17 @@ class KakaoLoginResult {
 
 // Account Class
 class KakaoAccountResult {
-  final String userID;
-  final String userEmail;
-  final String userPhoneNumber;
-  final String userDisplayID;
-  final String userNickname;
-  final String userGender;
-  final String userAgeRange;
-  final String userBirthyear;
-  final String userBirthday;
-  final String userProfileImagePath;
-  final String userThumbnailImagePath;
+  final String? userID;
+  final String? userEmail;
+  final String? userPhoneNumber;
+  final String? userDisplayID;
+  final String? userNickname;
+  final String? userGender;
+  final String? userAgeRange;
+  final String? userBirthyear;
+  final String? userBirthday;
+  final String? userProfileImagePath;
+  final String? userThumbnailImagePath;
 
   KakaoAccountResult._(Map<String, dynamic> map)
       : userID = map['userID'],

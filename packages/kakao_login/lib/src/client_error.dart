@@ -14,29 +14,29 @@ abstract class ClientError extends KakaoSdkError implements _$ClientError {
   factory ClientError(String msg, String details) = _ClientError;
 
   /// 기타 에러
-  factory ClientError.unknown({String details}) = ClientErrorUnknown;
+  factory ClientError.unknown({String? details}) = ClientErrorUnknown;
 
   /// 요청 취소
-  factory ClientError.cancelled({String details}) = ClientErrorCancelled;
+  factory ClientError.cancelled({String? details}) = ClientErrorCancelled;
 
   /// API 요청에 사용할 토큰이 없음
-  factory ClientError.tokenNotFound({String details}) =
+  factory ClientError.tokenNotFound({String? details}) =
       ClientErrorTokenNotFound;
 
   /// 지원되지 않는 기능
-  factory ClientError.notSupported({String details}) = ClientErrorNotSupported;
+  factory ClientError.notSupported({String? details}) = ClientErrorNotSupported;
 
   /// 잘못된 파라미터
-  factory ClientError.badParameter({String details}) = ClientErrorBadParameter;
+  factory ClientError.badParameter({String? details}) = ClientErrorBadParameter;
 
   /// 정상적으로 실행할 수 없는 상태
-  factory ClientError.llegalState({String details}) = ClientErrorIllegalState;
+  factory ClientError.llegalState({String? details}) = ClientErrorIllegalState;
 
   @override
   String get type => TYPE;
 
-  @late
-  String get message => when((msg, __) => msg,
+  //@late
+  String? get message => when((msg, __) => msg,
       unknown: (_) => "기타 에러",
       cancelled: (_) => "요청 취소",
       tokenNotFound: (_) => "API 요청에 사용할 토큰이 없음",

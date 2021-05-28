@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'api_error.dart';
 
@@ -9,96 +9,104 @@ part of 'api_error.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
 class _$ApiErrorTearOff {
   const _$ApiErrorTearOff();
 
-// ignore: unused_element
-  _ApiError call(String msg, String details) {
-    return _ApiError(
+  DefaultApiError call(String msg, String? details) {
+    return DefaultApiError(
       msg,
       details,
     );
   }
 
-// ignore: unused_element
-  ApiErrorInternalError internalError({String details}) {
+  ApiErrorInternalError internalError({String? details}) {
     return ApiErrorInternalError(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ApiErrorIllegalParams illegalParams({String details}) {
+  ApiErrorIllegalParams illegalParams({String? details}) {
     return ApiErrorIllegalParams(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ApiErrorUnsupportedApi unsupportedApi({String details}) {
+  ApiErrorUnsupportedApi unsupportedApi({String? details}) {
     return ApiErrorUnsupportedApi(
       details: details,
     );
   }
 
-// ignore: unused_element
-  ApiErrorUnknown unknown({String details}) {
+  ApiErrorUnknown unknown({String? details}) {
     return ApiErrorUnknown(
       details: details,
     );
   }
 }
 
-// ignore: unused_element
+/// @nodoc
 const $ApiError = _$ApiErrorTearOff();
 
+/// @nodoc
 mixin _$ApiError {
-  String get details;
+  String? get details => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result internalError(String details),
-    @required Result illegalParams(String details),
-    @required Result unsupportedApi(String details),
-    @required Result unknown(String details),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String? details) $default, {
+    required TResult Function(String? details) internalError,
+    required TResult Function(String? details) illegalParams,
+    required TResult Function(String? details) unsupportedApi,
+    required TResult Function(String? details) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result internalError(String details),
-    Result illegalParams(String details),
-    Result unsupportedApi(String details),
-    Result unknown(String details),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String? details)? $default, {
+    TResult Function(String? details)? internalError,
+    TResult Function(String? details)? illegalParams,
+    TResult Function(String? details)? unsupportedApi,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ApiError value), {
-    @required Result internalError(ApiErrorInternalError value),
-    @required Result illegalParams(ApiErrorIllegalParams value),
-    @required Result unsupportedApi(ApiErrorUnsupportedApi value),
-    @required Result unknown(ApiErrorUnknown value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(DefaultApiError value) $default, {
+    required TResult Function(ApiErrorInternalError value) internalError,
+    required TResult Function(ApiErrorIllegalParams value) illegalParams,
+    required TResult Function(ApiErrorUnsupportedApi value) unsupportedApi,
+    required TResult Function(ApiErrorUnknown value) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ApiError value), {
-    Result internalError(ApiErrorInternalError value),
-    Result illegalParams(ApiErrorIllegalParams value),
-    Result unsupportedApi(ApiErrorUnsupportedApi value),
-    Result unknown(ApiErrorUnknown value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DefaultApiError value)? $default, {
+    TResult Function(ApiErrorInternalError value)? internalError,
+    TResult Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult Function(ApiErrorUnknown value)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  $ApiErrorCopyWith<ApiError> get copyWith;
+  @JsonKey(ignore: true)
+  $ApiErrorCopyWith<ApiError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $ApiErrorCopyWith<$Res> {
   factory $ApiErrorCopyWith(ApiError value, $Res Function(ApiError) then) =
       _$ApiErrorCopyWithImpl<$Res>;
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ApiErrorCopyWithImpl<$Res> implements $ApiErrorCopyWith<$Res> {
   _$ApiErrorCopyWithImpl(this._value, this._then);
 
@@ -108,77 +116,74 @@ class _$ApiErrorCopyWithImpl<$Res> implements $ApiErrorCopyWith<$Res> {
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(_value.copyWith(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-abstract class _$ApiErrorCopyWith<$Res> implements $ApiErrorCopyWith<$Res> {
-  factory _$ApiErrorCopyWith(_ApiError value, $Res Function(_ApiError) then) =
-      __$ApiErrorCopyWithImpl<$Res>;
+/// @nodoc
+abstract class $DefaultApiErrorCopyWith<$Res>
+    implements $ApiErrorCopyWith<$Res> {
+  factory $DefaultApiErrorCopyWith(
+          DefaultApiError value, $Res Function(DefaultApiError) then) =
+      _$DefaultApiErrorCopyWithImpl<$Res>;
   @override
-  $Res call({String msg, String details});
+  $Res call({String msg, String? details});
 }
 
-class __$ApiErrorCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
-    implements _$ApiErrorCopyWith<$Res> {
-  __$ApiErrorCopyWithImpl(_ApiError _value, $Res Function(_ApiError) _then)
-      : super(_value, (v) => _then(v as _ApiError));
+/// @nodoc
+class _$DefaultApiErrorCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
+    implements $DefaultApiErrorCopyWith<$Res> {
+  _$DefaultApiErrorCopyWithImpl(
+      DefaultApiError _value, $Res Function(DefaultApiError) _then)
+      : super(_value, (v) => _then(v as DefaultApiError));
 
   @override
-  _ApiError get _value => super._value as _ApiError;
+  DefaultApiError get _value => super._value as DefaultApiError;
 
   @override
   $Res call({
-    Object msg = freezed,
-    Object details = freezed,
+    Object? msg = freezed,
+    Object? details = freezed,
   }) {
-    return _then(_ApiError(
-      msg == freezed ? _value.msg : msg as String,
-      details == freezed ? _value.details : details as String,
+    return _then(DefaultApiError(
+      msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+      details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-class _$_ApiError extends _ApiError {
-  _$_ApiError(this.msg, this.details)
-      : assert(msg != null),
-        assert(details != null),
-        super._();
+/// @nodoc
+
+class _$DefaultApiError extends DefaultApiError {
+  _$DefaultApiError(this.msg, this.details) : super._();
 
   @override
   final String msg;
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          internalError: (_) => "기타 서버 에러",
-          illegalParams: (_) => "잘못된 파라미터",
-          unsupportedApi: (_) => "지원되지 않는 API",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ApiError(msg: $msg, details: $details, message: $message)';
+    return 'ApiError(msg: $msg, details: $details)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ApiError &&
+        (other is DefaultApiError &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)) &&
             (identical(other.details, details) ||
@@ -191,38 +196,33 @@ class _$_ApiError extends _ApiError {
       const DeepCollectionEquality().hash(msg) ^
       const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
-  _$ApiErrorCopyWith<_ApiError> get copyWith =>
-      __$ApiErrorCopyWithImpl<_ApiError>(this, _$identity);
+  $DefaultApiErrorCopyWith<DefaultApiError> get copyWith =>
+      _$DefaultApiErrorCopyWithImpl<DefaultApiError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result internalError(String details),
-    @required Result illegalParams(String details),
-    @required Result unsupportedApi(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String? details) $default, {
+    required TResult Function(String? details) internalError,
+    required TResult Function(String? details) illegalParams,
+    required TResult Function(String? details) unsupportedApi,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return $default(msg, details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result internalError(String details),
-    Result illegalParams(String details),
-    Result unsupportedApi(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String? details)? $default, {
+    TResult Function(String? details)? internalError,
+    TResult Function(String? details)? illegalParams,
+    TResult Function(String? details)? unsupportedApi,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(msg, details);
     }
@@ -231,32 +231,26 @@ class _$_ApiError extends _ApiError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ApiError value), {
-    @required Result internalError(ApiErrorInternalError value),
-    @required Result illegalParams(ApiErrorIllegalParams value),
-    @required Result unsupportedApi(ApiErrorUnsupportedApi value),
-    @required Result unknown(ApiErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(DefaultApiError value) $default, {
+    required TResult Function(ApiErrorInternalError value) internalError,
+    required TResult Function(ApiErrorIllegalParams value) illegalParams,
+    required TResult Function(ApiErrorUnsupportedApi value) unsupportedApi,
+    required TResult Function(ApiErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ApiError value), {
-    Result internalError(ApiErrorInternalError value),
-    Result illegalParams(ApiErrorIllegalParams value),
-    Result unsupportedApi(ApiErrorUnsupportedApi value),
-    Result unknown(ApiErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DefaultApiError value)? $default, {
+    TResult Function(ApiErrorInternalError value)? internalError,
+    TResult Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult Function(ApiErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -264,26 +258,30 @@ class _$_ApiError extends _ApiError {
   }
 }
 
-abstract class _ApiError extends ApiError {
-  _ApiError._() : super._();
-  factory _ApiError(String msg, String details) = _$_ApiError;
+abstract class DefaultApiError extends ApiError {
+  factory DefaultApiError(String msg, String? details) = _$DefaultApiError;
+  DefaultApiError._() : super._();
 
-  String get msg;
+  String get msg => throw _privateConstructorUsedError;
   @override
-  String get details;
+  String? get details => throw _privateConstructorUsedError;
   @override
-  _$ApiErrorCopyWith<_ApiError> get copyWith;
+  @JsonKey(ignore: true)
+  $DefaultApiErrorCopyWith<DefaultApiError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $ApiErrorInternalErrorCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorInternalErrorCopyWith(ApiErrorInternalError value,
           $Res Function(ApiErrorInternalError) then) =
       _$ApiErrorInternalErrorCopyWithImpl<$Res>;
   @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ApiErrorInternalErrorCopyWithImpl<$Res>
     extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorInternalErrorCopyWith<$Res> {
@@ -296,39 +294,28 @@ class _$ApiErrorInternalErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ApiErrorInternalError(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ApiErrorInternalError extends ApiErrorInternalError {
   _$ApiErrorInternalError({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          internalError: (_) => "기타 서버 에러",
-          illegalParams: (_) => "잘못된 파라미터",
-          unsupportedApi: (_) => "지원되지 않는 API",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ApiError.internalError(details: $details, message: $message)';
+    return 'ApiError.internalError(details: $details)';
   }
 
   @override
@@ -343,6 +330,7 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ApiErrorInternalErrorCopyWith<ApiErrorInternalError> get copyWith =>
       _$ApiErrorInternalErrorCopyWithImpl<ApiErrorInternalError>(
@@ -350,32 +338,26 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result internalError(String details),
-    @required Result illegalParams(String details),
-    @required Result unsupportedApi(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String? details) $default, {
+    required TResult Function(String? details) internalError,
+    required TResult Function(String? details) illegalParams,
+    required TResult Function(String? details) unsupportedApi,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return internalError(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result internalError(String details),
-    Result illegalParams(String details),
-    Result unsupportedApi(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String? details)? $default, {
+    TResult Function(String? details)? internalError,
+    TResult Function(String? details)? illegalParams,
+    TResult Function(String? details)? unsupportedApi,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (internalError != null) {
       return internalError(details);
     }
@@ -384,32 +366,26 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ApiError value), {
-    @required Result internalError(ApiErrorInternalError value),
-    @required Result illegalParams(ApiErrorIllegalParams value),
-    @required Result unsupportedApi(ApiErrorUnsupportedApi value),
-    @required Result unknown(ApiErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(DefaultApiError value) $default, {
+    required TResult Function(ApiErrorInternalError value) internalError,
+    required TResult Function(ApiErrorIllegalParams value) illegalParams,
+    required TResult Function(ApiErrorUnsupportedApi value) unsupportedApi,
+    required TResult Function(ApiErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return internalError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ApiError value), {
-    Result internalError(ApiErrorInternalError value),
-    Result illegalParams(ApiErrorIllegalParams value),
-    Result unsupportedApi(ApiErrorUnsupportedApi value),
-    Result unknown(ApiErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DefaultApiError value)? $default, {
+    TResult Function(ApiErrorInternalError value)? internalError,
+    TResult Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult Function(ApiErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (internalError != null) {
       return internalError(this);
     }
@@ -418,24 +394,28 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
 }
 
 abstract class ApiErrorInternalError extends ApiError {
+  factory ApiErrorInternalError({String? details}) = _$ApiErrorInternalError;
   ApiErrorInternalError._() : super._();
-  factory ApiErrorInternalError({String details}) = _$ApiErrorInternalError;
 
   @override
-  String get details;
+  String? get details => throw _privateConstructorUsedError;
   @override
-  $ApiErrorInternalErrorCopyWith<ApiErrorInternalError> get copyWith;
+  @JsonKey(ignore: true)
+  $ApiErrorInternalErrorCopyWith<ApiErrorInternalError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $ApiErrorIllegalParamsCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorIllegalParamsCopyWith(ApiErrorIllegalParams value,
           $Res Function(ApiErrorIllegalParams) then) =
       _$ApiErrorIllegalParamsCopyWithImpl<$Res>;
   @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ApiErrorIllegalParamsCopyWithImpl<$Res>
     extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorIllegalParamsCopyWith<$Res> {
@@ -448,39 +428,28 @@ class _$ApiErrorIllegalParamsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ApiErrorIllegalParams(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
   _$ApiErrorIllegalParams({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          internalError: (_) => "기타 서버 에러",
-          illegalParams: (_) => "잘못된 파라미터",
-          unsupportedApi: (_) => "지원되지 않는 API",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ApiError.illegalParams(details: $details, message: $message)';
+    return 'ApiError.illegalParams(details: $details)';
   }
 
   @override
@@ -495,6 +464,7 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ApiErrorIllegalParamsCopyWith<ApiErrorIllegalParams> get copyWith =>
       _$ApiErrorIllegalParamsCopyWithImpl<ApiErrorIllegalParams>(
@@ -502,32 +472,26 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result internalError(String details),
-    @required Result illegalParams(String details),
-    @required Result unsupportedApi(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String? details) $default, {
+    required TResult Function(String? details) internalError,
+    required TResult Function(String? details) illegalParams,
+    required TResult Function(String? details) unsupportedApi,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return illegalParams(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result internalError(String details),
-    Result illegalParams(String details),
-    Result unsupportedApi(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String? details)? $default, {
+    TResult Function(String? details)? internalError,
+    TResult Function(String? details)? illegalParams,
+    TResult Function(String? details)? unsupportedApi,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (illegalParams != null) {
       return illegalParams(details);
     }
@@ -536,32 +500,26 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ApiError value), {
-    @required Result internalError(ApiErrorInternalError value),
-    @required Result illegalParams(ApiErrorIllegalParams value),
-    @required Result unsupportedApi(ApiErrorUnsupportedApi value),
-    @required Result unknown(ApiErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(DefaultApiError value) $default, {
+    required TResult Function(ApiErrorInternalError value) internalError,
+    required TResult Function(ApiErrorIllegalParams value) illegalParams,
+    required TResult Function(ApiErrorUnsupportedApi value) unsupportedApi,
+    required TResult Function(ApiErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return illegalParams(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ApiError value), {
-    Result internalError(ApiErrorInternalError value),
-    Result illegalParams(ApiErrorIllegalParams value),
-    Result unsupportedApi(ApiErrorUnsupportedApi value),
-    Result unknown(ApiErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DefaultApiError value)? $default, {
+    TResult Function(ApiErrorInternalError value)? internalError,
+    TResult Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult Function(ApiErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (illegalParams != null) {
       return illegalParams(this);
     }
@@ -570,24 +528,28 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
 }
 
 abstract class ApiErrorIllegalParams extends ApiError {
+  factory ApiErrorIllegalParams({String? details}) = _$ApiErrorIllegalParams;
   ApiErrorIllegalParams._() : super._();
-  factory ApiErrorIllegalParams({String details}) = _$ApiErrorIllegalParams;
 
   @override
-  String get details;
+  String? get details => throw _privateConstructorUsedError;
   @override
-  $ApiErrorIllegalParamsCopyWith<ApiErrorIllegalParams> get copyWith;
+  @JsonKey(ignore: true)
+  $ApiErrorIllegalParamsCopyWith<ApiErrorIllegalParams> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $ApiErrorUnsupportedApiCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorUnsupportedApiCopyWith(ApiErrorUnsupportedApi value,
           $Res Function(ApiErrorUnsupportedApi) then) =
       _$ApiErrorUnsupportedApiCopyWithImpl<$Res>;
   @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ApiErrorUnsupportedApiCopyWithImpl<$Res>
     extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorUnsupportedApiCopyWith<$Res> {
@@ -600,39 +562,28 @@ class _$ApiErrorUnsupportedApiCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ApiErrorUnsupportedApi(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
   _$ApiErrorUnsupportedApi({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          internalError: (_) => "기타 서버 에러",
-          illegalParams: (_) => "잘못된 파라미터",
-          unsupportedApi: (_) => "지원되지 않는 API",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ApiError.unsupportedApi(details: $details, message: $message)';
+    return 'ApiError.unsupportedApi(details: $details)';
   }
 
   @override
@@ -647,6 +598,7 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ApiErrorUnsupportedApiCopyWith<ApiErrorUnsupportedApi> get copyWith =>
       _$ApiErrorUnsupportedApiCopyWithImpl<ApiErrorUnsupportedApi>(
@@ -654,32 +606,26 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result internalError(String details),
-    @required Result illegalParams(String details),
-    @required Result unsupportedApi(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String? details) $default, {
+    required TResult Function(String? details) internalError,
+    required TResult Function(String? details) illegalParams,
+    required TResult Function(String? details) unsupportedApi,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return unsupportedApi(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result internalError(String details),
-    Result illegalParams(String details),
-    Result unsupportedApi(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String? details)? $default, {
+    TResult Function(String? details)? internalError,
+    TResult Function(String? details)? illegalParams,
+    TResult Function(String? details)? unsupportedApi,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unsupportedApi != null) {
       return unsupportedApi(details);
     }
@@ -688,32 +634,26 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ApiError value), {
-    @required Result internalError(ApiErrorInternalError value),
-    @required Result illegalParams(ApiErrorIllegalParams value),
-    @required Result unsupportedApi(ApiErrorUnsupportedApi value),
-    @required Result unknown(ApiErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(DefaultApiError value) $default, {
+    required TResult Function(ApiErrorInternalError value) internalError,
+    required TResult Function(ApiErrorIllegalParams value) illegalParams,
+    required TResult Function(ApiErrorUnsupportedApi value) unsupportedApi,
+    required TResult Function(ApiErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return unsupportedApi(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ApiError value), {
-    Result internalError(ApiErrorInternalError value),
-    Result illegalParams(ApiErrorIllegalParams value),
-    Result unsupportedApi(ApiErrorUnsupportedApi value),
-    Result unknown(ApiErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DefaultApiError value)? $default, {
+    TResult Function(ApiErrorInternalError value)? internalError,
+    TResult Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult Function(ApiErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unsupportedApi != null) {
       return unsupportedApi(this);
     }
@@ -722,24 +662,28 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
 }
 
 abstract class ApiErrorUnsupportedApi extends ApiError {
+  factory ApiErrorUnsupportedApi({String? details}) = _$ApiErrorUnsupportedApi;
   ApiErrorUnsupportedApi._() : super._();
-  factory ApiErrorUnsupportedApi({String details}) = _$ApiErrorUnsupportedApi;
 
   @override
-  String get details;
+  String? get details => throw _privateConstructorUsedError;
   @override
-  $ApiErrorUnsupportedApiCopyWith<ApiErrorUnsupportedApi> get copyWith;
+  @JsonKey(ignore: true)
+  $ApiErrorUnsupportedApiCopyWith<ApiErrorUnsupportedApi> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $ApiErrorUnknownCopyWith<$Res>
     implements $ApiErrorCopyWith<$Res> {
   factory $ApiErrorUnknownCopyWith(
           ApiErrorUnknown value, $Res Function(ApiErrorUnknown) then) =
       _$ApiErrorUnknownCopyWithImpl<$Res>;
   @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$ApiErrorUnknownCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
     implements $ApiErrorUnknownCopyWith<$Res> {
   _$ApiErrorUnknownCopyWithImpl(
@@ -751,39 +695,28 @@ class _$ApiErrorUnknownCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(ApiErrorUnknown(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$ApiErrorUnknown extends ApiErrorUnknown {
   _$ApiErrorUnknown({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          internalError: (_) => "기타 서버 에러",
-          illegalParams: (_) => "잘못된 파라미터",
-          unsupportedApi: (_) => "지원되지 않는 API",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'ApiError.unknown(details: $details, message: $message)';
+    return 'ApiError.unknown(details: $details)';
   }
 
   @override
@@ -798,38 +731,33 @@ class _$ApiErrorUnknown extends ApiErrorUnknown {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $ApiErrorUnknownCopyWith<ApiErrorUnknown> get copyWith =>
       _$ApiErrorUnknownCopyWithImpl<ApiErrorUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result internalError(String details),
-    @required Result illegalParams(String details),
-    @required Result unsupportedApi(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String? details) $default, {
+    required TResult Function(String? details) internalError,
+    required TResult Function(String? details) illegalParams,
+    required TResult Function(String? details) unsupportedApi,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return unknown(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result internalError(String details),
-    Result illegalParams(String details),
-    Result unsupportedApi(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String? details)? $default, {
+    TResult Function(String? details)? internalError,
+    TResult Function(String? details)? illegalParams,
+    TResult Function(String? details)? unsupportedApi,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unknown != null) {
       return unknown(details);
     }
@@ -838,32 +766,26 @@ class _$ApiErrorUnknown extends ApiErrorUnknown {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_ApiError value), {
-    @required Result internalError(ApiErrorInternalError value),
-    @required Result illegalParams(ApiErrorIllegalParams value),
-    @required Result unsupportedApi(ApiErrorUnsupportedApi value),
-    @required Result unknown(ApiErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(DefaultApiError value) $default, {
+    required TResult Function(ApiErrorInternalError value) internalError,
+    required TResult Function(ApiErrorIllegalParams value) illegalParams,
+    required TResult Function(ApiErrorUnsupportedApi value) unsupportedApi,
+    required TResult Function(ApiErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(internalError != null);
-    assert(illegalParams != null);
-    assert(unsupportedApi != null);
-    assert(unknown != null);
     return unknown(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_ApiError value), {
-    Result internalError(ApiErrorInternalError value),
-    Result illegalParams(ApiErrorIllegalParams value),
-    Result unsupportedApi(ApiErrorUnsupportedApi value),
-    Result unknown(ApiErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(DefaultApiError value)? $default, {
+    TResult Function(ApiErrorInternalError value)? internalError,
+    TResult Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult Function(ApiErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unknown != null) {
       return unknown(this);
     }
@@ -872,11 +794,13 @@ class _$ApiErrorUnknown extends ApiErrorUnknown {
 }
 
 abstract class ApiErrorUnknown extends ApiError {
+  factory ApiErrorUnknown({String? details}) = _$ApiErrorUnknown;
   ApiErrorUnknown._() : super._();
-  factory ApiErrorUnknown({String details}) = _$ApiErrorUnknown;
 
   @override
-  String get details;
+  String? get details => throw _privateConstructorUsedError;
   @override
-  $ApiErrorUnknownCopyWith<ApiErrorUnknown> get copyWith;
+  @JsonKey(ignore: true)
+  $ApiErrorUnknownCopyWith<ApiErrorUnknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -8,13 +8,14 @@ part of 'oauth_token.dart';
 
 _$_OAuthToken _$_$_OAuthTokenFromJson(Map<String, dynamic> json) {
   return _$_OAuthToken(
-    accessToken: json['access_token'] as String,
+    accessToken: json['access_token'] as String?,
     accessTokenExpiresAt: dateTimeFromJson(json['access_token_expires_at']),
-    expiresIn: json['expires_in'] as int,
-    refreshToken: json['refresh_token'] as String,
+    expiresIn: json['expires_in'] as int?,
+    refreshToken: json['refresh_token'] as String?,
     refreshTokenExpiresAt: dateTimeFromJson(json['refresh_token_expires_at']),
-    refreshTokenExpiresIn: json['refresh_token_expires_in'] as int,
-    scopes: (json['scopes'] as List)?.map((e) => e as String)?.toList(),
+    refreshTokenExpiresIn: json['refresh_token_expires_in'] as int?,
+    scopes:
+        (json['scopes'] as List<dynamic>?)?.map((e) => e as String).toList(),
   );
 }
 

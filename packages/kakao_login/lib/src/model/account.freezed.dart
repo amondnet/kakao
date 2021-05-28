@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'account.dart';
 
@@ -8,35 +8,39 @@ part of 'account.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Account _$AccountFromJson(Map<String, dynamic> json) {
   return _Account.fromJson(json);
 }
 
+/// @nodoc
 class _$AccountTearOff {
   const _$AccountTearOff();
 
-// ignore: unused_element
   _Account call(
-      {bool profileNeedsAgreement,
-      Profile profile,
-      bool isEmailVerified,
-      bool isEmailValid,
-      bool emailNeedsAgreement,
-      String email,
-      bool isKakaotalkUser,
-      bool phoneNumberNeedsAgreement,
-      String phoneNumber,
-      bool ageRangeNeedsAgreement,
-      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange ageRange,
-      bool birthdayNeedsAgreement,
-      String birthday,
-      bool birthyearNeedsAgreement,
-      String birthyear,
-      bool genderNeedsAgreement,
-      @JsonKey(unknownEnumValue: Gender.OTHER) Gender gender,
-      bool ciNeedsAgreement,
-      String ci,
-      DateTime ciAuthenticatedAt}) {
+      {bool? profileNeedsAgreement,
+      Profile? profile,
+      bool? isEmailVerified,
+      bool? isEmailValid,
+      bool? emailNeedsAgreement,
+      String? email,
+      bool? isKakaotalkUser,
+      bool? phoneNumberNeedsAgreement,
+      String? phoneNumber,
+      bool? ageRangeNeedsAgreement,
+      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange? ageRange,
+      bool? birthdayNeedsAgreement,
+      String? birthday,
+      bool? birthyearNeedsAgreement,
+      String? birthyear,
+      bool? genderNeedsAgreement,
+      @JsonKey(unknownEnumValue: Gender.OTHER) Gender? gender,
+      bool? ciNeedsAgreement,
+      String? ci,
+      DateTime? ciAuthenticatedAt}) {
     return _Account(
       profileNeedsAgreement: profileNeedsAgreement,
       profile: profile,
@@ -60,67 +64,75 @@ class _$AccountTearOff {
       ciAuthenticatedAt: ciAuthenticatedAt,
     );
   }
+
+  Account fromJson(Map<String, Object> json) {
+    return Account.fromJson(json);
+  }
 }
 
-// ignore: unused_element
+/// @nodoc
 const $Account = _$AccountTearOff();
 
+/// @nodoc
 mixin _$Account {
-  bool get profileNeedsAgreement;
-  Profile get profile;
-  bool get isEmailVerified;
-  bool get isEmailValid;
-  bool get emailNeedsAgreement;
-  String get email;
-  bool get isKakaotalkUser;
-  bool get phoneNumberNeedsAgreement;
-  String get phoneNumber;
-  bool get ageRangeNeedsAgreement;
+  bool? get profileNeedsAgreement => throw _privateConstructorUsedError;
+  Profile? get profile => throw _privateConstructorUsedError;
+  bool? get isEmailVerified => throw _privateConstructorUsedError;
+  bool? get isEmailValid => throw _privateConstructorUsedError;
+  bool? get emailNeedsAgreement => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  bool? get isKakaotalkUser => throw _privateConstructorUsedError;
+  bool? get phoneNumberNeedsAgreement => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  bool? get ageRangeNeedsAgreement => throw _privateConstructorUsedError;
   @JsonKey(unknownEnumValue: AgeRange.UNKNOWN)
-  AgeRange get ageRange;
-  bool get birthdayNeedsAgreement;
-  String get birthday;
-  bool get birthyearNeedsAgreement;
-  String get birthyear;
-  bool get genderNeedsAgreement;
+  AgeRange? get ageRange => throw _privateConstructorUsedError;
+  bool? get birthdayNeedsAgreement => throw _privateConstructorUsedError;
+  String? get birthday => throw _privateConstructorUsedError;
+  bool? get birthyearNeedsAgreement => throw _privateConstructorUsedError;
+  String? get birthyear => throw _privateConstructorUsedError;
+  bool? get genderNeedsAgreement => throw _privateConstructorUsedError;
   @JsonKey(unknownEnumValue: Gender.OTHER)
-  Gender get gender;
-  bool get ciNeedsAgreement;
-  String get ci;
-  DateTime get ciAuthenticatedAt;
+  Gender? get gender => throw _privateConstructorUsedError;
+  bool? get ciNeedsAgreement => throw _privateConstructorUsedError;
+  String? get ci => throw _privateConstructorUsedError;
+  DateTime? get ciAuthenticatedAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $AccountCopyWith<Account> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res>;
   $Res call(
-      {bool profileNeedsAgreement,
-      Profile profile,
-      bool isEmailVerified,
-      bool isEmailValid,
-      bool emailNeedsAgreement,
-      String email,
-      bool isKakaotalkUser,
-      bool phoneNumberNeedsAgreement,
-      String phoneNumber,
-      bool ageRangeNeedsAgreement,
-      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange ageRange,
-      bool birthdayNeedsAgreement,
-      String birthday,
-      bool birthyearNeedsAgreement,
-      String birthyear,
-      bool genderNeedsAgreement,
-      @JsonKey(unknownEnumValue: Gender.OTHER) Gender gender,
-      bool ciNeedsAgreement,
-      String ci,
-      DateTime ciAuthenticatedAt});
+      {bool? profileNeedsAgreement,
+      Profile? profile,
+      bool? isEmailVerified,
+      bool? isEmailValid,
+      bool? emailNeedsAgreement,
+      String? email,
+      bool? isKakaotalkUser,
+      bool? phoneNumberNeedsAgreement,
+      String? phoneNumber,
+      bool? ageRangeNeedsAgreement,
+      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange? ageRange,
+      bool? birthdayNeedsAgreement,
+      String? birthday,
+      bool? birthyearNeedsAgreement,
+      String? birthyear,
+      bool? genderNeedsAgreement,
+      @JsonKey(unknownEnumValue: Gender.OTHER) Gender? gender,
+      bool? ciNeedsAgreement,
+      String? ci,
+      DateTime? ciAuthenticatedAt});
 
-  $ProfileCopyWith<$Res> get profile;
+  $ProfileCopyWith<$Res>? get profile;
 }
 
+/// @nodoc
 class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
@@ -130,116 +142,155 @@ class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
 
   @override
   $Res call({
-    Object profileNeedsAgreement = freezed,
-    Object profile = freezed,
-    Object isEmailVerified = freezed,
-    Object isEmailValid = freezed,
-    Object emailNeedsAgreement = freezed,
-    Object email = freezed,
-    Object isKakaotalkUser = freezed,
-    Object phoneNumberNeedsAgreement = freezed,
-    Object phoneNumber = freezed,
-    Object ageRangeNeedsAgreement = freezed,
-    Object ageRange = freezed,
-    Object birthdayNeedsAgreement = freezed,
-    Object birthday = freezed,
-    Object birthyearNeedsAgreement = freezed,
-    Object birthyear = freezed,
-    Object genderNeedsAgreement = freezed,
-    Object gender = freezed,
-    Object ciNeedsAgreement = freezed,
-    Object ci = freezed,
-    Object ciAuthenticatedAt = freezed,
+    Object? profileNeedsAgreement = freezed,
+    Object? profile = freezed,
+    Object? isEmailVerified = freezed,
+    Object? isEmailValid = freezed,
+    Object? emailNeedsAgreement = freezed,
+    Object? email = freezed,
+    Object? isKakaotalkUser = freezed,
+    Object? phoneNumberNeedsAgreement = freezed,
+    Object? phoneNumber = freezed,
+    Object? ageRangeNeedsAgreement = freezed,
+    Object? ageRange = freezed,
+    Object? birthdayNeedsAgreement = freezed,
+    Object? birthday = freezed,
+    Object? birthyearNeedsAgreement = freezed,
+    Object? birthyear = freezed,
+    Object? genderNeedsAgreement = freezed,
+    Object? gender = freezed,
+    Object? ciNeedsAgreement = freezed,
+    Object? ci = freezed,
+    Object? ciAuthenticatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       profileNeedsAgreement: profileNeedsAgreement == freezed
           ? _value.profileNeedsAgreement
-          : profileNeedsAgreement as bool,
-      profile: profile == freezed ? _value.profile : profile as Profile,
+          : profileNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as Profile?,
       isEmailVerified: isEmailVerified == freezed
           ? _value.isEmailVerified
-          : isEmailVerified as bool,
-      isEmailValid:
-          isEmailValid == freezed ? _value.isEmailValid : isEmailValid as bool,
+          : isEmailVerified // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isEmailValid: isEmailValid == freezed
+          ? _value.isEmailValid
+          : isEmailValid // ignore: cast_nullable_to_non_nullable
+              as bool?,
       emailNeedsAgreement: emailNeedsAgreement == freezed
           ? _value.emailNeedsAgreement
-          : emailNeedsAgreement as bool,
-      email: email == freezed ? _value.email : email as String,
+          : emailNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
       isKakaotalkUser: isKakaotalkUser == freezed
           ? _value.isKakaotalkUser
-          : isKakaotalkUser as bool,
+          : isKakaotalkUser // ignore: cast_nullable_to_non_nullable
+              as bool?,
       phoneNumberNeedsAgreement: phoneNumberNeedsAgreement == freezed
           ? _value.phoneNumberNeedsAgreement
-          : phoneNumberNeedsAgreement as bool,
-      phoneNumber:
-          phoneNumber == freezed ? _value.phoneNumber : phoneNumber as String,
+          : phoneNumberNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       ageRangeNeedsAgreement: ageRangeNeedsAgreement == freezed
           ? _value.ageRangeNeedsAgreement
-          : ageRangeNeedsAgreement as bool,
-      ageRange: ageRange == freezed ? _value.ageRange : ageRange as AgeRange,
+          : ageRangeNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      ageRange: ageRange == freezed
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange?,
       birthdayNeedsAgreement: birthdayNeedsAgreement == freezed
           ? _value.birthdayNeedsAgreement
-          : birthdayNeedsAgreement as bool,
-      birthday: birthday == freezed ? _value.birthday : birthday as String,
+          : birthdayNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      birthday: birthday == freezed
+          ? _value.birthday
+          : birthday // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthyearNeedsAgreement: birthyearNeedsAgreement == freezed
           ? _value.birthyearNeedsAgreement
-          : birthyearNeedsAgreement as bool,
-      birthyear: birthyear == freezed ? _value.birthyear : birthyear as String,
+          : birthyearNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      birthyear: birthyear == freezed
+          ? _value.birthyear
+          : birthyear // ignore: cast_nullable_to_non_nullable
+              as String?,
       genderNeedsAgreement: genderNeedsAgreement == freezed
           ? _value.genderNeedsAgreement
-          : genderNeedsAgreement as bool,
-      gender: gender == freezed ? _value.gender : gender as Gender,
+          : genderNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender?,
       ciNeedsAgreement: ciNeedsAgreement == freezed
           ? _value.ciNeedsAgreement
-          : ciNeedsAgreement as bool,
-      ci: ci == freezed ? _value.ci : ci as String,
+          : ciNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      ci: ci == freezed
+          ? _value.ci
+          : ci // ignore: cast_nullable_to_non_nullable
+              as String?,
       ciAuthenticatedAt: ciAuthenticatedAt == freezed
           ? _value.ciAuthenticatedAt
-          : ciAuthenticatedAt as DateTime,
+          : ciAuthenticatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 
   @override
-  $ProfileCopyWith<$Res> get profile {
+  $ProfileCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
     }
-    return $ProfileCopyWith<$Res>(_value.profile, (value) {
+
+    return $ProfileCopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value));
     });
   }
 }
 
+/// @nodoc
 abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   factory _$AccountCopyWith(_Account value, $Res Function(_Account) then) =
       __$AccountCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool profileNeedsAgreement,
-      Profile profile,
-      bool isEmailVerified,
-      bool isEmailValid,
-      bool emailNeedsAgreement,
-      String email,
-      bool isKakaotalkUser,
-      bool phoneNumberNeedsAgreement,
-      String phoneNumber,
-      bool ageRangeNeedsAgreement,
-      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange ageRange,
-      bool birthdayNeedsAgreement,
-      String birthday,
-      bool birthyearNeedsAgreement,
-      String birthyear,
-      bool genderNeedsAgreement,
-      @JsonKey(unknownEnumValue: Gender.OTHER) Gender gender,
-      bool ciNeedsAgreement,
-      String ci,
-      DateTime ciAuthenticatedAt});
+      {bool? profileNeedsAgreement,
+      Profile? profile,
+      bool? isEmailVerified,
+      bool? isEmailValid,
+      bool? emailNeedsAgreement,
+      String? email,
+      bool? isKakaotalkUser,
+      bool? phoneNumberNeedsAgreement,
+      String? phoneNumber,
+      bool? ageRangeNeedsAgreement,
+      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange? ageRange,
+      bool? birthdayNeedsAgreement,
+      String? birthday,
+      bool? birthyearNeedsAgreement,
+      String? birthyear,
+      bool? genderNeedsAgreement,
+      @JsonKey(unknownEnumValue: Gender.OTHER) Gender? gender,
+      bool? ciNeedsAgreement,
+      String? ci,
+      DateTime? ciAuthenticatedAt});
 
   @override
-  $ProfileCopyWith<$Res> get profile;
+  $ProfileCopyWith<$Res>? get profile;
 }
 
+/// @nodoc
 class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
     implements _$AccountCopyWith<$Res> {
   __$AccountCopyWithImpl(_Account _value, $Res Function(_Account) _then)
@@ -250,75 +301,113 @@ class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object profileNeedsAgreement = freezed,
-    Object profile = freezed,
-    Object isEmailVerified = freezed,
-    Object isEmailValid = freezed,
-    Object emailNeedsAgreement = freezed,
-    Object email = freezed,
-    Object isKakaotalkUser = freezed,
-    Object phoneNumberNeedsAgreement = freezed,
-    Object phoneNumber = freezed,
-    Object ageRangeNeedsAgreement = freezed,
-    Object ageRange = freezed,
-    Object birthdayNeedsAgreement = freezed,
-    Object birthday = freezed,
-    Object birthyearNeedsAgreement = freezed,
-    Object birthyear = freezed,
-    Object genderNeedsAgreement = freezed,
-    Object gender = freezed,
-    Object ciNeedsAgreement = freezed,
-    Object ci = freezed,
-    Object ciAuthenticatedAt = freezed,
+    Object? profileNeedsAgreement = freezed,
+    Object? profile = freezed,
+    Object? isEmailVerified = freezed,
+    Object? isEmailValid = freezed,
+    Object? emailNeedsAgreement = freezed,
+    Object? email = freezed,
+    Object? isKakaotalkUser = freezed,
+    Object? phoneNumberNeedsAgreement = freezed,
+    Object? phoneNumber = freezed,
+    Object? ageRangeNeedsAgreement = freezed,
+    Object? ageRange = freezed,
+    Object? birthdayNeedsAgreement = freezed,
+    Object? birthday = freezed,
+    Object? birthyearNeedsAgreement = freezed,
+    Object? birthyear = freezed,
+    Object? genderNeedsAgreement = freezed,
+    Object? gender = freezed,
+    Object? ciNeedsAgreement = freezed,
+    Object? ci = freezed,
+    Object? ciAuthenticatedAt = freezed,
   }) {
     return _then(_Account(
       profileNeedsAgreement: profileNeedsAgreement == freezed
           ? _value.profileNeedsAgreement
-          : profileNeedsAgreement as bool,
-      profile: profile == freezed ? _value.profile : profile as Profile,
+          : profileNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as Profile?,
       isEmailVerified: isEmailVerified == freezed
           ? _value.isEmailVerified
-          : isEmailVerified as bool,
-      isEmailValid:
-          isEmailValid == freezed ? _value.isEmailValid : isEmailValid as bool,
+          : isEmailVerified // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isEmailValid: isEmailValid == freezed
+          ? _value.isEmailValid
+          : isEmailValid // ignore: cast_nullable_to_non_nullable
+              as bool?,
       emailNeedsAgreement: emailNeedsAgreement == freezed
           ? _value.emailNeedsAgreement
-          : emailNeedsAgreement as bool,
-      email: email == freezed ? _value.email : email as String,
+          : emailNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
       isKakaotalkUser: isKakaotalkUser == freezed
           ? _value.isKakaotalkUser
-          : isKakaotalkUser as bool,
+          : isKakaotalkUser // ignore: cast_nullable_to_non_nullable
+              as bool?,
       phoneNumberNeedsAgreement: phoneNumberNeedsAgreement == freezed
           ? _value.phoneNumberNeedsAgreement
-          : phoneNumberNeedsAgreement as bool,
-      phoneNumber:
-          phoneNumber == freezed ? _value.phoneNumber : phoneNumber as String,
+          : phoneNumberNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       ageRangeNeedsAgreement: ageRangeNeedsAgreement == freezed
           ? _value.ageRangeNeedsAgreement
-          : ageRangeNeedsAgreement as bool,
-      ageRange: ageRange == freezed ? _value.ageRange : ageRange as AgeRange,
+          : ageRangeNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      ageRange: ageRange == freezed
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange?,
       birthdayNeedsAgreement: birthdayNeedsAgreement == freezed
           ? _value.birthdayNeedsAgreement
-          : birthdayNeedsAgreement as bool,
-      birthday: birthday == freezed ? _value.birthday : birthday as String,
+          : birthdayNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      birthday: birthday == freezed
+          ? _value.birthday
+          : birthday // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthyearNeedsAgreement: birthyearNeedsAgreement == freezed
           ? _value.birthyearNeedsAgreement
-          : birthyearNeedsAgreement as bool,
-      birthyear: birthyear == freezed ? _value.birthyear : birthyear as String,
+          : birthyearNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      birthyear: birthyear == freezed
+          ? _value.birthyear
+          : birthyear // ignore: cast_nullable_to_non_nullable
+              as String?,
       genderNeedsAgreement: genderNeedsAgreement == freezed
           ? _value.genderNeedsAgreement
-          : genderNeedsAgreement as bool,
-      gender: gender == freezed ? _value.gender : gender as Gender,
+          : genderNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender?,
       ciNeedsAgreement: ciNeedsAgreement == freezed
           ? _value.ciNeedsAgreement
-          : ciNeedsAgreement as bool,
-      ci: ci == freezed ? _value.ci : ci as String,
+          : ciNeedsAgreement // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      ci: ci == freezed
+          ? _value.ci
+          : ci // ignore: cast_nullable_to_non_nullable
+              as String?,
       ciAuthenticatedAt: ciAuthenticatedAt == freezed
           ? _value.ciAuthenticatedAt
-          : ciAuthenticatedAt as DateTime,
+          : ciAuthenticatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
+
+/// @nodoc
 
 @JsonSerializable(
     fieldRename: FieldRename.snake,
@@ -353,47 +442,47 @@ class _$_Account extends _Account {
       _$_$_AccountFromJson(json);
 
   @override
-  final bool profileNeedsAgreement;
+  final bool? profileNeedsAgreement;
   @override
-  final Profile profile;
+  final Profile? profile;
   @override
-  final bool isEmailVerified;
+  final bool? isEmailVerified;
   @override
-  final bool isEmailValid;
+  final bool? isEmailValid;
   @override
-  final bool emailNeedsAgreement;
+  final bool? emailNeedsAgreement;
   @override
-  final String email;
+  final String? email;
   @override
-  final bool isKakaotalkUser;
+  final bool? isKakaotalkUser;
   @override
-  final bool phoneNumberNeedsAgreement;
+  final bool? phoneNumberNeedsAgreement;
   @override
-  final String phoneNumber;
+  final String? phoneNumber;
   @override
-  final bool ageRangeNeedsAgreement;
+  final bool? ageRangeNeedsAgreement;
   @override
   @JsonKey(unknownEnumValue: AgeRange.UNKNOWN)
-  final AgeRange ageRange;
+  final AgeRange? ageRange;
   @override
-  final bool birthdayNeedsAgreement;
+  final bool? birthdayNeedsAgreement;
   @override
-  final String birthday;
+  final String? birthday;
   @override
-  final bool birthyearNeedsAgreement;
+  final bool? birthyearNeedsAgreement;
   @override
-  final String birthyear;
+  final String? birthyear;
   @override
-  final bool genderNeedsAgreement;
+  final bool? genderNeedsAgreement;
   @override
   @JsonKey(unknownEnumValue: Gender.OTHER)
-  final Gender gender;
+  final Gender? gender;
   @override
-  final bool ciNeedsAgreement;
+  final bool? ciNeedsAgreement;
   @override
-  final String ci;
+  final String? ci;
   @override
-  final DateTime ciAuthenticatedAt;
+  final DateTime? ciAuthenticatedAt;
 
   @override
   String toString() {
@@ -484,6 +573,7 @@ class _$_Account extends _Account {
       const DeepCollectionEquality().hash(ci) ^
       const DeepCollectionEquality().hash(ciAuthenticatedAt);
 
+  @JsonKey(ignore: true)
   @override
   _$AccountCopyWith<_Account> get copyWith =>
       __$AccountCopyWithImpl<_Account>(this, _$identity);
@@ -495,73 +585,75 @@ class _$_Account extends _Account {
 }
 
 abstract class _Account extends Account {
-  _Account._() : super._();
   factory _Account(
-      {bool profileNeedsAgreement,
-      Profile profile,
-      bool isEmailVerified,
-      bool isEmailValid,
-      bool emailNeedsAgreement,
-      String email,
-      bool isKakaotalkUser,
-      bool phoneNumberNeedsAgreement,
-      String phoneNumber,
-      bool ageRangeNeedsAgreement,
-      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange ageRange,
-      bool birthdayNeedsAgreement,
-      String birthday,
-      bool birthyearNeedsAgreement,
-      String birthyear,
-      bool genderNeedsAgreement,
-      @JsonKey(unknownEnumValue: Gender.OTHER) Gender gender,
-      bool ciNeedsAgreement,
-      String ci,
-      DateTime ciAuthenticatedAt}) = _$_Account;
+      {bool? profileNeedsAgreement,
+      Profile? profile,
+      bool? isEmailVerified,
+      bool? isEmailValid,
+      bool? emailNeedsAgreement,
+      String? email,
+      bool? isKakaotalkUser,
+      bool? phoneNumberNeedsAgreement,
+      String? phoneNumber,
+      bool? ageRangeNeedsAgreement,
+      @JsonKey(unknownEnumValue: AgeRange.UNKNOWN) AgeRange? ageRange,
+      bool? birthdayNeedsAgreement,
+      String? birthday,
+      bool? birthyearNeedsAgreement,
+      String? birthyear,
+      bool? genderNeedsAgreement,
+      @JsonKey(unknownEnumValue: Gender.OTHER) Gender? gender,
+      bool? ciNeedsAgreement,
+      String? ci,
+      DateTime? ciAuthenticatedAt}) = _$_Account;
+  _Account._() : super._();
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
   @override
-  bool get profileNeedsAgreement;
+  bool? get profileNeedsAgreement => throw _privateConstructorUsedError;
   @override
-  Profile get profile;
+  Profile? get profile => throw _privateConstructorUsedError;
   @override
-  bool get isEmailVerified;
+  bool? get isEmailVerified => throw _privateConstructorUsedError;
   @override
-  bool get isEmailValid;
+  bool? get isEmailValid => throw _privateConstructorUsedError;
   @override
-  bool get emailNeedsAgreement;
+  bool? get emailNeedsAgreement => throw _privateConstructorUsedError;
   @override
-  String get email;
+  String? get email => throw _privateConstructorUsedError;
   @override
-  bool get isKakaotalkUser;
+  bool? get isKakaotalkUser => throw _privateConstructorUsedError;
   @override
-  bool get phoneNumberNeedsAgreement;
+  bool? get phoneNumberNeedsAgreement => throw _privateConstructorUsedError;
   @override
-  String get phoneNumber;
+  String? get phoneNumber => throw _privateConstructorUsedError;
   @override
-  bool get ageRangeNeedsAgreement;
+  bool? get ageRangeNeedsAgreement => throw _privateConstructorUsedError;
   @override
   @JsonKey(unknownEnumValue: AgeRange.UNKNOWN)
-  AgeRange get ageRange;
+  AgeRange? get ageRange => throw _privateConstructorUsedError;
   @override
-  bool get birthdayNeedsAgreement;
+  bool? get birthdayNeedsAgreement => throw _privateConstructorUsedError;
   @override
-  String get birthday;
+  String? get birthday => throw _privateConstructorUsedError;
   @override
-  bool get birthyearNeedsAgreement;
+  bool? get birthyearNeedsAgreement => throw _privateConstructorUsedError;
   @override
-  String get birthyear;
+  String? get birthyear => throw _privateConstructorUsedError;
   @override
-  bool get genderNeedsAgreement;
+  bool? get genderNeedsAgreement => throw _privateConstructorUsedError;
   @override
   @JsonKey(unknownEnumValue: Gender.OTHER)
-  Gender get gender;
+  Gender? get gender => throw _privateConstructorUsedError;
   @override
-  bool get ciNeedsAgreement;
+  bool? get ciNeedsAgreement => throw _privateConstructorUsedError;
   @override
-  String get ci;
+  String? get ci => throw _privateConstructorUsedError;
   @override
-  DateTime get ciAuthenticatedAt;
+  DateTime? get ciAuthenticatedAt => throw _privateConstructorUsedError;
   @override
-  _$AccountCopyWith<_Account> get copyWith;
+  @JsonKey(ignore: true)
+  _$AccountCopyWith<_Account> get copyWith =>
+      throw _privateConstructorUsedError;
 }

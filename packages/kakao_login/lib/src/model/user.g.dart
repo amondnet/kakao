@@ -9,15 +9,14 @@ part of 'user.dart';
 _$_User _$_$_UserFromJson(Map json) {
   return _$_User(
     id: intFromJson(json['id']),
-    properties: (json['properties'] as Map)?.map(
+    properties: (json['properties'] as Map?)?.map(
       (k, e) => MapEntry(k as String, e as String),
     ),
     kakaoAccount: json['kakao_account'] == null
         ? null
-        : Account.fromJson((json['kakao_account'] as Map)?.map(
-            (k, e) => MapEntry(k as String, e),
-          )),
-    groupUserToken: json['group_user_token'] as String,
+        : Account.fromJson(
+            Map<String, dynamic>.from(json['kakao_account'] as Map)),
+    groupUserToken: json['group_user_token'] as String?,
     connectedAt: dateTimeFromJson(json['connected_at']),
     synchedAt: dateTimeFromJson(json['synched_at']),
   );

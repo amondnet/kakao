@@ -9,9 +9,9 @@ import 'client_error.dart';
 abstract class KakaoSdkError extends Error {
   String get type;
 
-  String get cause => this.runtimeType.toString().replaceFirst('_\$$type', '');
+  String get cause => runtimeType.toString().replaceFirst('_\$$type', '');
 
-  String get message;
+  String? get message;
 
   static KakaoSdkError fromPlatformException(PlatformException e) {
     switch (e.code) {

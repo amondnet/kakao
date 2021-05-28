@@ -3,41 +3,46 @@ import 'package:kakao_login/src/model/gson_double_int_converter.dart';
 
 // name: AccessToken
 part 'oauth_token.freezed.dart';
+
 part 'oauth_token.g.dart';
 
 /// Access token and refresh token information.
 @freezed
-abstract class OAuthToken implements _$OAuthToken {
-  OAuthToken._();
+class OAuthToken with _$OAuthToken {
+  const OAuthToken._();
+
   @JsonSerializable(
     fieldRename: FieldRename.snake,
     includeIfNull: true,
   )
-  factory OAuthToken({
+  const factory OAuthToken({
     /// API 인증에 사용하는 엑세스 토큰.
-    String accessToken,
+    String? accessToken,
 
     /// 엑세스 토큰 만료 시각. (android)
     @JsonKey(fromJson: dateTimeFromJson, name: 'access_token_expires_at')
-        DateTime accessTokenExpiresAt,
+        DateTime? accessTokenExpiresAt,
 
     /// 엑세스 토큰 만료 시각. (ios)
-    int expiresIn,
+    int? expiresIn,
 
     /// 엑세스 토큰을 갱신하는데 사용하는 리프레시 토큰.
-    String refreshToken,
+    String? refreshToken,
 
     /// 리프레시 토큰 만료 시각. Nullable ( android )
-    @JsonKey(fromJson: dateTimeFromJson) DateTime refreshTokenExpiresAt,
+    @JsonKey(fromJson: dateTimeFromJson) DateTime? refreshTokenExpiresAt,
 
     /// 리프레시 토큰 만료 시각. Nullable ( ios )
-    int refreshTokenExpiresIn,
+    int? refreshTokenExpiresIn,
 
     /// 이 토큰에 부여된 scope 목록.
-    List<String> scopes,
+    List<String>? scopes,
   }) = _OAuthToken;
 
-  factory OAuthToken.fromJson(Map<String, dynamic> json) {
+  factory OAuthToken.fromJson(Map<String, dynamic> json) =>
+      _$OAuthTokenFromJson(json);
+
+  static OAuthToken fromJson2(Map<String, dynamic> json) {
     if (json.containsKey('refresh_token_expires_in')) {
       json['refresh_token_expires_at'] = DateTime.now()
           .toUtc()
@@ -47,6 +52,6 @@ abstract class OAuthToken implements _$OAuthToken {
       json['access_token_expires_at'] =
           DateTime.now().toUtc().add(Duration(seconds: json['expires_in']));
     }
-    return _$OAuthTokenFromJson(json);
+    return OAuthToken.fromJson(json);
   }
 }

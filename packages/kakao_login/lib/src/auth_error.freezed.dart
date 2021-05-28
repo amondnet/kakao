@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'auth_error.dart';
 
@@ -9,10 +9,13 @@ part of 'auth_error.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
 class _$AuthErrorTearOff {
   const _$AuthErrorTearOff();
 
-// ignore: unused_element
   _AuthError call(String msg, String details) {
     return _AuthError(
       msg,
@@ -20,165 +23,150 @@ class _$AuthErrorTearOff {
     );
   }
 
-// ignore: unused_element
-  AuthErrorInvalidRequest invalidRequest({String details}) {
+  AuthErrorInvalidRequest invalidRequest({String? details}) {
     return AuthErrorInvalidRequest(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorInvalidClient invalidClient({String details}) {
+  AuthErrorInvalidClient invalidClient({String? details}) {
     return AuthErrorInvalidClient(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorInvalidScope invalidScope({String details}) {
+  AuthErrorInvalidScope invalidScope({String? details}) {
     return AuthErrorInvalidScope(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorInvalidGrant invalidGrant({String details}) {
+  AuthErrorInvalidGrant invalidGrant({String? details}) {
     return AuthErrorInvalidGrant(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorMisconfigured misconfigured({String details}) {
+  AuthErrorMisconfigured misconfigured({String? details}) {
     return AuthErrorMisconfigured(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorUnauthorized unauthorized({String details}) {
+  AuthErrorUnauthorized unauthorized({String? details}) {
     return AuthErrorUnauthorized(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorAccessDenied accessDenied({String details}) {
+  AuthErrorAccessDenied accessDenied({String? details}) {
     return AuthErrorAccessDenied(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorServerError serverError({String details}) {
+  AuthErrorServerError serverError({String? details}) {
     return AuthErrorServerError(
       details: details,
     );
   }
 
-// ignore: unused_element
-  AuthErrorUnknown unknown({String details}) {
+  AuthErrorUnknown unknown({String? details}) {
     return AuthErrorUnknown(
       details: details,
     );
   }
 }
 
-// ignore: unused_element
+/// @nodoc
 const $AuthError = _$AuthErrorTearOff();
 
+/// @nodoc
 mixin _$AuthError {
-  String get details;
-
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
-  });
-
-  $AuthErrorCopyWith<AuthError> get copyWith;
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
+/// @nodoc
 abstract class $AuthErrorCopyWith<$Res> {
   factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) then) =
       _$AuthErrorCopyWithImpl<$Res>;
-  $Res call({String details});
 }
 
+/// @nodoc
 class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
   _$AuthErrorCopyWithImpl(this._value, this._then);
 
   final AuthError _value;
   // ignore: unused_field
   final $Res Function(AuthError) _then;
-
-  @override
-  $Res call({
-    Object details = freezed,
-  }) {
-    return _then(_value.copyWith(
-      details: details == freezed ? _value.details : details as String,
-    ));
-  }
 }
 
-abstract class _$AuthErrorCopyWith<$Res> implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class _$AuthErrorCopyWith<$Res> {
   factory _$AuthErrorCopyWith(
           _AuthError value, $Res Function(_AuthError) then) =
       __$AuthErrorCopyWithImpl<$Res>;
-  @override
   $Res call({String msg, String details});
 }
 
+/// @nodoc
 class __$AuthErrorCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
     implements _$AuthErrorCopyWith<$Res> {
   __$AuthErrorCopyWithImpl(_AuthError _value, $Res Function(_AuthError) _then)
@@ -189,51 +177,35 @@ class __$AuthErrorCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object msg = freezed,
-    Object details = freezed,
+    Object? msg = freezed,
+    Object? details = freezed,
   }) {
     return _then(_AuthError(
-      msg == freezed ? _value.msg : msg as String,
-      details == freezed ? _value.details : details as String,
+      msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+      details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
+/// @nodoc
+
 class _$_AuthError extends _AuthError {
-  _$_AuthError(this.msg, this.details)
-      : assert(msg != null),
-        assert(details != null),
-        super._();
+  _$_AuthError(this.msg, this.details) : super._();
 
   @override
   final String msg;
   @override
   final String details;
 
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
-
   @override
   String toString() {
-    return 'AuthError(msg: $msg, details: $details, message: $message)';
+    return 'AuthError(msg: $msg, details: $details)';
   }
 
   @override
@@ -252,53 +224,43 @@ class _$_AuthError extends _AuthError {
       const DeepCollectionEquality().hash(msg) ^
       const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   _$AuthErrorCopyWith<_AuthError> get copyWith =>
       __$AuthErrorCopyWithImpl<_AuthError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return $default(msg, details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(msg, details);
     }
@@ -307,47 +269,36 @@ class _$_AuthError extends _AuthError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -356,25 +307,25 @@ class _$_AuthError extends _AuthError {
 }
 
 abstract class _AuthError extends AuthError {
-  _AuthError._() : super._();
   factory _AuthError(String msg, String details) = _$_AuthError;
+  _AuthError._() : super._();
 
-  String get msg;
-  @override
-  String get details;
-  @override
-  _$AuthErrorCopyWith<_AuthError> get copyWith;
+  String get msg => throw _privateConstructorUsedError;
+  String get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$AuthErrorCopyWith<_AuthError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorInvalidRequestCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorInvalidRequestCopyWith<$Res> {
   factory $AuthErrorInvalidRequestCopyWith(AuthErrorInvalidRequest value,
           $Res Function(AuthErrorInvalidRequest) then) =
       _$AuthErrorInvalidRequestCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidRequestCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidRequestCopyWith<$Res> {
@@ -387,44 +338,28 @@ class _$AuthErrorInvalidRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorInvalidRequest(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
   _$AuthErrorInvalidRequest({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.invalidRequest(details: $details, message: $message)';
+    return 'AuthError.invalidRequest(details: $details)';
   }
 
   @override
@@ -439,6 +374,7 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorInvalidRequestCopyWith<AuthErrorInvalidRequest> get copyWith =>
       _$AuthErrorInvalidRequestCopyWithImpl<AuthErrorInvalidRequest>(
@@ -446,47 +382,36 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidRequest(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidRequest != null) {
       return invalidRequest(details);
     }
@@ -495,47 +420,36 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidRequest(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidRequest != null) {
       return invalidRequest(this);
     }
@@ -544,24 +458,25 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
 }
 
 abstract class AuthErrorInvalidRequest extends AuthError {
+  factory AuthErrorInvalidRequest({String? details}) =
+      _$AuthErrorInvalidRequest;
   AuthErrorInvalidRequest._() : super._();
-  factory AuthErrorInvalidRequest({String details}) = _$AuthErrorInvalidRequest;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorInvalidRequestCopyWith<AuthErrorInvalidRequest> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorInvalidRequestCopyWith<AuthErrorInvalidRequest> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorInvalidClientCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorInvalidClientCopyWith<$Res> {
   factory $AuthErrorInvalidClientCopyWith(AuthErrorInvalidClient value,
           $Res Function(AuthErrorInvalidClient) then) =
       _$AuthErrorInvalidClientCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidClientCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidClientCopyWith<$Res> {
@@ -574,44 +489,28 @@ class _$AuthErrorInvalidClientCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorInvalidClient(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
   _$AuthErrorInvalidClient({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.invalidClient(details: $details, message: $message)';
+    return 'AuthError.invalidClient(details: $details)';
   }
 
   @override
@@ -626,6 +525,7 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorInvalidClientCopyWith<AuthErrorInvalidClient> get copyWith =>
       _$AuthErrorInvalidClientCopyWithImpl<AuthErrorInvalidClient>(
@@ -633,47 +533,36 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidClient(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidClient != null) {
       return invalidClient(details);
     }
@@ -682,47 +571,36 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidClient(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidClient != null) {
       return invalidClient(this);
     }
@@ -731,24 +609,24 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
 }
 
 abstract class AuthErrorInvalidClient extends AuthError {
+  factory AuthErrorInvalidClient({String? details}) = _$AuthErrorInvalidClient;
   AuthErrorInvalidClient._() : super._();
-  factory AuthErrorInvalidClient({String details}) = _$AuthErrorInvalidClient;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorInvalidClientCopyWith<AuthErrorInvalidClient> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorInvalidClientCopyWith<AuthErrorInvalidClient> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorInvalidScopeCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorInvalidScopeCopyWith<$Res> {
   factory $AuthErrorInvalidScopeCopyWith(AuthErrorInvalidScope value,
           $Res Function(AuthErrorInvalidScope) then) =
       _$AuthErrorInvalidScopeCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidScopeCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidScopeCopyWith<$Res> {
@@ -761,44 +639,28 @@ class _$AuthErrorInvalidScopeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorInvalidScope(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
   _$AuthErrorInvalidScope({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.invalidScope(details: $details, message: $message)';
+    return 'AuthError.invalidScope(details: $details)';
   }
 
   @override
@@ -813,6 +675,7 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorInvalidScopeCopyWith<AuthErrorInvalidScope> get copyWith =>
       _$AuthErrorInvalidScopeCopyWithImpl<AuthErrorInvalidScope>(
@@ -820,47 +683,36 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidScope(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidScope != null) {
       return invalidScope(details);
     }
@@ -869,47 +721,36 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidScope(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidScope != null) {
       return invalidScope(this);
     }
@@ -918,24 +759,24 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
 }
 
 abstract class AuthErrorInvalidScope extends AuthError {
+  factory AuthErrorInvalidScope({String? details}) = _$AuthErrorInvalidScope;
   AuthErrorInvalidScope._() : super._();
-  factory AuthErrorInvalidScope({String details}) = _$AuthErrorInvalidScope;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorInvalidScopeCopyWith<AuthErrorInvalidScope> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorInvalidScopeCopyWith<AuthErrorInvalidScope> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorInvalidGrantCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorInvalidGrantCopyWith<$Res> {
   factory $AuthErrorInvalidGrantCopyWith(AuthErrorInvalidGrant value,
           $Res Function(AuthErrorInvalidGrant) then) =
       _$AuthErrorInvalidGrantCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorInvalidGrantCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorInvalidGrantCopyWith<$Res> {
@@ -948,44 +789,28 @@ class _$AuthErrorInvalidGrantCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorInvalidGrant(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
   _$AuthErrorInvalidGrant({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.invalidGrant(details: $details, message: $message)';
+    return 'AuthError.invalidGrant(details: $details)';
   }
 
   @override
@@ -1000,6 +825,7 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorInvalidGrantCopyWith<AuthErrorInvalidGrant> get copyWith =>
       _$AuthErrorInvalidGrantCopyWithImpl<AuthErrorInvalidGrant>(
@@ -1007,47 +833,36 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidGrant(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidGrant != null) {
       return invalidGrant(details);
     }
@@ -1056,47 +871,36 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return invalidGrant(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidGrant != null) {
       return invalidGrant(this);
     }
@@ -1105,24 +909,24 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
 }
 
 abstract class AuthErrorInvalidGrant extends AuthError {
+  factory AuthErrorInvalidGrant({String? details}) = _$AuthErrorInvalidGrant;
   AuthErrorInvalidGrant._() : super._();
-  factory AuthErrorInvalidGrant({String details}) = _$AuthErrorInvalidGrant;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorInvalidGrantCopyWith<AuthErrorInvalidGrant> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorInvalidGrantCopyWith<AuthErrorInvalidGrant> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorMisconfiguredCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorMisconfiguredCopyWith<$Res> {
   factory $AuthErrorMisconfiguredCopyWith(AuthErrorMisconfigured value,
           $Res Function(AuthErrorMisconfigured) then) =
       _$AuthErrorMisconfiguredCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorMisconfiguredCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorMisconfiguredCopyWith<$Res> {
@@ -1135,44 +939,28 @@ class _$AuthErrorMisconfiguredCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorMisconfigured(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
   _$AuthErrorMisconfigured({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.misconfigured(details: $details, message: $message)';
+    return 'AuthError.misconfigured(details: $details)';
   }
 
   @override
@@ -1187,6 +975,7 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorMisconfiguredCopyWith<AuthErrorMisconfigured> get copyWith =>
       _$AuthErrorMisconfiguredCopyWithImpl<AuthErrorMisconfigured>(
@@ -1194,47 +983,36 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return misconfigured(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (misconfigured != null) {
       return misconfigured(details);
     }
@@ -1243,47 +1021,36 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return misconfigured(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (misconfigured != null) {
       return misconfigured(this);
     }
@@ -1292,24 +1059,24 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
 }
 
 abstract class AuthErrorMisconfigured extends AuthError {
+  factory AuthErrorMisconfigured({String? details}) = _$AuthErrorMisconfigured;
   AuthErrorMisconfigured._() : super._();
-  factory AuthErrorMisconfigured({String details}) = _$AuthErrorMisconfigured;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorMisconfiguredCopyWith<AuthErrorMisconfigured> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorMisconfiguredCopyWith<AuthErrorMisconfigured> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorUnauthorizedCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorUnauthorizedCopyWith<$Res> {
   factory $AuthErrorUnauthorizedCopyWith(AuthErrorUnauthorized value,
           $Res Function(AuthErrorUnauthorized) then) =
       _$AuthErrorUnauthorizedCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorUnauthorizedCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorUnauthorizedCopyWith<$Res> {
@@ -1322,44 +1089,28 @@ class _$AuthErrorUnauthorizedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorUnauthorized(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
   _$AuthErrorUnauthorized({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.unauthorized(details: $details, message: $message)';
+    return 'AuthError.unauthorized(details: $details)';
   }
 
   @override
@@ -1374,6 +1125,7 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorUnauthorizedCopyWith<AuthErrorUnauthorized> get copyWith =>
       _$AuthErrorUnauthorizedCopyWithImpl<AuthErrorUnauthorized>(
@@ -1381,47 +1133,36 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return unauthorized(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unauthorized != null) {
       return unauthorized(details);
     }
@@ -1430,47 +1171,36 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return unauthorized(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unauthorized != null) {
       return unauthorized(this);
     }
@@ -1479,24 +1209,24 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
 }
 
 abstract class AuthErrorUnauthorized extends AuthError {
+  factory AuthErrorUnauthorized({String? details}) = _$AuthErrorUnauthorized;
   AuthErrorUnauthorized._() : super._();
-  factory AuthErrorUnauthorized({String details}) = _$AuthErrorUnauthorized;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorUnauthorizedCopyWith<AuthErrorUnauthorized> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorUnauthorizedCopyWith<AuthErrorUnauthorized> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorAccessDeniedCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorAccessDeniedCopyWith<$Res> {
   factory $AuthErrorAccessDeniedCopyWith(AuthErrorAccessDenied value,
           $Res Function(AuthErrorAccessDenied) then) =
       _$AuthErrorAccessDeniedCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorAccessDeniedCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorAccessDeniedCopyWith<$Res> {
@@ -1509,44 +1239,28 @@ class _$AuthErrorAccessDeniedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorAccessDenied(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
   _$AuthErrorAccessDenied({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.accessDenied(details: $details, message: $message)';
+    return 'AuthError.accessDenied(details: $details)';
   }
 
   @override
@@ -1561,6 +1275,7 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorAccessDeniedCopyWith<AuthErrorAccessDenied> get copyWith =>
       _$AuthErrorAccessDeniedCopyWithImpl<AuthErrorAccessDenied>(
@@ -1568,47 +1283,36 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return accessDenied(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (accessDenied != null) {
       return accessDenied(details);
     }
@@ -1617,47 +1321,36 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return accessDenied(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (accessDenied != null) {
       return accessDenied(this);
     }
@@ -1666,24 +1359,24 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
 }
 
 abstract class AuthErrorAccessDenied extends AuthError {
+  factory AuthErrorAccessDenied({String? details}) = _$AuthErrorAccessDenied;
   AuthErrorAccessDenied._() : super._();
-  factory AuthErrorAccessDenied({String details}) = _$AuthErrorAccessDenied;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorAccessDeniedCopyWith<AuthErrorAccessDenied> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorAccessDeniedCopyWith<AuthErrorAccessDenied> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorServerErrorCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorServerErrorCopyWith<$Res> {
   factory $AuthErrorServerErrorCopyWith(AuthErrorServerError value,
           $Res Function(AuthErrorServerError) then) =
       _$AuthErrorServerErrorCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorServerErrorCopyWithImpl<$Res>
     extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorServerErrorCopyWith<$Res> {
@@ -1696,44 +1389,28 @@ class _$AuthErrorServerErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorServerError(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorServerError extends AuthErrorServerError {
   _$AuthErrorServerError({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.serverError(details: $details, message: $message)';
+    return 'AuthError.serverError(details: $details)';
   }
 
   @override
@@ -1748,6 +1425,7 @@ class _$AuthErrorServerError extends AuthErrorServerError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorServerErrorCopyWith<AuthErrorServerError> get copyWith =>
       _$AuthErrorServerErrorCopyWithImpl<AuthErrorServerError>(
@@ -1755,47 +1433,36 @@ class _$AuthErrorServerError extends AuthErrorServerError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return serverError(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError(details);
     }
@@ -1804,47 +1471,36 @@ class _$AuthErrorServerError extends AuthErrorServerError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return serverError(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError(this);
     }
@@ -1853,24 +1509,24 @@ class _$AuthErrorServerError extends AuthErrorServerError {
 }
 
 abstract class AuthErrorServerError extends AuthError {
+  factory AuthErrorServerError({String? details}) = _$AuthErrorServerError;
   AuthErrorServerError._() : super._();
-  factory AuthErrorServerError({String details}) = _$AuthErrorServerError;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorServerErrorCopyWith<AuthErrorServerError> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorServerErrorCopyWith<AuthErrorServerError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-abstract class $AuthErrorUnknownCopyWith<$Res>
-    implements $AuthErrorCopyWith<$Res> {
+/// @nodoc
+abstract class $AuthErrorUnknownCopyWith<$Res> {
   factory $AuthErrorUnknownCopyWith(
           AuthErrorUnknown value, $Res Function(AuthErrorUnknown) then) =
       _$AuthErrorUnknownCopyWithImpl<$Res>;
-  @override
-  $Res call({String details});
+  $Res call({String? details});
 }
 
+/// @nodoc
 class _$AuthErrorUnknownCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
     implements $AuthErrorUnknownCopyWith<$Res> {
   _$AuthErrorUnknownCopyWithImpl(
@@ -1882,44 +1538,28 @@ class _$AuthErrorUnknownCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object details = freezed,
+    Object? details = freezed,
   }) {
     return _then(AuthErrorUnknown(
-      details: details == freezed ? _value.details : details as String,
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
+
+/// @nodoc
 
 class _$AuthErrorUnknown extends AuthErrorUnknown {
   _$AuthErrorUnknown({this.details}) : super._();
 
   @override
-  final String details;
-
-  bool _didmessage = false;
-  String _message;
-
-  @override
-  String get message {
-    if (_didmessage == false) {
-      _didmessage = true;
-      _message = when((msg, details) => msg,
-          invalidRequest: (_) => "요청 파라미터 오류",
-          invalidClient: (_) => "유효하지 않은 앱",
-          invalidScope: (_) => "유효하지 않은 scope ID",
-          invalidGrant: (_) => "인증 수단이 유효하지 않아 인증할 수 없는 상태",
-          misconfigured: (_) => "설정이 올바르지 않음 (android key hash)",
-          unauthorized: (_) => "앱이 요청 권한이 없음",
-          accessDenied: (_) => "접근이 거부 됨 (동의 취소)",
-          serverError: (_) => "서버 내부 에러",
-          unknown: (_) => "기타 에러");
-    }
-    return _message;
-  }
+  final String? details;
 
   @override
   String toString() {
-    return 'AuthError.unknown(details: $details, message: $message)';
+    return 'AuthError.unknown(details: $details)';
   }
 
   @override
@@ -1934,53 +1574,43 @@ class _$AuthErrorUnknown extends AuthErrorUnknown {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(details);
 
+  @JsonKey(ignore: true)
   @override
   $AuthErrorUnknownCopyWith<AuthErrorUnknown> get copyWith =>
       _$AuthErrorUnknownCopyWithImpl<AuthErrorUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String msg, String details), {
-    @required Result invalidRequest(String details),
-    @required Result invalidClient(String details),
-    @required Result invalidScope(String details),
-    @required Result invalidGrant(String details),
-    @required Result misconfigured(String details),
-    @required Result unauthorized(String details),
-    @required Result accessDenied(String details),
-    @required Result serverError(String details),
-    @required Result unknown(String details),
+  TResult when<TResult extends Object?>(
+    TResult Function(String msg, String details) $default, {
+    required TResult Function(String? details) invalidRequest,
+    required TResult Function(String? details) invalidClient,
+    required TResult Function(String? details) invalidScope,
+    required TResult Function(String? details) invalidGrant,
+    required TResult Function(String? details) misconfigured,
+    required TResult Function(String? details) unauthorized,
+    required TResult Function(String? details) accessDenied,
+    required TResult Function(String? details) serverError,
+    required TResult Function(String? details) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return unknown(details);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String msg, String details), {
-    Result invalidRequest(String details),
-    Result invalidClient(String details),
-    Result invalidScope(String details),
-    Result invalidGrant(String details),
-    Result misconfigured(String details),
-    Result unauthorized(String details),
-    Result accessDenied(String details),
-    Result serverError(String details),
-    Result unknown(String details),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String msg, String details)? $default, {
+    TResult Function(String? details)? invalidRequest,
+    TResult Function(String? details)? invalidClient,
+    TResult Function(String? details)? invalidScope,
+    TResult Function(String? details)? invalidGrant,
+    TResult Function(String? details)? misconfigured,
+    TResult Function(String? details)? unauthorized,
+    TResult Function(String? details)? accessDenied,
+    TResult Function(String? details)? serverError,
+    TResult Function(String? details)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unknown != null) {
       return unknown(details);
     }
@@ -1989,47 +1619,36 @@ class _$AuthErrorUnknown extends AuthErrorUnknown {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(_AuthError value), {
-    @required Result invalidRequest(AuthErrorInvalidRequest value),
-    @required Result invalidClient(AuthErrorInvalidClient value),
-    @required Result invalidScope(AuthErrorInvalidScope value),
-    @required Result invalidGrant(AuthErrorInvalidGrant value),
-    @required Result misconfigured(AuthErrorMisconfigured value),
-    @required Result unauthorized(AuthErrorUnauthorized value),
-    @required Result accessDenied(AuthErrorAccessDenied value),
-    @required Result serverError(AuthErrorServerError value),
-    @required Result unknown(AuthErrorUnknown value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthError value) $default, {
+    required TResult Function(AuthErrorInvalidRequest value) invalidRequest,
+    required TResult Function(AuthErrorInvalidClient value) invalidClient,
+    required TResult Function(AuthErrorInvalidScope value) invalidScope,
+    required TResult Function(AuthErrorInvalidGrant value) invalidGrant,
+    required TResult Function(AuthErrorMisconfigured value) misconfigured,
+    required TResult Function(AuthErrorUnauthorized value) unauthorized,
+    required TResult Function(AuthErrorAccessDenied value) accessDenied,
+    required TResult Function(AuthErrorServerError value) serverError,
+    required TResult Function(AuthErrorUnknown value) unknown,
   }) {
-    assert($default != null);
-    assert(invalidRequest != null);
-    assert(invalidClient != null);
-    assert(invalidScope != null);
-    assert(invalidGrant != null);
-    assert(misconfigured != null);
-    assert(unauthorized != null);
-    assert(accessDenied != null);
-    assert(serverError != null);
-    assert(unknown != null);
     return unknown(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(_AuthError value), {
-    Result invalidRequest(AuthErrorInvalidRequest value),
-    Result invalidClient(AuthErrorInvalidClient value),
-    Result invalidScope(AuthErrorInvalidScope value),
-    Result invalidGrant(AuthErrorInvalidGrant value),
-    Result misconfigured(AuthErrorMisconfigured value),
-    Result unauthorized(AuthErrorUnauthorized value),
-    Result accessDenied(AuthErrorAccessDenied value),
-    Result serverError(AuthErrorServerError value),
-    Result unknown(AuthErrorUnknown value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthError value)? $default, {
+    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult Function(AuthErrorServerError value)? serverError,
+    TResult Function(AuthErrorUnknown value)? unknown,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unknown != null) {
       return unknown(this);
     }
@@ -2038,11 +1657,11 @@ class _$AuthErrorUnknown extends AuthErrorUnknown {
 }
 
 abstract class AuthErrorUnknown extends AuthError {
+  factory AuthErrorUnknown({String? details}) = _$AuthErrorUnknown;
   AuthErrorUnknown._() : super._();
-  factory AuthErrorUnknown({String details}) = _$AuthErrorUnknown;
 
-  @override
-  String get details;
-  @override
-  $AuthErrorUnknownCopyWith<AuthErrorUnknown> get copyWith;
+  String? get details => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuthErrorUnknownCopyWith<AuthErrorUnknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -8,7 +8,7 @@ part of 'profile.dart';
 
 _$_Profile _$_$_ProfileFromJson(Map json) {
   return _$_Profile(
-    nickname: json['nickname'] as String,
+    nickname: json['nickname'] as String?,
     thumbnailImageUrl: json['thumbnail_image_url'] == null
         ? null
         : Uri.parse(json['thumbnail_image_url'] as String),
