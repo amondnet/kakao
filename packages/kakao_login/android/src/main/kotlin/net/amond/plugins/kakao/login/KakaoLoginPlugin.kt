@@ -4,10 +4,8 @@ import android.app.Activity
 import android.content.Context
 import androidx.annotation.NonNull
 import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.TokenManagerProvider
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.KakaoSdk
@@ -18,7 +16,6 @@ import com.kakao.sdk.common.model.KakaoSdkError
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.AgeRange
-import com.kakao.sdk.user.model.Gender
 import io.flutter.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -37,13 +34,17 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
   private var applicationContext: Context? = null
   private var activity: Activity? = null
   var gson = GsonBuilder()
-      .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-      .setDateFormat("yyyy-MM-dd HH:mm:ss")
-      .create()
+    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+    .create()
 
   override fun onAttachedToEngine(
-      @NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    onInstanceAttachedToEngine(flutterPluginBinding.binaryMessenger, flutterPluginBinding.applicationContext)
+    @NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding
+  ) {
+    onInstanceAttachedToEngine(
+      flutterPluginBinding.binaryMessenger,
+      flutterPluginBinding.applicationContext
+    )
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -180,7 +181,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
   private fun logIn(result: Result) {
     // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
     Log.d(TAG, "카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인")
-    if (LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)) {
+    if (UserApiClient.instance.isKakaoTalkLoginAvailable(activity!!)) {
       Log.d(TAG, "카카오톡으로 로그인")
       logInWithKakaoTalk(result)
     } else {
@@ -191,12 +192,12 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
 
   // log in
   private fun logInWithKakaoTalk(result: Result) {
-    LoginClient.instance.loginWithKakaoTalk(activity!!, callback = loginCallback(result))
+    UserApiClient.instance.loginWithKakaoTalk(activity!!, callback = loginCallback(result))
   }
 
   // log in
   private fun logInWithKakaoAccount(result: Result) {
-    LoginClient.instance.loginWithKakaoAccount(activity!!, callback = loginCallback(result))
+    UserApiClient.instance.loginWithKakaoAccount(activity!!, callback = loginCallback(result))
   }
 
   // logout
@@ -231,9 +232,11 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
           result.error("SdkError", "토큰 정보 실패", error.localizedMessage)
         }
       } else if (tokenInfo != null) {
-        Log.i(TAG, "토큰 정보 보기 성공" +
-            "\n회원번호: ${tokenInfo.id}" +
-            "\n만료시간: ${tokenInfo.expiresIn} 초")
+        Log.i(
+          TAG, "토큰 정보 보기 성공" +
+              "\n회원번호: ${tokenInfo.id}" +
+              "\n만료시간: ${tokenInfo.expiresIn} 초"
+        )
         result.success(tokenInfo.serializeToMap())
       }
     }
@@ -241,7 +244,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
 
   private fun isKakaoTalkLoginAvailable(result: Result) {
     if (activity != null) {
-      val available = LoginClient.instance.isKakaoTalkLoginAvailable(activity!!)
+      val available = UserApiClient.instance.isKakaoTalkLoginAvailable(activity!!)
       result.success(available)
     } else {
       result.error("NOT_INITIALIZED", "activity 가 존재하지 않음", "")
@@ -266,38 +269,40 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     val methodResult: Result = result
 
     val keys: List<String> = listOf(
-        "properties.nickname",
-        "properties.profile_image",
-        "properties.thumbnail_image",
-        "kakao_account.profile",
-        "kakao_account.email",
-        "kakao_account.age_range",
-        "kakao_account.birthday",
-        "kakao_account.gender"
+      "properties.nickname",
+      "properties.profile_image",
+      "properties.thumbnail_image",
+      "kakao_account.profile",
+      "kakao_account.email",
+      "kakao_account.age_range",
+      "kakao_account.birthday",
+      "kakao_account.gender"
     )
 // 사용자 정보 요청 (기본)
     UserApiClient.instance.me { user, error ->
       if (error != null) {
         Log.e(TAG, "사용자 정보 요청 실패", error)
-        if ( error is KakaoSdkError ) {
+        if (error is KakaoSdkError) {
           handleKakaoError(error = error, result = result)
         } else {
           methodResult.error("GeneralError", error.localizedMessage, "")
         }
 
       } else if (user != null) {
-        Log.d(TAG, "사용자 정보 요청 성공" +
-            "\n회원번호: ${user.id}" +
-            "\n이메일: ${user.kakaoAccount?.email}" +
-            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
-            "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
+        Log.d(
+          TAG, "사용자 정보 요청 성공" +
+              "\n회원번호: ${user.id}" +
+              "\n이메일: ${user.kakaoAccount?.email}" +
+              "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
+              "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}"
+        )
         try {
-          Log.d(TAG, gson.toJson(user) )
+          Log.d(TAG, gson.toJson(user))
 
           val map = user.serializeToMap()
 
           methodResult.success(map)
-        } catch (e:Throwable ) {
+        } catch (e: Throwable) {
           Log.e(TAG, "json error :$e", e);
           methodResult.error("GeneralError", e.localizedMessage, "")
         }
@@ -340,6 +345,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
       AgeRange.UNKNOWN -> ""
     }
   }
+
   //convert a data class to a map
   fun <T> T.serializeToMap(): Map<String, Any> {
     return convert()

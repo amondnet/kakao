@@ -1,6 +1,6 @@
 name: kakao_login
 description: A new Flutter project.
-version: 0.2.0
+version: 0.2.0-nullsafety.1
 repository: https://github.com/amondnet/kakao/tree/master/packages/kakao_login
 homepage: https://github.com/amondnet/kakao/
 

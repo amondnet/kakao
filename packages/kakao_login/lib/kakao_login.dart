@@ -33,10 +33,9 @@ class KakaoLogin {
   /// 현재 저장된 Token 정보를 가져옵니다.
   Future<OAuthToken?> get currentToken async {
     try {
-      final json = await (_channel.invokeMapMethod('getCurrentToken')
-          as FutureOr<Map<dynamic, dynamic>>);
+      final json = await _channel.invokeMapMethod('getCurrentToken');
       debugPrint('currentToken : $json');
-      return OAuthToken.fromJson(Map<String, dynamic>.from(json));
+      return OAuthToken.fromJson(Map<String, dynamic>.from(json!));
     } catch (e) {
       debugPrint('currentToken error : $e');
       return null;
@@ -52,10 +51,8 @@ class KakaoLogin {
   /// Get Current User
   Future<Result<User>> get currentUser async {
     try {
-      final result = await (_channel.invokeMapMethod('getUserMe')
-          as FutureOr<Map<dynamic, dynamic>>);
-      return _delayedToResult(
-          Result.value(User.fromJson(Map<String, dynamic>.from(result))));
+      final result = await _channel.invokeMapMethod('getUserMe');
+      return Result.value(User.fromJson(Map<String, dynamic>.from(result!)));
     } on PlatformException catch (e) {
       debugPrint('currentUser error : $e');
       return Result.error(KakaoSdkError.fromPlatformException(e));
@@ -68,9 +65,8 @@ class KakaoLogin {
   // Login Method
   Future<Result<OAuthToken>> logIn() async {
     try {
-      final result = await (_channel.invokeMapMethod<String, dynamic>('logIn')
-          as FutureOr<Map<String, dynamic>>);
-      return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
+      final result = await _channel.invokeMapMethod<String, dynamic>('logIn');
+      return Result.value(OAuthToken.fromJson(result!));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
     }
@@ -79,10 +75,9 @@ class KakaoLogin {
   // Login Method
   Future<Result<OAuthToken>> logInWithKakaoTalk() async {
     try {
-      final result =
-          await (_channel.invokeMapMethod<String, dynamic>('logInWithKakaoTalk')
-              as FutureOr<Map<String, dynamic>>);
-      return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
+      final result = await (_channel
+          .invokeMapMethod<String, dynamic>('logInWithKakaoTalk'));
+      return Result(() => OAuthToken.fromJson(result!));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
     }
@@ -91,9 +86,9 @@ class KakaoLogin {
   // Login Method
   Future<Result<OAuthToken>> logInWithKakaoAccount() async {
     try {
-      final result = await (_channel.invokeMapMethod<String, dynamic>(
-          'logInWithKakaoAccount') as FutureOr<Map<String, dynamic>>);
-      return _delayedToResult(Result.value(OAuthToken.fromJson(result)));
+      final result = await _channel
+          .invokeMapMethod<String, dynamic>('logInWithKakaoAccount');
+      return Result.value(OAuthToken.fromJson(result!));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
     }
@@ -102,9 +97,8 @@ class KakaoLogin {
   // Logout Method
   Future<Result<KakaoLoginResult>> logOut() async {
     try {
-      final result = await (_channel.invokeMapMethod<String, dynamic>('logOut')
-          as FutureOr<Map<String, dynamic>>);
-      return _delayedToResult(Result.value(KakaoLoginResult._(result)));
+      final result = await _channel.invokeMapMethod<String, dynamic>('logOut');
+      return Result(() => KakaoLoginResult._(result!));
     } on PlatformException catch (e) {
       return Result.error(KakaoSdkError.fromPlatformException(e));
     }
@@ -113,17 +107,11 @@ class KakaoLogin {
   // Unlink Method
   Future<KakaoLoginResult> unlink() async {
     try {
-      final result = await (_channel.invokeMapMethod<String, dynamic>('unlink')
-          as FutureOr<Map<String, dynamic>>);
-      return _delayedToResult(KakaoLoginResult._(result));
+      final result = await _channel.invokeMapMethod<String, dynamic>('unlink');
+      return KakaoLoginResult._(result!);
     } on PlatformException catch (e) {
-      throw e;
+      return throw KakaoSdkError.fromPlatformException(e);
     }
-  }
-
-  // Helper Delayed Method
-  Future<T> _delayedToResult<T>(T result) {
-    return Future.delayed(const Duration(milliseconds: 500), () => result);
   }
 }
 

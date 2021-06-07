@@ -6,7 +6,7 @@ import 'client_error.dart';
 
 /// 카카오 SDK 를 사용하면서 발생하는 에러 정보
 /// https://developers.kakao.com/sdk/reference/android-rx/release/kakao-android-sdk-rx/com.kakao.sdk.common.model/-kakao-sdk-error/index.html
-abstract class KakaoSdkError extends Error {
+abstract class KakaoSdkError implements Exception {
   String get type;
 
   String get cause => runtimeType.toString().replaceFirst('_\$$type', '');
@@ -15,11 +15,11 @@ abstract class KakaoSdkError extends Error {
 
   static KakaoSdkError fromPlatformException(PlatformException e) {
     switch (e.code) {
-      case "ClientError":
+      case 'ClientError':
         return ClientError.fromPlatformException(e);
-      case "AuthError":
+      case 'AuthError':
         return AuthError.fromPlatformException(e);
-      case "ApiError":
+      case 'ApiError':
         return ApiError.fromPlatformException(e);
     }
     throw e;

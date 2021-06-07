@@ -12,10 +12,10 @@ DateTime? dateTimeFromJson(dynamic value) {
     return value.toUtc();
   }
   if (value is String) {
-    return DateTime.parse(value);
+    return DateTime.parse(value).toUtc();
   }
   if (value is num) {
-    return DateTime.fromMillisecondsSinceEpoch(value.toInt());
+    return DateTime.fromMillisecondsSinceEpoch(value.toInt(), isUtc: false);
   }
   return null;
 }

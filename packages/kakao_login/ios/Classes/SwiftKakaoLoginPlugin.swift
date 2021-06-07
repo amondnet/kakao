@@ -69,7 +69,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
 
     private func logIn( result:  @escaping FlutterResult ) {
       // 카카오톡 설치 여부 확인
-            if (AuthApi.isKakaoTalkLoginAvailable()) {
+            if (UserApi.isKakaoTalkLoginAvailable()) {
                 logInWithKakaoTalk(result: result)
             } else {
                 logInWithKakaoAccount(result: result)
@@ -77,7 +77,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
   }
     
     private func logInWithKakaoTalk( result: @escaping FlutterResult ) {
-        AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+        UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
             if let error = error {
                 print(error)
               self.handleError(error, result)
@@ -90,7 +90,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
         }
     }
     private func logInWithKakaoAccount( result: @escaping FlutterResult ) {
-        AuthApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
                 print(error)
                 self.handleError(error, result)

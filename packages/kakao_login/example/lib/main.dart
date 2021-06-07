@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
     await kakaoSignIn.init("04dabb63618fa8e2018e4a0f622336b3");
     print('init');
     // For Android
-    final String hashKey = await (kakaoSignIn.hashKey);
+    final String? hashKey = await (kakaoSignIn.hashKey);
     print("hashKey: $hashKey");
   }
 
@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     try {
       final login = await kakaoSignIn.logIn();
       final result = await kakaoSignIn.currentUser;
-      result.when(() => null, success: (value) {}, fail: (error) {
+      result.when(() => {}, success: (value) {}, fail: (error) {
         _updateLoginMessage("${error.cause} ${error.message}");
       });
       if (result.isValue) {
@@ -61,57 +61,45 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _logOut() async {
-    try {
-      final result = await kakaoSignIn.logOut();
-      result.when(() => () {}, success: (value) {
-        _processLoginResult("loggedOut");
-        _processAccountResult(null);
-      }, fail: (e) {
-        _updateLoginMessage("${e.cause} ${e.message}");
-      });
-    } catch (e) {
-      _updateLoginMessage("${e.code} ${e.message}");
-    }
+    final result = await kakaoSignIn.logOut();
+    result.when(() => () {}, success: (value) {
+      _processLoginResult("loggedOut");
+      _processAccountResult(null);
+    }, fail: (e) {
+      _updateLoginMessage("${e.cause} ${e.message}");
+    });
   }
 
   Future<void> _unlink() async {
-    try {
-      final result = await kakaoSignIn.unlink();
-      _processLoginResult("unlinked");
-    } catch (e) {
-      _updateLoginMessage("${e.code} ${e.message}");
-    }
+    final result = await kakaoSignIn.unlink();
+    _processLoginResult("unlinked");
   }
 
   Future<void> _getAccountInfo() async {
-    try {
-      final result = await kakaoSignIn.currentUser;
-      result.when(() => () {},
-          success: (value) => _processAccountResult(value),
-          fail: (e) => _updateLoginMessage("${e.cause} ${e.message}"));
-    } catch (e) {
-      _updateLoginMessage("${e.code} ${e.message}");
-    }
+    final result = await kakaoSignIn.currentUser;
+    result.when(() => () {},
+        success: (value) => _processAccountResult(value),
+        fail: (e) => _updateLoginMessage("${e.cause} ${e.message}"));
   }
 
   Future<void> _getAccessToken() async {
-    final OAuthToken token = await (kakaoSignIn.currentToken);
-    final accessToken = token.accessToken;
+    final OAuthToken? token = await (kakaoSignIn.currentToken);
+    final accessToken = token?.accessToken;
     if (accessToken != null) {
       _updateAccessToken('AccessToken\n' +
           accessToken +
-          '\nexpiresAt : ${token.accessTokenExpiresAt}');
+          '\nexpiresAt : ${token!.accessTokenExpiresAt}');
     } else {
       _updateAccessToken('');
     }
   }
 
   Future<void> _getRefreshToken() async {
-    final OAuthToken token = await (kakaoSignIn.currentToken);
-    final refreshToken = token.refreshToken;
+    final OAuthToken? token = await (kakaoSignIn.currentToken);
+    final refreshToken = token?.refreshToken;
     if (refreshToken != null) {
       _updateRefreshToken(
-          'RefreshToken\n$refreshToken\nexpiredAt: ${token.refreshTokenExpiresAt}');
+          'RefreshToken\n$refreshToken\nexpiredAt: ${token!.refreshTokenExpiresAt}');
     } else {
       _updateRefreshToken('');
     }
@@ -169,18 +157,18 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  void _processAccountResult(User user) {
-    if (user.kakaoAccount == null) {
+  void _processAccountResult(User? user) {
+    if (user?.kakaoAccount == null) {
       _updateAccountMessage('');
     } else {
-      final account = user.kakaoAccount;
+      final account = user!.kakaoAccount;
       final userID = (user.id == null) ? 'None' : user.id;
-      final userEmail = (account.email == null) ? 'None' : account.email;
+      final userEmail = (account!.email == null) ? 'None' : account.email;
       final userPhoneNumber =
           (account.phoneNumber == null) ? 'None' : account.phoneNumber;
-      final userNickname = (account.profile.nickname == null)
+      final userNickname = (account.profile!.nickname == null)
           ? 'None'
-          : account.profile.nickname;
+          : account.profile!.nickname;
       final userGender = (account.gender == null) ? 'None' : account.gender;
       final userAgeRange =
           (account.ageRange == null) ? 'None' : account.ageRange;
@@ -188,12 +176,13 @@ class _MyAppState extends State<MyApp> {
           (account.birthyear == null) ? 'None' : account.birthyear;
       final userBirthday =
           (account.birthday == null) ? 'None' : account.birthday;
-      final userProfileImagePath = (account.profile.profileImageUrl == null)
+      final userProfileImagePath = (account.profile!.profileImageUrl == null)
           ? 'None'
-          : account.profile.profileImageUrl.toString();
-      final userThumbnailImagePath = (account.profile.thumbnailImageUrl == null)
-          ? 'None'
-          : account.profile.thumbnailImageUrl.toString();
+          : account.profile!.profileImageUrl.toString();
+      final userThumbnailImagePath =
+          (account.profile!.thumbnailImageUrl == null)
+              ? 'None'
+              : account.profile!.thumbnailImageUrl.toString();
 
       _updateAccountMessage('- ID is ${userID}\n'
           '- Email is ${userEmail}\n'
@@ -250,8 +239,8 @@ class _MyAppState extends State<MyApp> {
               }
               final actionIndex = index - 1;
               return ListTile(
-                title: new Text(_litems[actionIndex]['title']),
-                subtitle: new Text(_litems[actionIndex]['subtitle']),
+                title: new Text(_litems[actionIndex]['title']!),
+                subtitle: new Text(_litems[actionIndex]['subtitle']!),
                 onTap: () {
                   final key = _litems[actionIndex]['key'];
                   switch (key) {

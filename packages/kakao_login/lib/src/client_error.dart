@@ -46,17 +46,17 @@ abstract class ClientError extends KakaoSdkError implements _$ClientError {
 
   static ClientError fromPlatformException(PlatformException e) {
     switch (e.message) {
-      case "Cancelled":
+      case 'Cancelled':
         return ClientError.cancelled(details: e.details);
-      case "TokenNotFound":
+      case 'TokenNotFound':
         return ClientError.tokenNotFound(details: e.details);
-      case "NotSupported":
+      case 'NotSupported':
         return ClientError.notSupported(details: e.details);
-      case "BadParameter":
+      case 'BadParameter':
         return ClientError.badParameter(details: e.details);
-      case "IlegalState":
+      case 'IlegalState':
         return ClientError.llegalState(details: e.details);
-      case "Unknown":
+      case 'Unknown':
       default:
         return ClientError.unknown(details: e.details);
     }
