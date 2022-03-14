@@ -1,0 +1,9 @@
+name: kakao
+repository: https://github.com/chatbot-pf/chatbot-mobile
+
+packages:
+  - packages/**
+
+ignore:
+  - "package/**/*example"
+  - "package/kakao_map"
