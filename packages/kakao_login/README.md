@@ -5,7 +5,7 @@
 ### Android
 Android SDK를 사용하기 위한 최소 요구사양은 다음과 같습니다:
 
-- API 19: Android 4.4(KitKat) 이상
+- API 21: Android 5.0(Lollipop) 이상
 
 ### iOS
 

@@ -7,3 +7,4 @@
 build/
 
 .fvm/flutter_sdk
+pubspec.lock

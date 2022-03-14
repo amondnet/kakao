@@ -1,6 +1,7 @@
 ## 0.4.0
 
-- ios sdk 2.8.6
+- feat(deps): update android sdk to 2.8.6 (#4)
+- feat(deps): update ios sdk to 2.8.6 (#3)
 
 ## 0.3.0
 
