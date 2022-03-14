@@ -34,7 +34,7 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
     debugPrint("\(call.method)")
     switch call.method {
     case "init":
-        KakaoSDKCommon.initSDK(appKey: call.arguments as! String)
+        KakaoSDK.initSDK(appKey: call.arguments as! String)
         result(true)
         break;
     case "logIn":
@@ -175,10 +175,6 @@ public class SwiftKakaoLoginPlugin: FlutterPluginAppLifeCycleDelegate, FlutterPl
                 case .AuthFailed(reason: let reason, errorInfo: let errorInfo):
                     debugPrint("AuthFailed \(reason)")
                     result(FlutterError(code: "AuthError", message: "\(reason)", details: errorInfo?.errorDescription))
-                    break
-                case .GeneralFailed(error: let error):
-                    debugPrint("GeneralFailed")
-                    result(FlutterError(code: "GeneralError", message: error.localizedDescription, details: nil))
                     break
                 }
         } else {

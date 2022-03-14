@@ -7,3 +7,13 @@ packages:
 ignore:
   - "package/**/*example"
   - "package/kakao_map"
+
+scripts:
+  pub:get_all:
+    run: |
+      melos run pub:get --no-select
+
+  pub:get:
+    run: |
+      melos exec -c 1 -- "flutter pub get"
+    select-package:
