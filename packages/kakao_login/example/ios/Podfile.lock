@@ -3,20 +3,20 @@ PODS:
   - Flutter (1.0.0)
   - kakao_login (0.0.1):
     - Flutter
-    - KakaoSDKAuth (~> 2.5)
-    - KakaoSDKCommon (~> 2.5)
-    - KakaoSDKUser (~> 2.5)
-  - KakaoSDKAuth (2.5.3):
-    - KakaoSDKCommon (= 2.5.3)
-  - KakaoSDKCommon (2.5.3):
-    - KakaoSDKCommon/Common (= 2.5.3)
-    - KakaoSDKCommon/Network (= 2.5.3)
-  - KakaoSDKCommon/Common (2.5.3)
-  - KakaoSDKCommon/Network (2.5.3):
+    - KakaoSDKAuth (~> 2.6)
+    - KakaoSDKCommon (~> 2.6)
+    - KakaoSDKUser (~> 2.6)
+  - KakaoSDKAuth (2.6.0):
+    - KakaoSDKCommon (= 2.6.0)
+  - KakaoSDKCommon (2.6.0):
+    - KakaoSDKCommon/Common (= 2.6.0)
+    - KakaoSDKCommon/Network (= 2.6.0)
+  - KakaoSDKCommon/Common (2.6.0)
+  - KakaoSDKCommon/Network (2.6.0):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.5.3)
-  - KakaoSDKUser (2.5.3):
-    - KakaoSDKAuth (= 2.5.3)
+    - KakaoSDKCommon/Common (= 2.6.0)
+  - KakaoSDKUser (2.6.0):
+    - KakaoSDKAuth (= 2.6.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -38,11 +38,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  kakao_login: 9b75aeb6a263fd7ab0c9fcaaecd81e9120f3d356
-  KakaoSDKAuth: b1a0b9a84c21c967c4139d221edce83a7f15cdfe
-  KakaoSDKCommon: 08548932f6f570215ea038241a98157c0b3f7a8b
-  KakaoSDKUser: 5d2de71fe070455bbaaad6a37af3eb500fbc8972
+  kakao_login: 60f784ba20d526c7103d5012390803ef5ad60f55
+  KakaoSDKAuth: 037e6260f4468cbc3bde89a802864d6b58c5271c
+  KakaoSDKCommon: 38154188336a1118f1b757f0fec54ff989365ddc
+  KakaoSDKUser: ff9d7436ccbf0d65615bc56f3f4e31fb06830db2
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2

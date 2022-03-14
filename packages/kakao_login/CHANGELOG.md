@@ -1,3 +1,8 @@
+## 0.3.0
+
+- ios sdk 2.5.6
+- android sdk 2.5.3
+- 
 ## 0.2.0-nullsafety.2
 
 - ios sdk 2.5

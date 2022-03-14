@@ -15,9 +15,9 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'KakaoSDKCommon', '~> 2.5'
-  s.dependency 'KakaoSDKAuth', '~> 2.5'
-  s.dependency 'KakaoSDKUser', '~> 2.5'
+  s.dependency 'KakaoSDKCommon', '2.5.4'
+  s.dependency 'KakaoSDKAuth', '2.5.4'
+  s.dependency 'KakaoSDKUser', '2.5.4'
   s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
