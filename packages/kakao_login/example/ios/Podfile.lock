@@ -1,22 +1,22 @@
 PODS:
-  - Alamofire (5.4.3)
+  - Alamofire (5.5.0)
   - Flutter (1.0.0)
   - kakao_login (0.0.1):
     - Flutter
-    - KakaoSDKAuth (~> 2.6)
-    - KakaoSDKCommon (~> 2.6)
-    - KakaoSDKUser (~> 2.6)
-  - KakaoSDKAuth (2.6.0):
-    - KakaoSDKCommon (= 2.6.0)
-  - KakaoSDKCommon (2.6.0):
-    - KakaoSDKCommon/Common (= 2.6.0)
-    - KakaoSDKCommon/Network (= 2.6.0)
-  - KakaoSDKCommon/Common (2.6.0)
-  - KakaoSDKCommon/Network (2.6.0):
+    - KakaoSDKAuth (= 2.8.6)
+    - KakaoSDKCommon (= 2.8.6)
+    - KakaoSDKUser (= 2.8.6)
+  - KakaoSDKAuth (2.8.6):
+    - KakaoSDKCommon (= 2.8.6)
+  - KakaoSDKCommon (2.8.6):
+    - KakaoSDKCommon/Common (= 2.8.6)
+    - KakaoSDKCommon/Network (= 2.8.6)
+  - KakaoSDKCommon/Common (2.8.6)
+  - KakaoSDKCommon/Network (2.8.6):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.6.0)
-  - KakaoSDKUser (2.6.0):
-    - KakaoSDKAuth (= 2.6.0)
+    - KakaoSDKCommon/Common (= 2.8.6)
+  - KakaoSDKUser (2.8.6):
+    - KakaoSDKAuth (= 2.8.6)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -36,13 +36,13 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/kakao_login/ios"
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  kakao_login: 60f784ba20d526c7103d5012390803ef5ad60f55
-  KakaoSDKAuth: 037e6260f4468cbc3bde89a802864d6b58c5271c
-  KakaoSDKCommon: 38154188336a1118f1b757f0fec54ff989365ddc
-  KakaoSDKUser: ff9d7436ccbf0d65615bc56f3f4e31fb06830db2
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  kakao_login: 46416ea4b8ce12c5fc4ffacd99c6aa8216ec5394
+  KakaoSDKAuth: 53e747a3bf343a3f3e87b14478d5a865d6c2acae
+  KakaoSDKCommon: 7e56600ff4c1bd82bed93fea4299b5a37f47e6a5
+  KakaoSDKUser: e79480355fa789f42e628dfba359fc21e9914f4c
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.0
