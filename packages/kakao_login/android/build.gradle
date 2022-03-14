@@ -26,13 +26,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 21
         // Required when setting minSdkVersion to 20 or lower
         multiDexEnabled = true
     }
@@ -56,6 +56,6 @@ android {
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.9")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "com.kakao.sdk:v2-user:2.5.3" // 카카오 로그인, 사용자 관리
+    implementation "com.kakao.sdk:v2-user:2.8.6" // 카카오 로그인, 사용자 관리
 
 }
