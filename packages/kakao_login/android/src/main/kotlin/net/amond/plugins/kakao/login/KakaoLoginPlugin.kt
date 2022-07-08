@@ -63,7 +63,7 @@ public class KakaoLoginPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     fun registerWith(registrar: Registrar) {
       val instance = KakaoLoginPlugin()
       instance.onInstanceAttachedToEngine(registrar.messenger(), registrar.context())
-      instance.onInstanceAttachedToActivity(registrar.activity())
+      instance.onInstanceAttachedToActivity(registrar.activity()!!)
     }
   }
 
