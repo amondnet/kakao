@@ -7,7 +7,7 @@ import 'kakao_login_error.dart';
 part 'auth_error.freezed.dart';
 
 @freezed
-abstract class AuthError extends KakaoSdkError implements _$AuthError {
+class AuthError extends KakaoSdkError with _$AuthError {
   static const TYPE = "AuthError";
   AuthError._();
 

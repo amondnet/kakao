@@ -7,7 +7,7 @@ import 'kakao_login_error.dart';
 part 'client_error.freezed.dart';
 
 @freezed
-abstract class ClientError extends KakaoSdkError implements _$ClientError {
+class ClientError extends KakaoSdkError with _$ClientError {
   static const String TYPE = 'ClientError';
   ClientError._();
 

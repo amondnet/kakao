@@ -9,7 +9,7 @@ part 'gender.dart';
 
 /// Kakao account information.
 @freezed
-abstract class Account implements _$Account {
+class Account with _$Account {
   Account._();
   @JsonSerializable(
       fieldRename: FieldRename.snake,

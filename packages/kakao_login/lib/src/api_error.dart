@@ -7,7 +7,7 @@ part 'api_error.freezed.dart';
 
 /// API 에러
 @freezed
-abstract class ApiError extends KakaoSdkError with _$ApiError {
+class ApiError extends KakaoSdkError with _$ApiError {
   ApiError._() : super();
 
   factory ApiError(String msg, String? details) = DefaultApiError;
