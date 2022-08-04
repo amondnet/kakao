@@ -1,12 +1,12 @@
 name: kakao_login
-description: A new Flutter project.
+description: A flutter plugin for Kakao login.
 version: 0.5.0
 repository: https://github.com/amondnet/kakao/tree/master/packages/kakao_login
 homepage: https://github.com/amondnet/kakao/
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
-  flutter: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
