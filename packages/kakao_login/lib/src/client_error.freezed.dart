@@ -29,13 +29,13 @@ mixin _$ClientError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,13 +63,13 @@ mixin _$ClientError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,16 +90,18 @@ mixin _$ClientError {
 abstract class $ClientErrorCopyWith<$Res> {
   factory $ClientErrorCopyWith(
           ClientError value, $Res Function(ClientError) then) =
-      _$ClientErrorCopyWithImpl<$Res>;
+      _$ClientErrorCopyWithImpl<$Res, ClientError>;
 }
 
 /// @nodoc
-class _$ClientErrorCopyWithImpl<$Res> implements $ClientErrorCopyWith<$Res> {
+class _$ClientErrorCopyWithImpl<$Res, $Val extends ClientError>
+    implements $ClientErrorCopyWith<$Res> {
   _$ClientErrorCopyWithImpl(this._value, this._then);
 
-  final ClientError _value;
   // ignore: unused_field
-  final $Res Function(ClientError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -107,30 +109,30 @@ abstract class _$$_ClientErrorCopyWith<$Res> {
   factory _$$_ClientErrorCopyWith(
           _$_ClientError value, $Res Function(_$_ClientError) then) =
       __$$_ClientErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String msg, String details});
 }
 
 /// @nodoc
-class __$$_ClientErrorCopyWithImpl<$Res> extends _$ClientErrorCopyWithImpl<$Res>
+class __$$_ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$_ClientError>
     implements _$$_ClientErrorCopyWith<$Res> {
   __$$_ClientErrorCopyWithImpl(
       _$_ClientError _value, $Res Function(_$_ClientError) _then)
-      : super(_value, (v) => _then(v as _$_ClientError));
+      : super(_value, _then);
 
-  @override
-  _$_ClientError get _value => super._value as _$_ClientError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msg = freezed,
-    Object? details = freezed,
+    Object? msg = null,
+    Object? details = null,
   }) {
     return _then(_$_ClientError(
-      msg == freezed
+      null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      details == freezed
+      null == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
@@ -158,18 +160,16 @@ class _$_ClientError extends _ClientError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ClientError &&
-            const DeepCollectionEquality().equals(other.msg, msg) &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(msg),
-      const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, msg, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ClientErrorCopyWith<_$_ClientError> get copyWith =>
       __$$_ClientErrorCopyWithImpl<_$_ClientError>(this, _$identity);
 
@@ -190,13 +190,13 @@ class _$_ClientError extends _ClientError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return $default?.call(msg, details);
   }
@@ -236,13 +236,13 @@ class _$_ClientError extends _ClientError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return $default?.call(this);
   }
@@ -282,26 +282,25 @@ abstract class _$$ClientErrorUnknownCopyWith<$Res> {
   factory _$$ClientErrorUnknownCopyWith(_$ClientErrorUnknown value,
           $Res Function(_$ClientErrorUnknown) then) =
       __$$ClientErrorUnknownCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ClientErrorUnknownCopyWithImpl<$Res>
-    extends _$ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$ClientErrorUnknown>
     implements _$$ClientErrorUnknownCopyWith<$Res> {
   __$$ClientErrorUnknownCopyWithImpl(
       _$ClientErrorUnknown _value, $Res Function(_$ClientErrorUnknown) _then)
-      : super(_value, (v) => _then(v as _$ClientErrorUnknown));
+      : super(_value, _then);
 
-  @override
-  _$ClientErrorUnknown get _value => super._value as _$ClientErrorUnknown;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ClientErrorUnknown(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -327,15 +326,15 @@ class _$ClientErrorUnknown extends ClientErrorUnknown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorUnknown &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ClientErrorUnknownCopyWith<_$ClientErrorUnknown> get copyWith =>
       __$$ClientErrorUnknownCopyWithImpl<_$ClientErrorUnknown>(
           this, _$identity);
@@ -357,13 +356,13 @@ class _$ClientErrorUnknown extends ClientErrorUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return unknown?.call(details);
   }
@@ -403,13 +402,13 @@ class _$ClientErrorUnknown extends ClientErrorUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return unknown?.call(this);
   }
@@ -448,26 +447,25 @@ abstract class _$$ClientErrorCancelledCopyWith<$Res> {
   factory _$$ClientErrorCancelledCopyWith(_$ClientErrorCancelled value,
           $Res Function(_$ClientErrorCancelled) then) =
       __$$ClientErrorCancelledCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ClientErrorCancelledCopyWithImpl<$Res>
-    extends _$ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$ClientErrorCancelled>
     implements _$$ClientErrorCancelledCopyWith<$Res> {
   __$$ClientErrorCancelledCopyWithImpl(_$ClientErrorCancelled _value,
       $Res Function(_$ClientErrorCancelled) _then)
-      : super(_value, (v) => _then(v as _$ClientErrorCancelled));
+      : super(_value, _then);
 
-  @override
-  _$ClientErrorCancelled get _value => super._value as _$ClientErrorCancelled;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ClientErrorCancelled(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -493,15 +491,15 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorCancelled &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ClientErrorCancelledCopyWith<_$ClientErrorCancelled> get copyWith =>
       __$$ClientErrorCancelledCopyWithImpl<_$ClientErrorCancelled>(
           this, _$identity);
@@ -523,13 +521,13 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return cancelled?.call(details);
   }
@@ -569,13 +567,13 @@ class _$ClientErrorCancelled extends ClientErrorCancelled {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return cancelled?.call(this);
   }
@@ -615,27 +613,25 @@ abstract class _$$ClientErrorTokenNotFoundCopyWith<$Res> {
   factory _$$ClientErrorTokenNotFoundCopyWith(_$ClientErrorTokenNotFound value,
           $Res Function(_$ClientErrorTokenNotFound) then) =
       __$$ClientErrorTokenNotFoundCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ClientErrorTokenNotFoundCopyWithImpl<$Res>
-    extends _$ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$ClientErrorTokenNotFound>
     implements _$$ClientErrorTokenNotFoundCopyWith<$Res> {
   __$$ClientErrorTokenNotFoundCopyWithImpl(_$ClientErrorTokenNotFound _value,
       $Res Function(_$ClientErrorTokenNotFound) _then)
-      : super(_value, (v) => _then(v as _$ClientErrorTokenNotFound));
+      : super(_value, _then);
 
-  @override
-  _$ClientErrorTokenNotFound get _value =>
-      super._value as _$ClientErrorTokenNotFound;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ClientErrorTokenNotFound(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -661,15 +657,15 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorTokenNotFound &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ClientErrorTokenNotFoundCopyWith<_$ClientErrorTokenNotFound>
       get copyWith =>
           __$$ClientErrorTokenNotFoundCopyWithImpl<_$ClientErrorTokenNotFound>(
@@ -692,13 +688,13 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return tokenNotFound?.call(details);
   }
@@ -738,13 +734,13 @@ class _$ClientErrorTokenNotFound extends ClientErrorTokenNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return tokenNotFound?.call(this);
   }
@@ -784,27 +780,25 @@ abstract class _$$ClientErrorNotSupportedCopyWith<$Res> {
   factory _$$ClientErrorNotSupportedCopyWith(_$ClientErrorNotSupported value,
           $Res Function(_$ClientErrorNotSupported) then) =
       __$$ClientErrorNotSupportedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ClientErrorNotSupportedCopyWithImpl<$Res>
-    extends _$ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$ClientErrorNotSupported>
     implements _$$ClientErrorNotSupportedCopyWith<$Res> {
   __$$ClientErrorNotSupportedCopyWithImpl(_$ClientErrorNotSupported _value,
       $Res Function(_$ClientErrorNotSupported) _then)
-      : super(_value, (v) => _then(v as _$ClientErrorNotSupported));
+      : super(_value, _then);
 
-  @override
-  _$ClientErrorNotSupported get _value =>
-      super._value as _$ClientErrorNotSupported;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ClientErrorNotSupported(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -830,15 +824,15 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorNotSupported &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ClientErrorNotSupportedCopyWith<_$ClientErrorNotSupported> get copyWith =>
       __$$ClientErrorNotSupportedCopyWithImpl<_$ClientErrorNotSupported>(
           this, _$identity);
@@ -860,13 +854,13 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return notSupported?.call(details);
   }
@@ -906,13 +900,13 @@ class _$ClientErrorNotSupported extends ClientErrorNotSupported {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return notSupported?.call(this);
   }
@@ -952,27 +946,25 @@ abstract class _$$ClientErrorBadParameterCopyWith<$Res> {
   factory _$$ClientErrorBadParameterCopyWith(_$ClientErrorBadParameter value,
           $Res Function(_$ClientErrorBadParameter) then) =
       __$$ClientErrorBadParameterCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ClientErrorBadParameterCopyWithImpl<$Res>
-    extends _$ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$ClientErrorBadParameter>
     implements _$$ClientErrorBadParameterCopyWith<$Res> {
   __$$ClientErrorBadParameterCopyWithImpl(_$ClientErrorBadParameter _value,
       $Res Function(_$ClientErrorBadParameter) _then)
-      : super(_value, (v) => _then(v as _$ClientErrorBadParameter));
+      : super(_value, _then);
 
-  @override
-  _$ClientErrorBadParameter get _value =>
-      super._value as _$ClientErrorBadParameter;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ClientErrorBadParameter(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -998,15 +990,15 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorBadParameter &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ClientErrorBadParameterCopyWith<_$ClientErrorBadParameter> get copyWith =>
       __$$ClientErrorBadParameterCopyWithImpl<_$ClientErrorBadParameter>(
           this, _$identity);
@@ -1028,13 +1020,13 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return badParameter?.call(details);
   }
@@ -1074,13 +1066,13 @@ class _$ClientErrorBadParameter extends ClientErrorBadParameter {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return badParameter?.call(this);
   }
@@ -1120,27 +1112,25 @@ abstract class _$$ClientErrorIllegalStateCopyWith<$Res> {
   factory _$$ClientErrorIllegalStateCopyWith(_$ClientErrorIllegalState value,
           $Res Function(_$ClientErrorIllegalState) then) =
       __$$ClientErrorIllegalStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ClientErrorIllegalStateCopyWithImpl<$Res>
-    extends _$ClientErrorCopyWithImpl<$Res>
+    extends _$ClientErrorCopyWithImpl<$Res, _$ClientErrorIllegalState>
     implements _$$ClientErrorIllegalStateCopyWith<$Res> {
   __$$ClientErrorIllegalStateCopyWithImpl(_$ClientErrorIllegalState _value,
       $Res Function(_$ClientErrorIllegalState) _then)
-      : super(_value, (v) => _then(v as _$ClientErrorIllegalState));
+      : super(_value, _then);
 
-  @override
-  _$ClientErrorIllegalState get _value =>
-      super._value as _$ClientErrorIllegalState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ClientErrorIllegalState(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1166,15 +1156,15 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientErrorIllegalState &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ClientErrorIllegalStateCopyWith<_$ClientErrorIllegalState> get copyWith =>
       __$$ClientErrorIllegalStateCopyWithImpl<_$ClientErrorIllegalState>(
           this, _$identity);
@@ -1196,13 +1186,13 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? unknown,
-    TResult Function(String? details)? cancelled,
-    TResult Function(String? details)? tokenNotFound,
-    TResult Function(String? details)? notSupported,
-    TResult Function(String? details)? badParameter,
-    TResult Function(String? details)? llegalState,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? unknown,
+    TResult? Function(String? details)? cancelled,
+    TResult? Function(String? details)? tokenNotFound,
+    TResult? Function(String? details)? notSupported,
+    TResult? Function(String? details)? badParameter,
+    TResult? Function(String? details)? llegalState,
   }) {
     return llegalState?.call(details);
   }
@@ -1242,13 +1232,13 @@ class _$ClientErrorIllegalState extends ClientErrorIllegalState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_ClientError value)? $default, {
-    TResult Function(ClientErrorUnknown value)? unknown,
-    TResult Function(ClientErrorCancelled value)? cancelled,
-    TResult Function(ClientErrorTokenNotFound value)? tokenNotFound,
-    TResult Function(ClientErrorNotSupported value)? notSupported,
-    TResult Function(ClientErrorBadParameter value)? badParameter,
-    TResult Function(ClientErrorIllegalState value)? llegalState,
+    TResult? Function(_ClientError value)? $default, {
+    TResult? Function(ClientErrorUnknown value)? unknown,
+    TResult? Function(ClientErrorCancelled value)? cancelled,
+    TResult? Function(ClientErrorTokenNotFound value)? tokenNotFound,
+    TResult? Function(ClientErrorNotSupported value)? notSupported,
+    TResult? Function(ClientErrorBadParameter value)? badParameter,
+    TResult? Function(ClientErrorIllegalState value)? llegalState,
   }) {
     return llegalState?.call(this);
   }

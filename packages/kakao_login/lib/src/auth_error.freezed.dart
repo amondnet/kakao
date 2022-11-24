@@ -32,16 +32,16 @@ mixin _$AuthError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,16 +75,16 @@ mixin _$AuthError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,16 +107,18 @@ mixin _$AuthError {
 /// @nodoc
 abstract class $AuthErrorCopyWith<$Res> {
   factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) then) =
-      _$AuthErrorCopyWithImpl<$Res>;
+      _$AuthErrorCopyWithImpl<$Res, AuthError>;
 }
 
 /// @nodoc
-class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
+class _$AuthErrorCopyWithImpl<$Res, $Val extends AuthError>
+    implements $AuthErrorCopyWith<$Res> {
   _$AuthErrorCopyWithImpl(this._value, this._then);
 
-  final AuthError _value;
   // ignore: unused_field
-  final $Res Function(AuthError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -124,30 +126,30 @@ abstract class _$$_AuthErrorCopyWith<$Res> {
   factory _$$_AuthErrorCopyWith(
           _$_AuthError value, $Res Function(_$_AuthError) then) =
       __$$_AuthErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String msg, String details});
 }
 
 /// @nodoc
-class __$$_AuthErrorCopyWithImpl<$Res> extends _$AuthErrorCopyWithImpl<$Res>
+class __$$_AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$_AuthError>
     implements _$$_AuthErrorCopyWith<$Res> {
   __$$_AuthErrorCopyWithImpl(
       _$_AuthError _value, $Res Function(_$_AuthError) _then)
-      : super(_value, (v) => _then(v as _$_AuthError));
+      : super(_value, _then);
 
-  @override
-  _$_AuthError get _value => super._value as _$_AuthError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msg = freezed,
-    Object? details = freezed,
+    Object? msg = null,
+    Object? details = null,
   }) {
     return _then(_$_AuthError(
-      msg == freezed
+      null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      details == freezed
+      null == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
@@ -175,18 +177,16 @@ class _$_AuthError extends _AuthError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthError &&
-            const DeepCollectionEquality().equals(other.msg, msg) &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(msg),
-      const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, msg, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AuthErrorCopyWith<_$_AuthError> get copyWith =>
       __$$_AuthErrorCopyWithImpl<_$_AuthError>(this, _$identity);
 
@@ -210,16 +210,16 @@ class _$_AuthError extends _AuthError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return $default?.call(msg, details);
   }
@@ -265,16 +265,16 @@ class _$_AuthError extends _AuthError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return $default?.call(this);
   }
@@ -317,27 +317,25 @@ abstract class _$$AuthErrorInvalidRequestCopyWith<$Res> {
   factory _$$AuthErrorInvalidRequestCopyWith(_$AuthErrorInvalidRequest value,
           $Res Function(_$AuthErrorInvalidRequest) then) =
       __$$AuthErrorInvalidRequestCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorInvalidRequestCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorInvalidRequest>
     implements _$$AuthErrorInvalidRequestCopyWith<$Res> {
   __$$AuthErrorInvalidRequestCopyWithImpl(_$AuthErrorInvalidRequest _value,
       $Res Function(_$AuthErrorInvalidRequest) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorInvalidRequest));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorInvalidRequest get _value =>
-      super._value as _$AuthErrorInvalidRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorInvalidRequest(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -363,15 +361,15 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorInvalidRequest &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorInvalidRequestCopyWith<_$AuthErrorInvalidRequest> get copyWith =>
       __$$AuthErrorInvalidRequestCopyWithImpl<_$AuthErrorInvalidRequest>(
           this, _$identity);
@@ -396,16 +394,16 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return invalidRequest?.call(details);
   }
@@ -451,16 +449,16 @@ class _$AuthErrorInvalidRequest extends AuthErrorInvalidRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return invalidRequest?.call(this);
   }
@@ -503,27 +501,25 @@ abstract class _$$AuthErrorInvalidClientCopyWith<$Res> {
   factory _$$AuthErrorInvalidClientCopyWith(_$AuthErrorInvalidClient value,
           $Res Function(_$AuthErrorInvalidClient) then) =
       __$$AuthErrorInvalidClientCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorInvalidClientCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorInvalidClient>
     implements _$$AuthErrorInvalidClientCopyWith<$Res> {
   __$$AuthErrorInvalidClientCopyWithImpl(_$AuthErrorInvalidClient _value,
       $Res Function(_$AuthErrorInvalidClient) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorInvalidClient));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorInvalidClient get _value =>
-      super._value as _$AuthErrorInvalidClient;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorInvalidClient(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -549,15 +545,15 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorInvalidClient &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorInvalidClientCopyWith<_$AuthErrorInvalidClient> get copyWith =>
       __$$AuthErrorInvalidClientCopyWithImpl<_$AuthErrorInvalidClient>(
           this, _$identity);
@@ -582,16 +578,16 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return invalidClient?.call(details);
   }
@@ -637,16 +633,16 @@ class _$AuthErrorInvalidClient extends AuthErrorInvalidClient {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return invalidClient?.call(this);
   }
@@ -689,26 +685,25 @@ abstract class _$$AuthErrorInvalidScopeCopyWith<$Res> {
   factory _$$AuthErrorInvalidScopeCopyWith(_$AuthErrorInvalidScope value,
           $Res Function(_$AuthErrorInvalidScope) then) =
       __$$AuthErrorInvalidScopeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorInvalidScopeCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorInvalidScope>
     implements _$$AuthErrorInvalidScopeCopyWith<$Res> {
   __$$AuthErrorInvalidScopeCopyWithImpl(_$AuthErrorInvalidScope _value,
       $Res Function(_$AuthErrorInvalidScope) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorInvalidScope));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorInvalidScope get _value => super._value as _$AuthErrorInvalidScope;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorInvalidScope(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -734,15 +729,15 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorInvalidScope &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorInvalidScopeCopyWith<_$AuthErrorInvalidScope> get copyWith =>
       __$$AuthErrorInvalidScopeCopyWithImpl<_$AuthErrorInvalidScope>(
           this, _$identity);
@@ -767,16 +762,16 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return invalidScope?.call(details);
   }
@@ -822,16 +817,16 @@ class _$AuthErrorInvalidScope extends AuthErrorInvalidScope {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return invalidScope?.call(this);
   }
@@ -874,26 +869,25 @@ abstract class _$$AuthErrorInvalidGrantCopyWith<$Res> {
   factory _$$AuthErrorInvalidGrantCopyWith(_$AuthErrorInvalidGrant value,
           $Res Function(_$AuthErrorInvalidGrant) then) =
       __$$AuthErrorInvalidGrantCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorInvalidGrantCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorInvalidGrant>
     implements _$$AuthErrorInvalidGrantCopyWith<$Res> {
   __$$AuthErrorInvalidGrantCopyWithImpl(_$AuthErrorInvalidGrant _value,
       $Res Function(_$AuthErrorInvalidGrant) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorInvalidGrant));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorInvalidGrant get _value => super._value as _$AuthErrorInvalidGrant;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorInvalidGrant(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -919,15 +913,15 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorInvalidGrant &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorInvalidGrantCopyWith<_$AuthErrorInvalidGrant> get copyWith =>
       __$$AuthErrorInvalidGrantCopyWithImpl<_$AuthErrorInvalidGrant>(
           this, _$identity);
@@ -952,16 +946,16 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return invalidGrant?.call(details);
   }
@@ -1007,16 +1001,16 @@ class _$AuthErrorInvalidGrant extends AuthErrorInvalidGrant {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return invalidGrant?.call(this);
   }
@@ -1059,27 +1053,25 @@ abstract class _$$AuthErrorMisconfiguredCopyWith<$Res> {
   factory _$$AuthErrorMisconfiguredCopyWith(_$AuthErrorMisconfigured value,
           $Res Function(_$AuthErrorMisconfigured) then) =
       __$$AuthErrorMisconfiguredCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorMisconfiguredCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorMisconfigured>
     implements _$$AuthErrorMisconfiguredCopyWith<$Res> {
   __$$AuthErrorMisconfiguredCopyWithImpl(_$AuthErrorMisconfigured _value,
       $Res Function(_$AuthErrorMisconfigured) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorMisconfigured));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorMisconfigured get _value =>
-      super._value as _$AuthErrorMisconfigured;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorMisconfigured(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1105,15 +1097,15 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorMisconfigured &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorMisconfiguredCopyWith<_$AuthErrorMisconfigured> get copyWith =>
       __$$AuthErrorMisconfiguredCopyWithImpl<_$AuthErrorMisconfigured>(
           this, _$identity);
@@ -1138,16 +1130,16 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return misconfigured?.call(details);
   }
@@ -1193,16 +1185,16 @@ class _$AuthErrorMisconfigured extends AuthErrorMisconfigured {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return misconfigured?.call(this);
   }
@@ -1245,26 +1237,25 @@ abstract class _$$AuthErrorUnauthorizedCopyWith<$Res> {
   factory _$$AuthErrorUnauthorizedCopyWith(_$AuthErrorUnauthorized value,
           $Res Function(_$AuthErrorUnauthorized) then) =
       __$$AuthErrorUnauthorizedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorUnauthorizedCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorUnauthorized>
     implements _$$AuthErrorUnauthorizedCopyWith<$Res> {
   __$$AuthErrorUnauthorizedCopyWithImpl(_$AuthErrorUnauthorized _value,
       $Res Function(_$AuthErrorUnauthorized) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorUnauthorized));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorUnauthorized get _value => super._value as _$AuthErrorUnauthorized;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorUnauthorized(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1290,15 +1281,15 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorUnauthorized &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorUnauthorizedCopyWith<_$AuthErrorUnauthorized> get copyWith =>
       __$$AuthErrorUnauthorizedCopyWithImpl<_$AuthErrorUnauthorized>(
           this, _$identity);
@@ -1323,16 +1314,16 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return unauthorized?.call(details);
   }
@@ -1378,16 +1369,16 @@ class _$AuthErrorUnauthorized extends AuthErrorUnauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return unauthorized?.call(this);
   }
@@ -1430,26 +1421,25 @@ abstract class _$$AuthErrorAccessDeniedCopyWith<$Res> {
   factory _$$AuthErrorAccessDeniedCopyWith(_$AuthErrorAccessDenied value,
           $Res Function(_$AuthErrorAccessDenied) then) =
       __$$AuthErrorAccessDeniedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorAccessDeniedCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorAccessDenied>
     implements _$$AuthErrorAccessDeniedCopyWith<$Res> {
   __$$AuthErrorAccessDeniedCopyWithImpl(_$AuthErrorAccessDenied _value,
       $Res Function(_$AuthErrorAccessDenied) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorAccessDenied));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorAccessDenied get _value => super._value as _$AuthErrorAccessDenied;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorAccessDenied(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1475,15 +1465,15 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorAccessDenied &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorAccessDeniedCopyWith<_$AuthErrorAccessDenied> get copyWith =>
       __$$AuthErrorAccessDeniedCopyWithImpl<_$AuthErrorAccessDenied>(
           this, _$identity);
@@ -1508,16 +1498,16 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return accessDenied?.call(details);
   }
@@ -1563,16 +1553,16 @@ class _$AuthErrorAccessDenied extends AuthErrorAccessDenied {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return accessDenied?.call(this);
   }
@@ -1615,26 +1605,25 @@ abstract class _$$AuthErrorServerErrorCopyWith<$Res> {
   factory _$$AuthErrorServerErrorCopyWith(_$AuthErrorServerError value,
           $Res Function(_$AuthErrorServerError) then) =
       __$$AuthErrorServerErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorServerErrorCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorServerError>
     implements _$$AuthErrorServerErrorCopyWith<$Res> {
   __$$AuthErrorServerErrorCopyWithImpl(_$AuthErrorServerError _value,
       $Res Function(_$AuthErrorServerError) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorServerError));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorServerError get _value => super._value as _$AuthErrorServerError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorServerError(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1660,15 +1649,15 @@ class _$AuthErrorServerError extends AuthErrorServerError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorServerError &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorServerErrorCopyWith<_$AuthErrorServerError> get copyWith =>
       __$$AuthErrorServerErrorCopyWithImpl<_$AuthErrorServerError>(
           this, _$identity);
@@ -1693,16 +1682,16 @@ class _$AuthErrorServerError extends AuthErrorServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return serverError?.call(details);
   }
@@ -1748,16 +1737,16 @@ class _$AuthErrorServerError extends AuthErrorServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return serverError?.call(this);
   }
@@ -1800,26 +1789,25 @@ abstract class _$$AuthErrorUnknownCopyWith<$Res> {
   factory _$$AuthErrorUnknownCopyWith(
           _$AuthErrorUnknown value, $Res Function(_$AuthErrorUnknown) then) =
       __$$AuthErrorUnknownCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$AuthErrorUnknownCopyWithImpl<$Res>
-    extends _$AuthErrorCopyWithImpl<$Res>
+    extends _$AuthErrorCopyWithImpl<$Res, _$AuthErrorUnknown>
     implements _$$AuthErrorUnknownCopyWith<$Res> {
   __$$AuthErrorUnknownCopyWithImpl(
       _$AuthErrorUnknown _value, $Res Function(_$AuthErrorUnknown) _then)
-      : super(_value, (v) => _then(v as _$AuthErrorUnknown));
+      : super(_value, _then);
 
-  @override
-  _$AuthErrorUnknown get _value => super._value as _$AuthErrorUnknown;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$AuthErrorUnknown(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1845,15 +1833,15 @@ class _$AuthErrorUnknown extends AuthErrorUnknown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorUnknown &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$AuthErrorUnknownCopyWith<_$AuthErrorUnknown> get copyWith =>
       __$$AuthErrorUnknownCopyWithImpl<_$AuthErrorUnknown>(this, _$identity);
 
@@ -1877,16 +1865,16 @@ class _$AuthErrorUnknown extends AuthErrorUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String details)? $default, {
-    TResult Function(String? details)? invalidRequest,
-    TResult Function(String? details)? invalidClient,
-    TResult Function(String? details)? invalidScope,
-    TResult Function(String? details)? invalidGrant,
-    TResult Function(String? details)? misconfigured,
-    TResult Function(String? details)? unauthorized,
-    TResult Function(String? details)? accessDenied,
-    TResult Function(String? details)? serverError,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String details)? $default, {
+    TResult? Function(String? details)? invalidRequest,
+    TResult? Function(String? details)? invalidClient,
+    TResult? Function(String? details)? invalidScope,
+    TResult? Function(String? details)? invalidGrant,
+    TResult? Function(String? details)? misconfigured,
+    TResult? Function(String? details)? unauthorized,
+    TResult? Function(String? details)? accessDenied,
+    TResult? Function(String? details)? serverError,
+    TResult? Function(String? details)? unknown,
   }) {
     return unknown?.call(details);
   }
@@ -1932,16 +1920,16 @@ class _$AuthErrorUnknown extends AuthErrorUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AuthError value)? $default, {
-    TResult Function(AuthErrorInvalidRequest value)? invalidRequest,
-    TResult Function(AuthErrorInvalidClient value)? invalidClient,
-    TResult Function(AuthErrorInvalidScope value)? invalidScope,
-    TResult Function(AuthErrorInvalidGrant value)? invalidGrant,
-    TResult Function(AuthErrorMisconfigured value)? misconfigured,
-    TResult Function(AuthErrorUnauthorized value)? unauthorized,
-    TResult Function(AuthErrorAccessDenied value)? accessDenied,
-    TResult Function(AuthErrorServerError value)? serverError,
-    TResult Function(AuthErrorUnknown value)? unknown,
+    TResult? Function(_AuthError value)? $default, {
+    TResult? Function(AuthErrorInvalidRequest value)? invalidRequest,
+    TResult? Function(AuthErrorInvalidClient value)? invalidClient,
+    TResult? Function(AuthErrorInvalidScope value)? invalidScope,
+    TResult? Function(AuthErrorInvalidGrant value)? invalidGrant,
+    TResult? Function(AuthErrorMisconfigured value)? misconfigured,
+    TResult? Function(AuthErrorUnauthorized value)? unauthorized,
+    TResult? Function(AuthErrorAccessDenied value)? accessDenied,
+    TResult? Function(AuthErrorServerError value)? serverError,
+    TResult? Function(AuthErrorUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }

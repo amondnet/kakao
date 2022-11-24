@@ -1,6 +1,6 @@
 name: kakao_login
 description: A flutter plugin for Kakao login.
-version: 0.5.0
+version: 0.6.0
 repository: https://github.com/amondnet/kakao/tree/master/packages/kakao_login
 homepage: https://github.com/amondnet/kakao/
 
@@ -11,16 +11,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  freezed_annotation: ^2.0.0
+  freezed_annotation: '>=2.0.0 <3.0.0'
   async: ^2.0.0
   meta: ^1.0.0
-  json_annotation: ^4.6.0
+  json_annotation: ^4.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  freezed: ^2.1.0+1
+  freezed: ^2.2.1
   build_runner: ^2.0.0
-  json_serializable: ^6.3.1
+  json_serializable: ^6.5.4
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

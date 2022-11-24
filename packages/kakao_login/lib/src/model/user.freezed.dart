@@ -49,7 +49,8 @@ mixin _$User {
 /// @nodoc
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res>;
+      _$UserCopyWithImpl<$Res, User>;
+  @useResult
   $Res call(
       {@JsonKey(fromJson: intFromJson) int id,
       Map<String, String>? properties,
@@ -62,16 +63,19 @@ abstract class $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
+class _$UserCopyWithImpl<$Res, $Val extends User>
+    implements $UserCopyWith<$Res> {
   _$UserCopyWithImpl(this._value, this._then);
 
-  final User _value;
   // ignore: unused_field
-  final $Res Function(User) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? properties = freezed,
     Object? kakaoAccount = freezed,
     Object? groupUserToken = freezed,
@@ -79,41 +83,42 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? synchedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      properties: properties == freezed
+      properties: freezed == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      kakaoAccount: kakaoAccount == freezed
+      kakaoAccount: freezed == kakaoAccount
           ? _value.kakaoAccount
           : kakaoAccount // ignore: cast_nullable_to_non_nullable
               as Account?,
-      groupUserToken: groupUserToken == freezed
+      groupUserToken: freezed == groupUserToken
           ? _value.groupUserToken
           : groupUserToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      connectedAt: connectedAt == freezed
+      connectedAt: freezed == connectedAt
           ? _value.connectedAt
           : connectedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      synchedAt: synchedAt == freezed
+      synchedAt: freezed == synchedAt
           ? _value.synchedAt
           : synchedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $AccountCopyWith<$Res>? get kakaoAccount {
     if (_value.kakaoAccount == null) {
       return null;
     }
 
     return $AccountCopyWith<$Res>(_value.kakaoAccount!, (value) {
-      return _then(_value.copyWith(kakaoAccount: value));
+      return _then(_value.copyWith(kakaoAccount: value) as $Val);
     });
   }
 }
@@ -123,6 +128,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
       __$$_UserCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(fromJson: intFromJson) int id,
       Map<String, String>? properties,
@@ -136,17 +142,15 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
+class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     implements _$$_UserCopyWith<$Res> {
   __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
-      : super(_value, (v) => _then(v as _$_User));
+      : super(_value, _then);
 
-  @override
-  _$_User get _value => super._value as _$_User;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? properties = freezed,
     Object? kakaoAccount = freezed,
     Object? groupUserToken = freezed,
@@ -154,27 +158,27 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? synchedAt = freezed,
   }) {
     return _then(_$_User(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      properties: properties == freezed
+      properties: freezed == properties
           ? _value._properties
           : properties // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
-      kakaoAccount: kakaoAccount == freezed
+      kakaoAccount: freezed == kakaoAccount
           ? _value.kakaoAccount
           : kakaoAccount // ignore: cast_nullable_to_non_nullable
               as Account?,
-      groupUserToken: groupUserToken == freezed
+      groupUserToken: freezed == groupUserToken
           ? _value.groupUserToken
           : groupUserToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      connectedAt: connectedAt == freezed
+      connectedAt: freezed == connectedAt
           ? _value.connectedAt
           : connectedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      synchedAt: synchedAt == freezed
+      synchedAt: freezed == synchedAt
           ? _value.synchedAt
           : synchedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
@@ -243,31 +247,33 @@ class _$_User extends _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_User &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._properties, _properties) &&
-            const DeepCollectionEquality()
-                .equals(other.kakaoAccount, kakaoAccount) &&
-            const DeepCollectionEquality()
-                .equals(other.groupUserToken, groupUserToken) &&
-            const DeepCollectionEquality()
-                .equals(other.connectedAt, connectedAt) &&
-            const DeepCollectionEquality().equals(other.synchedAt, synchedAt));
+            (identical(other.kakaoAccount, kakaoAccount) ||
+                other.kakaoAccount == kakaoAccount) &&
+            (identical(other.groupUserToken, groupUserToken) ||
+                other.groupUserToken == groupUserToken) &&
+            (identical(other.connectedAt, connectedAt) ||
+                other.connectedAt == connectedAt) &&
+            (identical(other.synchedAt, synchedAt) ||
+                other.synchedAt == synchedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
+      id,
       const DeepCollectionEquality().hash(_properties),
-      const DeepCollectionEquality().hash(kakaoAccount),
-      const DeepCollectionEquality().hash(groupUserToken),
-      const DeepCollectionEquality().hash(connectedAt),
-      const DeepCollectionEquality().hash(synchedAt));
+      kakaoAccount,
+      groupUserToken,
+      connectedAt,
+      synchedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserCopyWith<_$_User> get copyWith =>
       __$$_UserCopyWithImpl<_$_User>(this, _$identity);
 

@@ -37,18 +37,22 @@ mixin _$Profile {
 /// @nodoc
 abstract class $ProfileCopyWith<$Res> {
   factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
-      _$ProfileCopyWithImpl<$Res>;
+      _$ProfileCopyWithImpl<$Res, Profile>;
+  @useResult
   $Res call({String? nickname, Uri? thumbnailImageUrl, Uri? profileImageUrl});
 }
 
 /// @nodoc
-class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
+class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
+    implements $ProfileCopyWith<$Res> {
   _$ProfileCopyWithImpl(this._value, this._then);
 
-  final Profile _value;
   // ignore: unused_field
-  final $Res Function(Profile) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? nickname = freezed,
@@ -56,19 +60,19 @@ class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
     Object? profileImageUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      nickname: nickname == freezed
+      nickname: freezed == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String?,
-      thumbnailImageUrl: thumbnailImageUrl == freezed
+      thumbnailImageUrl: freezed == thumbnailImageUrl
           ? _value.thumbnailImageUrl
           : thumbnailImageUrl // ignore: cast_nullable_to_non_nullable
               as Uri?,
-      profileImageUrl: profileImageUrl == freezed
+      profileImageUrl: freezed == profileImageUrl
           ? _value.profileImageUrl
           : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as Uri?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,18 +82,18 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
           _$_Profile value, $Res Function(_$_Profile) then) =
       __$$_ProfileCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? nickname, Uri? thumbnailImageUrl, Uri? profileImageUrl});
 }
 
 /// @nodoc
-class __$$_ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
+class __$$_ProfileCopyWithImpl<$Res>
+    extends _$ProfileCopyWithImpl<$Res, _$_Profile>
     implements _$$_ProfileCopyWith<$Res> {
   __$$_ProfileCopyWithImpl(_$_Profile _value, $Res Function(_$_Profile) _then)
-      : super(_value, (v) => _then(v as _$_Profile));
+      : super(_value, _then);
 
-  @override
-  _$_Profile get _value => super._value as _$_Profile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? nickname = freezed,
@@ -97,15 +101,15 @@ class __$$_ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
     Object? profileImageUrl = freezed,
   }) {
     return _then(_$_Profile(
-      nickname: nickname == freezed
+      nickname: freezed == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String?,
-      thumbnailImageUrl: thumbnailImageUrl == freezed
+      thumbnailImageUrl: freezed == thumbnailImageUrl
           ? _value.thumbnailImageUrl
           : thumbnailImageUrl // ignore: cast_nullable_to_non_nullable
               as Uri?,
-      profileImageUrl: profileImageUrl == freezed
+      profileImageUrl: freezed == profileImageUrl
           ? _value.profileImageUrl
           : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as Uri?,
@@ -147,23 +151,22 @@ class _$_Profile extends _Profile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Profile &&
-            const DeepCollectionEquality().equals(other.nickname, nickname) &&
-            const DeepCollectionEquality()
-                .equals(other.thumbnailImageUrl, thumbnailImageUrl) &&
-            const DeepCollectionEquality()
-                .equals(other.profileImageUrl, profileImageUrl));
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.thumbnailImageUrl, thumbnailImageUrl) ||
+                other.thumbnailImageUrl == thumbnailImageUrl) &&
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(nickname),
-      const DeepCollectionEquality().hash(thumbnailImageUrl),
-      const DeepCollectionEquality().hash(profileImageUrl));
+  int get hashCode =>
+      Object.hash(runtimeType, nickname, thumbnailImageUrl, profileImageUrl);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>
       __$$_ProfileCopyWithImpl<_$_Profile>(this, _$identity);
 

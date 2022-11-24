@@ -51,7 +51,8 @@ mixin _$Account {
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res>;
+      _$AccountCopyWithImpl<$Res, Account>;
+  @useResult
   $Res call(
       {bool? profileNeedsAgreement,
       Profile? profile,
@@ -78,13 +79,16 @@ abstract class $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account>
+    implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
-  final Account _value;
   // ignore: unused_field
-  final $Res Function(Account) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? profileNeedsAgreement = freezed,
@@ -109,97 +113,98 @@ class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
     Object? ciAuthenticatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      profileNeedsAgreement: profileNeedsAgreement == freezed
+      profileNeedsAgreement: freezed == profileNeedsAgreement
           ? _value.profileNeedsAgreement
           : profileNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      profile: profile == freezed
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as Profile?,
-      isEmailVerified: isEmailVerified == freezed
+      isEmailVerified: freezed == isEmailVerified
           ? _value.isEmailVerified
           : isEmailVerified // ignore: cast_nullable_to_non_nullable
               as bool?,
-      isEmailValid: isEmailValid == freezed
+      isEmailValid: freezed == isEmailValid
           ? _value.isEmailValid
           : isEmailValid // ignore: cast_nullable_to_non_nullable
               as bool?,
-      emailNeedsAgreement: emailNeedsAgreement == freezed
+      emailNeedsAgreement: freezed == emailNeedsAgreement
           ? _value.emailNeedsAgreement
           : emailNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      isKakaotalkUser: isKakaotalkUser == freezed
+      isKakaotalkUser: freezed == isKakaotalkUser
           ? _value.isKakaotalkUser
           : isKakaotalkUser // ignore: cast_nullable_to_non_nullable
               as bool?,
-      phoneNumberNeedsAgreement: phoneNumberNeedsAgreement == freezed
+      phoneNumberNeedsAgreement: freezed == phoneNumberNeedsAgreement
           ? _value.phoneNumberNeedsAgreement
           : phoneNumberNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      phoneNumber: phoneNumber == freezed
+      phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      ageRangeNeedsAgreement: ageRangeNeedsAgreement == freezed
+      ageRangeNeedsAgreement: freezed == ageRangeNeedsAgreement
           ? _value.ageRangeNeedsAgreement
           : ageRangeNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      ageRange: ageRange == freezed
+      ageRange: freezed == ageRange
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
               as AgeRange?,
-      birthdayNeedsAgreement: birthdayNeedsAgreement == freezed
+      birthdayNeedsAgreement: freezed == birthdayNeedsAgreement
           ? _value.birthdayNeedsAgreement
           : birthdayNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      birthday: birthday == freezed
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as String?,
-      birthyearNeedsAgreement: birthyearNeedsAgreement == freezed
+      birthyearNeedsAgreement: freezed == birthyearNeedsAgreement
           ? _value.birthyearNeedsAgreement
           : birthyearNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      birthyear: birthyear == freezed
+      birthyear: freezed == birthyear
           ? _value.birthyear
           : birthyear // ignore: cast_nullable_to_non_nullable
               as String?,
-      genderNeedsAgreement: genderNeedsAgreement == freezed
+      genderNeedsAgreement: freezed == genderNeedsAgreement
           ? _value.genderNeedsAgreement
           : genderNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      gender: gender == freezed
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender?,
-      ciNeedsAgreement: ciNeedsAgreement == freezed
+      ciNeedsAgreement: freezed == ciNeedsAgreement
           ? _value.ciNeedsAgreement
           : ciNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      ci: ci == freezed
+      ci: freezed == ci
           ? _value.ci
           : ci // ignore: cast_nullable_to_non_nullable
               as String?,
-      ciAuthenticatedAt: ciAuthenticatedAt == freezed
+      ciAuthenticatedAt: freezed == ciAuthenticatedAt
           ? _value.ciAuthenticatedAt
           : ciAuthenticatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ProfileCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
     }
 
     return $ProfileCopyWith<$Res>(_value.profile!, (value) {
-      return _then(_value.copyWith(profile: value));
+      return _then(_value.copyWith(profile: value) as $Val);
     });
   }
 }
@@ -210,6 +215,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
           _$_Account value, $Res Function(_$_Account) then) =
       __$$_AccountCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool? profileNeedsAgreement,
       Profile? profile,
@@ -237,14 +243,13 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
+class __$$_AccountCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$_Account>
     implements _$$_AccountCopyWith<$Res> {
   __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
-      : super(_value, (v) => _then(v as _$_Account));
+      : super(_value, _then);
 
-  @override
-  _$_Account get _value => super._value as _$_Account;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? profileNeedsAgreement = freezed,
@@ -269,83 +274,83 @@ class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
     Object? ciAuthenticatedAt = freezed,
   }) {
     return _then(_$_Account(
-      profileNeedsAgreement: profileNeedsAgreement == freezed
+      profileNeedsAgreement: freezed == profileNeedsAgreement
           ? _value.profileNeedsAgreement
           : profileNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      profile: profile == freezed
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as Profile?,
-      isEmailVerified: isEmailVerified == freezed
+      isEmailVerified: freezed == isEmailVerified
           ? _value.isEmailVerified
           : isEmailVerified // ignore: cast_nullable_to_non_nullable
               as bool?,
-      isEmailValid: isEmailValid == freezed
+      isEmailValid: freezed == isEmailValid
           ? _value.isEmailValid
           : isEmailValid // ignore: cast_nullable_to_non_nullable
               as bool?,
-      emailNeedsAgreement: emailNeedsAgreement == freezed
+      emailNeedsAgreement: freezed == emailNeedsAgreement
           ? _value.emailNeedsAgreement
           : emailNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      isKakaotalkUser: isKakaotalkUser == freezed
+      isKakaotalkUser: freezed == isKakaotalkUser
           ? _value.isKakaotalkUser
           : isKakaotalkUser // ignore: cast_nullable_to_non_nullable
               as bool?,
-      phoneNumberNeedsAgreement: phoneNumberNeedsAgreement == freezed
+      phoneNumberNeedsAgreement: freezed == phoneNumberNeedsAgreement
           ? _value.phoneNumberNeedsAgreement
           : phoneNumberNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      phoneNumber: phoneNumber == freezed
+      phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      ageRangeNeedsAgreement: ageRangeNeedsAgreement == freezed
+      ageRangeNeedsAgreement: freezed == ageRangeNeedsAgreement
           ? _value.ageRangeNeedsAgreement
           : ageRangeNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      ageRange: ageRange == freezed
+      ageRange: freezed == ageRange
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
               as AgeRange?,
-      birthdayNeedsAgreement: birthdayNeedsAgreement == freezed
+      birthdayNeedsAgreement: freezed == birthdayNeedsAgreement
           ? _value.birthdayNeedsAgreement
           : birthdayNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      birthday: birthday == freezed
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as String?,
-      birthyearNeedsAgreement: birthyearNeedsAgreement == freezed
+      birthyearNeedsAgreement: freezed == birthyearNeedsAgreement
           ? _value.birthyearNeedsAgreement
           : birthyearNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      birthyear: birthyear == freezed
+      birthyear: freezed == birthyear
           ? _value.birthyear
           : birthyear // ignore: cast_nullable_to_non_nullable
               as String?,
-      genderNeedsAgreement: genderNeedsAgreement == freezed
+      genderNeedsAgreement: freezed == genderNeedsAgreement
           ? _value.genderNeedsAgreement
           : genderNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      gender: gender == freezed
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender?,
-      ciNeedsAgreement: ciNeedsAgreement == freezed
+      ciNeedsAgreement: freezed == ciNeedsAgreement
           ? _value.ciNeedsAgreement
           : ciNeedsAgreement // ignore: cast_nullable_to_non_nullable
               as bool?,
-      ci: ci == freezed
+      ci: freezed == ci
           ? _value.ci
           : ci // ignore: cast_nullable_to_non_nullable
               as String?,
-      ciAuthenticatedAt: ciAuthenticatedAt == freezed
+      ciAuthenticatedAt: freezed == ciAuthenticatedAt
           ? _value.ciAuthenticatedAt
           : ciAuthenticatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
@@ -440,69 +445,75 @@ class _$_Account extends _Account {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Account &&
-            const DeepCollectionEquality()
-                .equals(other.profileNeedsAgreement, profileNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.profile, profile) &&
-            const DeepCollectionEquality()
-                .equals(other.isEmailVerified, isEmailVerified) &&
-            const DeepCollectionEquality()
-                .equals(other.isEmailValid, isEmailValid) &&
-            const DeepCollectionEquality()
-                .equals(other.emailNeedsAgreement, emailNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality()
-                .equals(other.isKakaotalkUser, isKakaotalkUser) &&
-            const DeepCollectionEquality().equals(
-                other.phoneNumberNeedsAgreement, phoneNumberNeedsAgreement) &&
-            const DeepCollectionEquality()
-                .equals(other.phoneNumber, phoneNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.ageRangeNeedsAgreement, ageRangeNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.ageRange, ageRange) &&
-            const DeepCollectionEquality()
-                .equals(other.birthdayNeedsAgreement, birthdayNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.birthday, birthday) &&
-            const DeepCollectionEquality().equals(
-                other.birthyearNeedsAgreement, birthyearNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.birthyear, birthyear) &&
-            const DeepCollectionEquality()
-                .equals(other.genderNeedsAgreement, genderNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.gender, gender) &&
-            const DeepCollectionEquality()
-                .equals(other.ciNeedsAgreement, ciNeedsAgreement) &&
-            const DeepCollectionEquality().equals(other.ci, ci) &&
-            const DeepCollectionEquality()
-                .equals(other.ciAuthenticatedAt, ciAuthenticatedAt));
+            (identical(other.profileNeedsAgreement, profileNeedsAgreement) ||
+                other.profileNeedsAgreement == profileNeedsAgreement) &&
+            (identical(other.profile, profile) || other.profile == profile) &&
+            (identical(other.isEmailVerified, isEmailVerified) ||
+                other.isEmailVerified == isEmailVerified) &&
+            (identical(other.isEmailValid, isEmailValid) ||
+                other.isEmailValid == isEmailValid) &&
+            (identical(other.emailNeedsAgreement, emailNeedsAgreement) ||
+                other.emailNeedsAgreement == emailNeedsAgreement) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.isKakaotalkUser, isKakaotalkUser) ||
+                other.isKakaotalkUser == isKakaotalkUser) &&
+            (identical(other.phoneNumberNeedsAgreement,
+                    phoneNumberNeedsAgreement) ||
+                other.phoneNumberNeedsAgreement == phoneNumberNeedsAgreement) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.ageRangeNeedsAgreement, ageRangeNeedsAgreement) ||
+                other.ageRangeNeedsAgreement == ageRangeNeedsAgreement) &&
+            (identical(other.ageRange, ageRange) ||
+                other.ageRange == ageRange) &&
+            (identical(other.birthdayNeedsAgreement, birthdayNeedsAgreement) ||
+                other.birthdayNeedsAgreement == birthdayNeedsAgreement) &&
+            (identical(other.birthday, birthday) ||
+                other.birthday == birthday) &&
+            (identical(
+                    other.birthyearNeedsAgreement, birthyearNeedsAgreement) ||
+                other.birthyearNeedsAgreement == birthyearNeedsAgreement) &&
+            (identical(other.birthyear, birthyear) ||
+                other.birthyear == birthyear) &&
+            (identical(other.genderNeedsAgreement, genderNeedsAgreement) ||
+                other.genderNeedsAgreement == genderNeedsAgreement) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.ciNeedsAgreement, ciNeedsAgreement) ||
+                other.ciNeedsAgreement == ciNeedsAgreement) &&
+            (identical(other.ci, ci) || other.ci == ci) &&
+            (identical(other.ciAuthenticatedAt, ciAuthenticatedAt) ||
+                other.ciAuthenticatedAt == ciAuthenticatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(profileNeedsAgreement),
-        const DeepCollectionEquality().hash(profile),
-        const DeepCollectionEquality().hash(isEmailVerified),
-        const DeepCollectionEquality().hash(isEmailValid),
-        const DeepCollectionEquality().hash(emailNeedsAgreement),
-        const DeepCollectionEquality().hash(email),
-        const DeepCollectionEquality().hash(isKakaotalkUser),
-        const DeepCollectionEquality().hash(phoneNumberNeedsAgreement),
-        const DeepCollectionEquality().hash(phoneNumber),
-        const DeepCollectionEquality().hash(ageRangeNeedsAgreement),
-        const DeepCollectionEquality().hash(ageRange),
-        const DeepCollectionEquality().hash(birthdayNeedsAgreement),
-        const DeepCollectionEquality().hash(birthday),
-        const DeepCollectionEquality().hash(birthyearNeedsAgreement),
-        const DeepCollectionEquality().hash(birthyear),
-        const DeepCollectionEquality().hash(genderNeedsAgreement),
-        const DeepCollectionEquality().hash(gender),
-        const DeepCollectionEquality().hash(ciNeedsAgreement),
-        const DeepCollectionEquality().hash(ci),
-        const DeepCollectionEquality().hash(ciAuthenticatedAt)
+        profileNeedsAgreement,
+        profile,
+        isEmailVerified,
+        isEmailValid,
+        emailNeedsAgreement,
+        email,
+        isKakaotalkUser,
+        phoneNumberNeedsAgreement,
+        phoneNumber,
+        ageRangeNeedsAgreement,
+        ageRange,
+        birthdayNeedsAgreement,
+        birthday,
+        birthyearNeedsAgreement,
+        birthyear,
+        genderNeedsAgreement,
+        gender,
+        ciNeedsAgreement,
+        ci,
+        ciAuthenticatedAt
       ]);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AccountCopyWith<_$_Account> get copyWith =>
       __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 

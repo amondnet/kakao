@@ -28,11 +28,11 @@ mixin _$ApiError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String? details)? $default, {
-    TResult Function(String? details)? internalError,
-    TResult Function(String? details)? illegalParams,
-    TResult Function(String? details)? unsupportedApi,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String? details)? $default, {
+    TResult? Function(String? details)? internalError,
+    TResult? Function(String? details)? illegalParams,
+    TResult? Function(String? details)? unsupportedApi,
+    TResult? Function(String? details)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,11 +56,11 @@ mixin _$ApiError {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DefaultApiError value)? $default, {
-    TResult Function(ApiErrorInternalError value)? internalError,
-    TResult Function(ApiErrorIllegalParams value)? illegalParams,
-    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
-    TResult Function(ApiErrorUnknown value)? unknown,
+    TResult? Function(DefaultApiError value)? $default, {
+    TResult? Function(ApiErrorInternalError value)? internalError,
+    TResult? Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult? Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult? Function(ApiErrorUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,28 +82,32 @@ mixin _$ApiError {
 /// @nodoc
 abstract class $ApiErrorCopyWith<$Res> {
   factory $ApiErrorCopyWith(ApiError value, $Res Function(ApiError) then) =
-      _$ApiErrorCopyWithImpl<$Res>;
+      _$ApiErrorCopyWithImpl<$Res, ApiError>;
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
-class _$ApiErrorCopyWithImpl<$Res> implements $ApiErrorCopyWith<$Res> {
+class _$ApiErrorCopyWithImpl<$Res, $Val extends ApiError>
+    implements $ApiErrorCopyWith<$Res> {
   _$ApiErrorCopyWithImpl(this._value, this._then);
 
-  final ApiError _value;
   // ignore: unused_field
-  final $Res Function(ApiError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_value.copyWith(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -114,30 +118,30 @@ abstract class _$$DefaultApiErrorCopyWith<$Res>
           _$DefaultApiError value, $Res Function(_$DefaultApiError) then) =
       __$$DefaultApiErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String msg, String? details});
 }
 
 /// @nodoc
-class __$$DefaultApiErrorCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
+class __$$DefaultApiErrorCopyWithImpl<$Res>
+    extends _$ApiErrorCopyWithImpl<$Res, _$DefaultApiError>
     implements _$$DefaultApiErrorCopyWith<$Res> {
   __$$DefaultApiErrorCopyWithImpl(
       _$DefaultApiError _value, $Res Function(_$DefaultApiError) _then)
-      : super(_value, (v) => _then(v as _$DefaultApiError));
+      : super(_value, _then);
 
-  @override
-  _$DefaultApiError get _value => super._value as _$DefaultApiError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msg = freezed,
+    Object? msg = null,
     Object? details = freezed,
   }) {
     return _then(_$DefaultApiError(
-      msg == freezed
+      null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      details == freezed
+      freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -165,18 +169,16 @@ class _$DefaultApiError extends DefaultApiError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DefaultApiError &&
-            const DeepCollectionEquality().equals(other.msg, msg) &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(msg),
-      const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, msg, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$DefaultApiErrorCopyWith<_$DefaultApiError> get copyWith =>
       __$$DefaultApiErrorCopyWithImpl<_$DefaultApiError>(this, _$identity);
 
@@ -195,11 +197,11 @@ class _$DefaultApiError extends DefaultApiError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String? details)? $default, {
-    TResult Function(String? details)? internalError,
-    TResult Function(String? details)? illegalParams,
-    TResult Function(String? details)? unsupportedApi,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String? details)? $default, {
+    TResult? Function(String? details)? internalError,
+    TResult? Function(String? details)? illegalParams,
+    TResult? Function(String? details)? unsupportedApi,
+    TResult? Function(String? details)? unknown,
   }) {
     return $default?.call(msg, details);
   }
@@ -235,11 +237,11 @@ class _$DefaultApiError extends DefaultApiError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DefaultApiError value)? $default, {
-    TResult Function(ApiErrorInternalError value)? internalError,
-    TResult Function(ApiErrorIllegalParams value)? illegalParams,
-    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
-    TResult Function(ApiErrorUnknown value)? unknown,
+    TResult? Function(DefaultApiError value)? $default, {
+    TResult? Function(ApiErrorInternalError value)? internalError,
+    TResult? Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult? Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult? Function(ApiErrorUnknown value)? unknown,
   }) {
     return $default?.call(this);
   }
@@ -282,26 +284,25 @@ abstract class _$$ApiErrorInternalErrorCopyWith<$Res>
           $Res Function(_$ApiErrorInternalError) then) =
       __$$ApiErrorInternalErrorCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ApiErrorInternalErrorCopyWithImpl<$Res>
-    extends _$ApiErrorCopyWithImpl<$Res>
+    extends _$ApiErrorCopyWithImpl<$Res, _$ApiErrorInternalError>
     implements _$$ApiErrorInternalErrorCopyWith<$Res> {
   __$$ApiErrorInternalErrorCopyWithImpl(_$ApiErrorInternalError _value,
       $Res Function(_$ApiErrorInternalError) _then)
-      : super(_value, (v) => _then(v as _$ApiErrorInternalError));
+      : super(_value, _then);
 
-  @override
-  _$ApiErrorInternalError get _value => super._value as _$ApiErrorInternalError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ApiErrorInternalError(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -327,15 +328,15 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApiErrorInternalError &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ApiErrorInternalErrorCopyWith<_$ApiErrorInternalError> get copyWith =>
       __$$ApiErrorInternalErrorCopyWithImpl<_$ApiErrorInternalError>(
           this, _$identity);
@@ -355,11 +356,11 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String? details)? $default, {
-    TResult Function(String? details)? internalError,
-    TResult Function(String? details)? illegalParams,
-    TResult Function(String? details)? unsupportedApi,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String? details)? $default, {
+    TResult? Function(String? details)? internalError,
+    TResult? Function(String? details)? illegalParams,
+    TResult? Function(String? details)? unsupportedApi,
+    TResult? Function(String? details)? unknown,
   }) {
     return internalError?.call(details);
   }
@@ -395,11 +396,11 @@ class _$ApiErrorInternalError extends ApiErrorInternalError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DefaultApiError value)? $default, {
-    TResult Function(ApiErrorInternalError value)? internalError,
-    TResult Function(ApiErrorIllegalParams value)? illegalParams,
-    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
-    TResult Function(ApiErrorUnknown value)? unknown,
+    TResult? Function(DefaultApiError value)? $default, {
+    TResult? Function(ApiErrorInternalError value)? internalError,
+    TResult? Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult? Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult? Function(ApiErrorUnknown value)? unknown,
   }) {
     return internalError?.call(this);
   }
@@ -441,26 +442,25 @@ abstract class _$$ApiErrorIllegalParamsCopyWith<$Res>
           $Res Function(_$ApiErrorIllegalParams) then) =
       __$$ApiErrorIllegalParamsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ApiErrorIllegalParamsCopyWithImpl<$Res>
-    extends _$ApiErrorCopyWithImpl<$Res>
+    extends _$ApiErrorCopyWithImpl<$Res, _$ApiErrorIllegalParams>
     implements _$$ApiErrorIllegalParamsCopyWith<$Res> {
   __$$ApiErrorIllegalParamsCopyWithImpl(_$ApiErrorIllegalParams _value,
       $Res Function(_$ApiErrorIllegalParams) _then)
-      : super(_value, (v) => _then(v as _$ApiErrorIllegalParams));
+      : super(_value, _then);
 
-  @override
-  _$ApiErrorIllegalParams get _value => super._value as _$ApiErrorIllegalParams;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ApiErrorIllegalParams(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -486,15 +486,15 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApiErrorIllegalParams &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ApiErrorIllegalParamsCopyWith<_$ApiErrorIllegalParams> get copyWith =>
       __$$ApiErrorIllegalParamsCopyWithImpl<_$ApiErrorIllegalParams>(
           this, _$identity);
@@ -514,11 +514,11 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String? details)? $default, {
-    TResult Function(String? details)? internalError,
-    TResult Function(String? details)? illegalParams,
-    TResult Function(String? details)? unsupportedApi,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String? details)? $default, {
+    TResult? Function(String? details)? internalError,
+    TResult? Function(String? details)? illegalParams,
+    TResult? Function(String? details)? unsupportedApi,
+    TResult? Function(String? details)? unknown,
   }) {
     return illegalParams?.call(details);
   }
@@ -554,11 +554,11 @@ class _$ApiErrorIllegalParams extends ApiErrorIllegalParams {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DefaultApiError value)? $default, {
-    TResult Function(ApiErrorInternalError value)? internalError,
-    TResult Function(ApiErrorIllegalParams value)? illegalParams,
-    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
-    TResult Function(ApiErrorUnknown value)? unknown,
+    TResult? Function(DefaultApiError value)? $default, {
+    TResult? Function(ApiErrorInternalError value)? internalError,
+    TResult? Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult? Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult? Function(ApiErrorUnknown value)? unknown,
   }) {
     return illegalParams?.call(this);
   }
@@ -600,27 +600,25 @@ abstract class _$$ApiErrorUnsupportedApiCopyWith<$Res>
           $Res Function(_$ApiErrorUnsupportedApi) then) =
       __$$ApiErrorUnsupportedApiCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
 class __$$ApiErrorUnsupportedApiCopyWithImpl<$Res>
-    extends _$ApiErrorCopyWithImpl<$Res>
+    extends _$ApiErrorCopyWithImpl<$Res, _$ApiErrorUnsupportedApi>
     implements _$$ApiErrorUnsupportedApiCopyWith<$Res> {
   __$$ApiErrorUnsupportedApiCopyWithImpl(_$ApiErrorUnsupportedApi _value,
       $Res Function(_$ApiErrorUnsupportedApi) _then)
-      : super(_value, (v) => _then(v as _$ApiErrorUnsupportedApi));
+      : super(_value, _then);
 
-  @override
-  _$ApiErrorUnsupportedApi get _value =>
-      super._value as _$ApiErrorUnsupportedApi;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ApiErrorUnsupportedApi(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -646,15 +644,15 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApiErrorUnsupportedApi &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ApiErrorUnsupportedApiCopyWith<_$ApiErrorUnsupportedApi> get copyWith =>
       __$$ApiErrorUnsupportedApiCopyWithImpl<_$ApiErrorUnsupportedApi>(
           this, _$identity);
@@ -674,11 +672,11 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String? details)? $default, {
-    TResult Function(String? details)? internalError,
-    TResult Function(String? details)? illegalParams,
-    TResult Function(String? details)? unsupportedApi,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String? details)? $default, {
+    TResult? Function(String? details)? internalError,
+    TResult? Function(String? details)? illegalParams,
+    TResult? Function(String? details)? unsupportedApi,
+    TResult? Function(String? details)? unknown,
   }) {
     return unsupportedApi?.call(details);
   }
@@ -714,11 +712,11 @@ class _$ApiErrorUnsupportedApi extends ApiErrorUnsupportedApi {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DefaultApiError value)? $default, {
-    TResult Function(ApiErrorInternalError value)? internalError,
-    TResult Function(ApiErrorIllegalParams value)? illegalParams,
-    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
-    TResult Function(ApiErrorUnknown value)? unknown,
+    TResult? Function(DefaultApiError value)? $default, {
+    TResult? Function(ApiErrorInternalError value)? internalError,
+    TResult? Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult? Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult? Function(ApiErrorUnknown value)? unknown,
   }) {
     return unsupportedApi?.call(this);
   }
@@ -760,25 +758,25 @@ abstract class _$$ApiErrorUnknownCopyWith<$Res>
           _$ApiErrorUnknown value, $Res Function(_$ApiErrorUnknown) then) =
       __$$ApiErrorUnknownCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? details});
 }
 
 /// @nodoc
-class __$$ApiErrorUnknownCopyWithImpl<$Res> extends _$ApiErrorCopyWithImpl<$Res>
+class __$$ApiErrorUnknownCopyWithImpl<$Res>
+    extends _$ApiErrorCopyWithImpl<$Res, _$ApiErrorUnknown>
     implements _$$ApiErrorUnknownCopyWith<$Res> {
   __$$ApiErrorUnknownCopyWithImpl(
       _$ApiErrorUnknown _value, $Res Function(_$ApiErrorUnknown) _then)
-      : super(_value, (v) => _then(v as _$ApiErrorUnknown));
+      : super(_value, _then);
 
-  @override
-  _$ApiErrorUnknown get _value => super._value as _$ApiErrorUnknown;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? details = freezed,
   }) {
     return _then(_$ApiErrorUnknown(
-      details: details == freezed
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -804,15 +802,15 @@ class _$ApiErrorUnknown extends ApiErrorUnknown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApiErrorUnknown &&
-            const DeepCollectionEquality().equals(other.details, details));
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(details));
+  int get hashCode => Object.hash(runtimeType, details);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ApiErrorUnknownCopyWith<_$ApiErrorUnknown> get copyWith =>
       __$$ApiErrorUnknownCopyWithImpl<_$ApiErrorUnknown>(this, _$identity);
 
@@ -831,11 +829,11 @@ class _$ApiErrorUnknown extends ApiErrorUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(String msg, String? details)? $default, {
-    TResult Function(String? details)? internalError,
-    TResult Function(String? details)? illegalParams,
-    TResult Function(String? details)? unsupportedApi,
-    TResult Function(String? details)? unknown,
+    TResult? Function(String msg, String? details)? $default, {
+    TResult? Function(String? details)? internalError,
+    TResult? Function(String? details)? illegalParams,
+    TResult? Function(String? details)? unsupportedApi,
+    TResult? Function(String? details)? unknown,
   }) {
     return unknown?.call(details);
   }
@@ -871,11 +869,11 @@ class _$ApiErrorUnknown extends ApiErrorUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(DefaultApiError value)? $default, {
-    TResult Function(ApiErrorInternalError value)? internalError,
-    TResult Function(ApiErrorIllegalParams value)? illegalParams,
-    TResult Function(ApiErrorUnsupportedApi value)? unsupportedApi,
-    TResult Function(ApiErrorUnknown value)? unknown,
+    TResult? Function(DefaultApiError value)? $default, {
+    TResult? Function(ApiErrorInternalError value)? internalError,
+    TResult? Function(ApiErrorIllegalParams value)? illegalParams,
+    TResult? Function(ApiErrorUnsupportedApi value)? unsupportedApi,
+    TResult? Function(ApiErrorUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }

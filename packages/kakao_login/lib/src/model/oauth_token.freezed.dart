@@ -53,7 +53,8 @@ mixin _$OAuthToken {
 abstract class $OAuthTokenCopyWith<$Res> {
   factory $OAuthTokenCopyWith(
           OAuthToken value, $Res Function(OAuthToken) then) =
-      _$OAuthTokenCopyWithImpl<$Res>;
+      _$OAuthTokenCopyWithImpl<$Res, OAuthToken>;
+  @useResult
   $Res call(
       {String? accessToken,
       @JsonKey(fromJson: dateTimeFromJson, name: 'access_token_expires_at')
@@ -67,13 +68,16 @@ abstract class $OAuthTokenCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OAuthTokenCopyWithImpl<$Res> implements $OAuthTokenCopyWith<$Res> {
+class _$OAuthTokenCopyWithImpl<$Res, $Val extends OAuthToken>
+    implements $OAuthTokenCopyWith<$Res> {
   _$OAuthTokenCopyWithImpl(this._value, this._then);
 
-  final OAuthToken _value;
   // ignore: unused_field
-  final $Res Function(OAuthToken) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? accessToken = freezed,
@@ -85,35 +89,35 @@ class _$OAuthTokenCopyWithImpl<$Res> implements $OAuthTokenCopyWith<$Res> {
     Object? scopes = freezed,
   }) {
     return _then(_value.copyWith(
-      accessToken: accessToken == freezed
+      accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      accessTokenExpiresAt: accessTokenExpiresAt == freezed
+      accessTokenExpiresAt: freezed == accessTokenExpiresAt
           ? _value.accessTokenExpiresAt
           : accessTokenExpiresAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      expiresIn: expiresIn == freezed
+      expiresIn: freezed == expiresIn
           ? _value.expiresIn
           : expiresIn // ignore: cast_nullable_to_non_nullable
               as int?,
-      refreshToken: refreshToken == freezed
+      refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      refreshTokenExpiresAt: refreshTokenExpiresAt == freezed
+      refreshTokenExpiresAt: freezed == refreshTokenExpiresAt
           ? _value.refreshTokenExpiresAt
           : refreshTokenExpiresAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      refreshTokenExpiresIn: refreshTokenExpiresIn == freezed
+      refreshTokenExpiresIn: freezed == refreshTokenExpiresIn
           ? _value.refreshTokenExpiresIn
           : refreshTokenExpiresIn // ignore: cast_nullable_to_non_nullable
               as int?,
-      scopes: scopes == freezed
+      scopes: freezed == scopes
           ? _value.scopes
           : scopes // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -124,6 +128,7 @@ abstract class _$$_OAuthTokenCopyWith<$Res>
           _$_OAuthToken value, $Res Function(_$_OAuthToken) then) =
       __$$_OAuthTokenCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? accessToken,
       @JsonKey(fromJson: dateTimeFromJson, name: 'access_token_expires_at')
@@ -137,15 +142,14 @@ abstract class _$$_OAuthTokenCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OAuthTokenCopyWithImpl<$Res> extends _$OAuthTokenCopyWithImpl<$Res>
+class __$$_OAuthTokenCopyWithImpl<$Res>
+    extends _$OAuthTokenCopyWithImpl<$Res, _$_OAuthToken>
     implements _$$_OAuthTokenCopyWith<$Res> {
   __$$_OAuthTokenCopyWithImpl(
       _$_OAuthToken _value, $Res Function(_$_OAuthToken) _then)
-      : super(_value, (v) => _then(v as _$_OAuthToken));
+      : super(_value, _then);
 
-  @override
-  _$_OAuthToken get _value => super._value as _$_OAuthToken;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? accessToken = freezed,
@@ -157,31 +161,31 @@ class __$$_OAuthTokenCopyWithImpl<$Res> extends _$OAuthTokenCopyWithImpl<$Res>
     Object? scopes = freezed,
   }) {
     return _then(_$_OAuthToken(
-      accessToken: accessToken == freezed
+      accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      accessTokenExpiresAt: accessTokenExpiresAt == freezed
+      accessTokenExpiresAt: freezed == accessTokenExpiresAt
           ? _value.accessTokenExpiresAt
           : accessTokenExpiresAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      expiresIn: expiresIn == freezed
+      expiresIn: freezed == expiresIn
           ? _value.expiresIn
           : expiresIn // ignore: cast_nullable_to_non_nullable
               as int?,
-      refreshToken: refreshToken == freezed
+      refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      refreshTokenExpiresAt: refreshTokenExpiresAt == freezed
+      refreshTokenExpiresAt: freezed == refreshTokenExpiresAt
           ? _value.refreshTokenExpiresAt
           : refreshTokenExpiresAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      refreshTokenExpiresIn: refreshTokenExpiresIn == freezed
+      refreshTokenExpiresIn: freezed == refreshTokenExpiresIn
           ? _value.refreshTokenExpiresIn
           : refreshTokenExpiresIn // ignore: cast_nullable_to_non_nullable
               as int?,
-      scopes: scopes == freezed
+      scopes: freezed == scopes
           ? _value._scopes
           : scopes // ignore: cast_nullable_to_non_nullable
               as List<String>?,
@@ -257,17 +261,18 @@ class _$_OAuthToken extends _OAuthToken {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OAuthToken &&
-            const DeepCollectionEquality()
-                .equals(other.accessToken, accessToken) &&
-            const DeepCollectionEquality()
-                .equals(other.accessTokenExpiresAt, accessTokenExpiresAt) &&
-            const DeepCollectionEquality().equals(other.expiresIn, expiresIn) &&
-            const DeepCollectionEquality()
-                .equals(other.refreshToken, refreshToken) &&
-            const DeepCollectionEquality()
-                .equals(other.refreshTokenExpiresAt, refreshTokenExpiresAt) &&
-            const DeepCollectionEquality()
-                .equals(other.refreshTokenExpiresIn, refreshTokenExpiresIn) &&
+            (identical(other.accessToken, accessToken) ||
+                other.accessToken == accessToken) &&
+            (identical(other.accessTokenExpiresAt, accessTokenExpiresAt) ||
+                other.accessTokenExpiresAt == accessTokenExpiresAt) &&
+            (identical(other.expiresIn, expiresIn) ||
+                other.expiresIn == expiresIn) &&
+            (identical(other.refreshToken, refreshToken) ||
+                other.refreshToken == refreshToken) &&
+            (identical(other.refreshTokenExpiresAt, refreshTokenExpiresAt) ||
+                other.refreshTokenExpiresAt == refreshTokenExpiresAt) &&
+            (identical(other.refreshTokenExpiresIn, refreshTokenExpiresIn) ||
+                other.refreshTokenExpiresIn == refreshTokenExpiresIn) &&
             const DeepCollectionEquality().equals(other._scopes, _scopes));
   }
 
@@ -275,16 +280,17 @@ class _$_OAuthToken extends _OAuthToken {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(accessToken),
-      const DeepCollectionEquality().hash(accessTokenExpiresAt),
-      const DeepCollectionEquality().hash(expiresIn),
-      const DeepCollectionEquality().hash(refreshToken),
-      const DeepCollectionEquality().hash(refreshTokenExpiresAt),
-      const DeepCollectionEquality().hash(refreshTokenExpiresIn),
+      accessToken,
+      accessTokenExpiresAt,
+      expiresIn,
+      refreshToken,
+      refreshTokenExpiresAt,
+      refreshTokenExpiresIn,
       const DeepCollectionEquality().hash(_scopes));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OAuthTokenCopyWith<_$_OAuthToken> get copyWith =>
       __$$_OAuthTokenCopyWithImpl<_$_OAuthToken>(this, _$identity);
 
