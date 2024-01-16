@@ -207,7 +207,7 @@ class _MyAppState extends State<MyApp> {
             content: new Text(value,
                 style: new TextStyle(fontWeight: FontWeight.bold)),
             actions: <Widget>[
-              new FlatButton(
+              new TextButton(
                 child: new Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop(true);
